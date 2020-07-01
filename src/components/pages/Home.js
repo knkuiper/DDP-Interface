@@ -1,14 +1,18 @@
-import React, { Fragment} from 'react';
+import React, { Fragment } from 'react';
+import { Typography, Paper, Grid } from '@material-ui/core';
 import '../App.css';
-import {Paper} from '@material-ui/core';
+import Sidebar from '../layouts/Sidebar';
+import Search from '../layouts/Search';
 
 const Home = () => {
     return (
-        <Fragment>
-            <Paper>
-                <Events />
-            </Paper>
-        </Fragment>
+      <Fragment>
+        <Paper>
+          <Grid>
+            <Sidebar />
+          </Grid>
+        </Paper>
+      </Fragment>
     );
 }
 
