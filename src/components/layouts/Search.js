@@ -128,9 +128,9 @@ export default function Search() {
                   }
                 ]}
               />
-              <Facet field="user_score" label="User Score" />
-              <Facet field="critic_score" label="Critic Score" />
-              <Facet field="genre" label="Genre" />
+              <Facet field="user_score" label="Concept" />
+              <Facet field="critic_score" label="Post type" />
+              <Facet field="genre" label="Age group" />
               <Facet field="publisher" label="Publisher" isFilterable={true} />
               <Facet field="platform" label="Platform" />
             </div>

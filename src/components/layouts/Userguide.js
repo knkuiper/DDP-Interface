@@ -17,12 +17,14 @@ class Userguide extends Component {
           <Grid item xs>
           </Grid>
           <Grid item xs>
-            <Typography variant="h5" color="inherit">
-            User guide tool
-            </Typography>
-            <Typography variant="body1" color="inherit">
-
-            </Typography>
+            <main>
+              <Typography title variant="h5" color="inherit">
+                User guide tool
+              </Typography>
+              <Typography paragraph variant="body1" color="inherit">
+                <i>Insert here a guide how to use the DDP tool </i>
+              </Typography>
+            </main>
           </Grid>
           <Grid item xs>
           </Grid>
