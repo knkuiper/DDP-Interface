@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Typography, Paper, Grid, Card } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ComparisonCardItem from "../layouts/ComparisonCardItem";
@@ -23,7 +23,6 @@ const styles = theme => ({
 class ComparisonCard extends Component {
   render() {
     const { classes } = this.props;
-
     return (
       <Fragment>
         <CssBaseline />

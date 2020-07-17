@@ -12,17 +12,17 @@ const styles = {
 
 class About extends Component {
   render() {
+    const { classes } = this.props;
     return (
-
-        <Grid container style={{padding: 20}} >
+        <Grid container>
           <Grid item xs>
           </Grid>
           <Grid item xs>
-            <main>
-              <Typography variant="h5" color="inherit">
+            <main className={classes.paper}>
+              <Typography style={{ textTransform: 'uppercase' }} color='secondary' gutterBottom>
                 About Data Download Package Manager
               </Typography>
-              <Typography paragraph variant="body1" color="inherit">
+              <Typography variant="body1" color="inherit" gutterBottom>
                 This a webpage is a resource for social science researchers looking to
                 know more about data download packages from various social media platforms.
                 Data from data download packages can be used in social and behavioural research.

@@ -12,16 +12,17 @@ const styles = {
 
 class Userguide extends Component {
   render() {
+    const { classes } = this.props;
     return (
-        <Grid container style={{padding: 20}} >
+        <Grid container>
           <Grid item xs>
           </Grid>
           <Grid item xs>
-            <main>
-              <Typography title variant="h5" color="inherit">
+            <main className={classes.paper}>
+              <Typography style={{ textTransform: 'uppercase' }} color='secondary' gutterBottom>
                 User guide tool
               </Typography>
-              <Typography paragraph variant="body1" color="inherit">
+              <Typography variant="body1" color="inherit" gutterBottom>
                 <i>Insert here a guide how to use the DDP tool </i>
               </Typography>
             </main>

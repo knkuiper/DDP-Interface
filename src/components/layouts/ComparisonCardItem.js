@@ -3,7 +3,6 @@ import withStyles from '@material-ui/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
-
 const styles = theme => ({
   paper: {
     padding: theme.spacing(3),
