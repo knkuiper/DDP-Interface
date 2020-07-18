@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/styles/withStyles';
 import { Typography, Paper, Grid } from '@material-ui/core';
-import DownloadButton from '../layouts/DownloadButton';
+import DownloadButton from '../buttons/DownloadButton';
 
 const styles = theme => ({
   paper: {

@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Typography, Paper, Grid } from '@material-ui/core';
-import SourceData from '../data/data.json';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import AddButton from './AddButton';
+import SourceData from '../data/data.json';
+import AddButton from '../buttons/AddButton';
 
 const styles = theme => ({
   root: {
@@ -23,10 +23,12 @@ const styles = theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary
   },
-  avatar: {
-    margin: 10,
-    backgroundColor: theme.palette.grey['200'],
-    color: theme.palette.text.primary,
+  search: {
+    margin: 20,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.text.primary
   },
   itemContainer: {
     display: 'flex',
@@ -38,8 +40,8 @@ const styles = theme => ({
       justifyContent: 'center'
     }
   },
-  baseline: {
-    alignSelf: 'baseline',
+  inline: {
+    marginBottom: 10,
     marginLeft: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
       display: 'flex',
@@ -52,17 +54,10 @@ const styles = theme => ({
       marginLeft: 0
     }
   },
-  inline: {
-    display: 'inline-block',
-    marginLeft: theme.spacing(4),
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0
-    }
-  },
   inlineRight: {
-    width: '30%',
+    width: '100%',
     textAlign: 'right',
-    marginLeft: 50,
+    margin: 0,
     alignSelf: 'flex-end',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -72,7 +67,7 @@ const styles = theme => ({
   }
 });
 
-class Example2 extends Component {
+class LookupCard extends Component {
   state = {
     value: "",
     sourceData: SourceData,
@@ -89,15 +84,17 @@ class Example2 extends Component {
   render(){
       const { classes } = this.props;
       const searchBox = (
-        <input
-          type="text"
-          onChange={this.filterList}
-        />
+            <Grid container className={classes.search}>
+              <input
+                type="text"
+                onChange={this.filterList}
+              />
+            </Grid>
       );
 
       var populate = SourceData.map(function (value) {
             return(
-              <Fragment>
+              <div>
                 <CssBaseline />
                 <div className={classes.root}>
                   <Grid container justify="center">
@@ -111,44 +108,50 @@ class Example2 extends Component {
                       <Grid item xs={12} md={12}>
                         <Paper className={classes.paper}>
                           <Grid className={classes.itemContainer}>
-                            <Grid className={classes.baseline}>
-                              <Grid className={classes.inline}>
-                                <Typography style={{ textTransform: 'uppercase' }} gutterBottom>
-                                  {value.provider}
-                                </Typography>
-                                <Typography variant="body1" gutterBottom>
-                                  <b>Data package:</b> {value.datapackage}
-                                </Typography>
-                                <Typography variant="body1" gutterBottom>
-                                  <b>File:</b> {value.file}
-                                </Typography>
-                                <Typography variant="body1" gutterBottom>
-                                  <b>Filetype:</b> {value.filetype}
-                                </Typography>
-                                <Typography variant="body1" gutterBottom>
-                                  <b>Type:</b> {value.type}
-                                </Typography>
-                              </Grid>
+                            <Grid className={classes.inline}>
+                              <Typography
+                                style={{ textTransform: 'uppercase' }}
+                                color='secondary'
+                                gutterBottom
+                              >
+                                {value.provider}
+                              </Typography>
+                              <Typography variant="body1" gutterBottom>
+                                <b>Data package:</b> {value.datapackage}
+                              </Typography>
+                              <Typography variant="body1" gutterBottom>
+                                <b>File:</b> {value.file}
+                              </Typography>
+                              <Typography variant="body1" gutterBottom>
+                                <b>Filetype:</b> {value.filetype}
+                              </Typography>
+                              <Typography variant="body1" gutterBottom>
+                                <b>Type:</b> {value.type}
+                              </Typography>
                             </Grid>
-                            <Grid className={classes.inlineRight}>
-                              <AddButton />
-                            </Grid>
+                          </Grid>
+                          <Grid className={classes.inlineRight}>
+                            <AddButton />
                           </Grid>
                         </Paper>
                       </Grid>
                     </Grid>
                   </Grid>
                 </div>
-              </Fragment>
+              </div>
             )
         });
         return (
           <Grid>
-            {searchBox}
-            {populate}
+            <div>
+              {searchBox}
+            </div>
+            <div>
+              {populate}
+            </div>
           </Grid>
         );
     }
 }
 
-export default withStyles(styles)(Example2);
+export default withStyles(styles)(LookupCard);

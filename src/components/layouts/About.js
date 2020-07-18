@@ -8,17 +8,6 @@ const styles = theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary
   },
-  avatar: {
-    margin: 10,
-    backgroundColor: theme.palette.grey['200'],
-    color: theme.palette.text.primary,
-  },
-  avatarContainer: {
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0,
-      marginBottom: theme.spacing(4)
-    }
-  },
   itemContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -61,10 +50,11 @@ const styles = theme => ({
       textAlign: 'center'
     }
   },
-  backButton: {
-    marginRight: theme.spacing(2)
+  textItem: {
+    marginBottom: 30,
+    marginTop: 10
   }
-})
+});
 
 class About extends Component {
   render() {
@@ -81,6 +71,7 @@ class About extends Component {
                 About Data Download Package Manager
               </Typography>
               <Typography
+                className={classes.textItem}
                 variant="body1"
                 color="inherit"
                 gutterBottom
@@ -98,6 +89,7 @@ class About extends Component {
                 User guide tool
               </Typography>
               <Typography
+                className={classes.textItem}
                 variant="body1"
                 color="inherit"
                 gutterBottom

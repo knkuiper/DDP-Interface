@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppBar, Toolbar } from '@material-ui/core';
-import HeaderButtons from '../layouts/HeaderButtons';
+import HeaderButtons from '../buttons/HeaderButtons';
 
 class Header extends Component {
   render() {
