@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Grid } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import PackageCardItem from "../layouts/PackageCardItem";
+import About from '../layouts/About';
 
 const styles = theme => ({
   root: {
@@ -20,7 +20,7 @@ const styles = theme => ({
   }
 });
 
-class PackageCard extends Component {
+class AboutCard extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -36,7 +36,7 @@ class PackageCard extends Component {
               className={classes.grid}
             >
               <Grid item xs={12}>
-                <PackageCardItem />
+                <About/>
               </Grid>
             </Grid>
           </Grid>
@@ -46,4 +46,4 @@ class PackageCard extends Component {
   }
 }
 
-export default withStyles(styles)(PackageCard);
+export default withStyles(styles)(AboutCard);

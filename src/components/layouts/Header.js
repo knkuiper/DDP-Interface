@@ -5,7 +5,10 @@ import HeaderButtons from '../layouts/HeaderButtons';
 class Header extends Component {
   render() {
     return (
-      <AppBar position="static" color="primary">
+      <AppBar
+        position="static"
+        color="primary"
+      >
         <Toolbar>
           <HeaderButtons />
         </Toolbar>

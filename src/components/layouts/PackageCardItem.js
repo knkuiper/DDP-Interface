@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/styles/withStyles';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import { Typography, Paper, Grid } from '@material-ui/core';
 import DownloadButton from '../layouts/DownloadButton';
 
 const styles = theme => ({
@@ -66,44 +65,51 @@ const styles = theme => ({
   backButton: {
     marginRight: theme.spacing(2)
   }
-})
+});
 
 class PackageCardItem extends Component {
-
   render() {
     const { classes } = this.props;
-
     return (
-      <div className={classes.root}>
-        <Paper className={classes.paper}>
-          <div className={classes.itemContainer}>
-
-            <div className={classes.baseline}>
-              <div className={classes.inline}>
-                <Typography style={{ textTransform: 'uppercase' }} color='secondary' gutterBottom>
-                  Data
-                </Typography>
-                <Typography variant="h6" gutterBottom>
-                  <i>Saved packages for code guide download</i>
-                </Typography>
-              </div>
-              <div className={classes.inline}>
-                <Typography style={{ textTransform: 'uppercase' }} color='secondary' gutterBottom>
-                  Amount
-                </Typography>
-                <Typography variant="h6" gutterBottom>
-                  <i>Number of saved packages</i>
-                </Typography>
-              </div>
-            </div>
-            <div className={classes.inlineRight}>
-              <div className={classes.avatarContainer}>
-                <DownloadButton/>
-              </div>
-            </div>
-          </div>
-        </Paper>
-      </div>
+      <Paper className={classes.paper}>
+        <Grid className={classes.itemContainer}>
+          <Grid className={classes.baseline}>
+            <Grid className={classes.inline}>
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                color='secondary'
+                gutterBottom
+              >
+                Data
+              </Typography>
+              <Typography
+                ariant="body1"
+                gutterBottom
+              >
+                <i>Saved packages for code guide download</i>
+              </Typography>
+            </Grid>
+            <Grid className={classes.inline}>
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                color='secondary'
+                gutterBottom
+              >
+                Amount
+              </Typography>
+              <Typography
+                variant="body1"
+                gutterBottom
+              >
+                <i>Number of saved packages</i>
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid className={classes.inlineRight}>
+            <DownloadButton />
+          </Grid>
+        </Grid>
+      </Paper>
     )
   }
 }

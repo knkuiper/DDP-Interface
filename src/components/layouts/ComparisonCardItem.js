@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/styles/withStyles';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import { Typography, Paper } from '@material-ui/core';
 
 const styles = theme => ({
   paper: {
@@ -65,33 +64,35 @@ const styles = theme => ({
   backButton: {
     marginRight: theme.spacing(2)
   }
-})
+});
 
 class ComparisonCardItem extends Component {
-
   render() {
     const { classes } = this.props;
-
     return (
-      <div className={classes.root}>
-        <Paper className={classes.paper}>
-          <div className={classes.itemContainer}>
-            <div className={classes.baseline}>
-              <div className={classes.inline}>
-                <Typography style={{ textTransform: 'uppercase' }} color='secondary' gutterBottom>
-                  Compare
-                </Typography>
-                <Typography variant="h6" gutterBottom>
-                  <i>Compare concepts and platforms</i>
-                </Typography>
-              </div>
-
+      <Paper className={classes.paper}>
+        <div className={classes.itemContainer}>
+          <div className={classes.baseline}>
+            <div className={classes.inline}>
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                color='secondary'
+                gutterBottom
+              >
+                Compare
+              </Typography>
+              <Typography
+                variant="body1" 
+                gutterBottom
+              >
+                <i>Compare concepts and platforms</i>
+              </Typography>
             </div>
-            {/* <div className={classes.inlineRight}>
-            </div> */}
           </div>
-        </Paper>
-      </div>
+          {/* <div className={classes.inlineRight}>
+          </div> */}
+        </div>
+      </Paper>
     )
   }
 }

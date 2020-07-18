@@ -19,7 +19,10 @@ export default function HeaderButtons() {
   return (
     <div className={classes.root}>
       <Button href="/home">
-        <Typography variant="h6" color="inherit">
+        <Typography
+          variant="h6"
+          color="inherit"
+        >
           DDP manager
         </Typography>
       </Button>

@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react';
-import About from '../layouts/About';
-import Userguide from '../layouts/Userguide';
+import AboutCard from '../layouts/AboutCard';
 
 const Info = () => {
     return (
         <Fragment>
-          <About />
-          <Userguide />
+          <AboutCard />
         </Fragment>
     );
 }

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Typography, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ComparisonCardItem from "../layouts/ComparisonCardItem";
@@ -36,8 +36,6 @@ class ComparisonCard extends Component {
               className={classes.grid}
             >
               <Grid item xs={12}>
-                <Typography>
-                </Typography>
                 <ComparisonCardItem />
               </Grid>
             </Grid>
