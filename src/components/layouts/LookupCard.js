@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Typography, Paper, Grid } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component, useState } from 'react';
+import { Typography, Paper, Grid, TextField } from '@material-ui/core';
+import { fade, withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import SourceData from '../data/data.json';
+import SearchIcon from '@material-ui/icons/Search';
+import SourceData from '../data/index.json';
 import AddButton from '../buttons/AddButton';
 
 const styles = theme => ({
@@ -12,8 +13,7 @@ const styles = theme => ({
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
-    marginTop: 20,
-    padding: 20
+    padding: 15
   },
   grid: {
     width: 1200
@@ -41,7 +41,7 @@ const styles = theme => ({
     }
   },
   inline: {
-    marginBottom: 10,
+    marginBottom: 0,
     marginLeft: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
       display: 'flex',
@@ -50,7 +50,7 @@ const styles = theme => ({
       alignItems: 'center',
       width: '100%',
       marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(2 ),
       marginLeft: 0
     }
   },
@@ -76,25 +76,28 @@ class LookupCard extends Component {
 
   filterList = e => {
     const updatedList = this.state.sourceData.filter(item => {
-      return item.Platform.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
+      return item.Platform().search(e.target.value) !== -1;
     });
     this.setState({ filterData: updatedList });
   };
 
   render(){
-      const { classes } = this.props;
-      const searchBox = (
-            <Grid container className={classes.search}>
-              <input
-                type="text"
-                onChange={this.filterList}
-              />
-            </Grid>
-      );
+    const { classes } = this.props;
+    const searchBox = (
+          <Grid container className={classes.search}>
+            <TextField
+              className={classes.searchInput}
+              onChange={this.filterList}
+              label="Search"
+              variant="standard"
+            />
+            <SearchIcon />
+          </Grid>
+    );
 
       var populate = SourceData.map(function (value) {
             return(
-              <div>
+              <>
                 <CssBaseline />
                 <div className={classes.root}>
                   <Grid container justify="center">
@@ -111,7 +114,7 @@ class LookupCard extends Component {
                             <Grid className={classes.inline}>
                               <Typography
                                 style={{ textTransform: 'uppercase' }}
-                                color='secondary'
+                                color='primary'
                                 gutterBottom
                               >
                                 {value.provider}
@@ -138,18 +141,18 @@ class LookupCard extends Component {
                     </Grid>
                   </Grid>
                 </div>
-              </div>
+              </>
             )
         });
         return (
-          <Grid>
+          <>
             <div>
               {searchBox}
             </div>
             <div>
               {populate}
             </div>
-          </Grid>
+          </>
         );
     }
 }

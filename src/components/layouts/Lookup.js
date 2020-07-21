@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import SourceData from '../data/data.json';
 
 class Example1 extends Component {
@@ -27,11 +27,11 @@ class Example1 extends Component {
       ));
 
       return (
-        <Fragment>
+        <>
           <h2>Step 1</h2>
           {searchBox}
           <ul>{selectBox}</ul>
-        </Fragment>
+        </>
       );
     }
   }

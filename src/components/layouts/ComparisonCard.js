@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Grid } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ComparisonCardItem from "../layouts/ComparisonCardItem";
+import CardItem from "../layouts/CardItem";
 
 const styles = theme => ({
   root: {
@@ -24,7 +24,7 @@ class ComparisonCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Fragment>
+      <>
         <CssBaseline />
         <div className={classes.root}>
           <Grid container justify="center">
@@ -36,12 +36,15 @@ class ComparisonCard extends Component {
               className={classes.grid}
             >
               <Grid item xs={12}>
-                <ComparisonCardItem />
+                <CardItem
+                  title="Comparison"
+                  body1="Compare concepts and platforms"
+                />
               </Grid>
             </Grid>
           </Grid>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

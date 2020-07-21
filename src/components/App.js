@@ -30,17 +30,17 @@ class App extends Component {
     render() {
         return (
             <MuiThemeProvider theme={theme} id="root">
-                <BrowserRouter>
-                    <div>
-                        <Header />
-                            <Switch>
-                              <Route path="/home" component={ Home }/>
-                              <Route path="/packages" component={ Packages }/>
-                              <Route path="/comparison" component={ Comparison }/>
-                              <Route path="/info" component={ Info }/>
-                            </Switch>
-                    </div>
-                </BrowserRouter>
+              <BrowserRouter>
+                <div>
+                  <Header />
+                  <Switch>
+                    <Route path="/home" component={ Home }/>
+                    <Route path="/packages" component={ Packages }/>
+                    <Route path="/comparison" component={ Comparison }/>
+                    <Route path="/info" component={ Info }/>
+                  </Switch>
+                </div>
+              </BrowserRouter>
             </MuiThemeProvider>
         );
     }

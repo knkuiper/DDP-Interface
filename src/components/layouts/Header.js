@@ -5,14 +5,16 @@ import HeaderButtons from '../buttons/HeaderButtons';
 class Header extends Component {
   render() {
     return (
-      <AppBar
-        position="static"
-        color="primary"
-      >
-        <Toolbar>
-          <HeaderButtons />
-        </Toolbar>
-      </AppBar>
+      <>
+        <AppBar
+          position="static"
+          color="primary"
+        >
+          <Toolbar>
+            <HeaderButtons />
+          </Toolbar>
+        </AppBar>
+      </>
     );
   }
 }

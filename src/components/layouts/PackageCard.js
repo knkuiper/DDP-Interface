@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Grid } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import PackageCardItem from "../layouts/PackageCardItem";
+import DownloadButton from '../buttons/DownloadButton';
+import CardItem from "../layouts/CardItem";
 
 const styles = theme => ({
   root: {
@@ -17,6 +18,17 @@ const styles = theme => ({
   },
   grid: {
     width: 1000
+  },
+  inlineRight: {
+    width: '30%',
+    textAlign: 'right',
+    marginLeft: 50,
+    alignSelf: 'flex-end',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      margin: 0,
+      textAlign: 'center'
+    }
   }
 });
 
@@ -24,7 +36,7 @@ class PackageCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Fragment>
+      <>
         <CssBaseline />
         <div className={classes.root}>
           <Grid container justify="center">
@@ -36,12 +48,19 @@ class PackageCard extends Component {
               className={classes.grid}
             >
               <Grid item xs={12}>
-                <PackageCardItem />
+                <CardItem
+                  title="Saved packages"
+                  subtitle1="Data"
+                  body1="Saved packages for code guide download"
+                  subtitle2="Amount"
+                  body2="Number of saved packages"
+                  button=<DownloadButton />
+                />
               </Grid>
             </Grid>
           </Grid>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

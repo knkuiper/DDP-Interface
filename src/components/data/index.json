@@ -3,7 +3,7 @@
         "provider": "Google",
         "datapackage": "Location History",
         "file": "./LocationHistory.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.locations.*",
         "type": "PlaceVisits",
         "example_record": {
@@ -18,16 +18,16 @@
         "provider": "Google ",
         "datapackage": "Chrome",
         "file": "./BrowserHistory.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.Browser History.*",
         "type": "WebsiteVisits",
-        "example_record": {
+        "example_record":  [{
             "page_transition": "TYPED",
             "title": "NU - Het laatste nieuws het eerst op NU.nl",
             "url": "https://www.nu.nl/",
             "client_id": "H/gC8GpO7JG2uDJ/cb9mPA\u003d\u003d",
             "time_usec": 1555351415679649
-          }
+          }]
     },
     {
         "provider": "Google",
@@ -57,7 +57,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./comments.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.media_comments",
         "type": "Message ",
         "example_record": "{\"media_comments\": &#10;&#9;[&#10;&#9;&#9;[\"2019-12-04T16:53:04+00:00\", \"👏 👏👏\", \"jeaninevanc\"], &#10;&#9;&#9;[\"2019-10-27T12:51:25+00:00\", \"@aspijk dank 😊😊\", \"wiesvp\"] &#10;&#9;]&#10;}"
@@ -66,7 +66,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./connections.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.blocked_users.*.follow_requests_sent.*.followers.*.following.*.dismissed_suggested_users",
         "type": "Connections",
         "example_record": "{\"blocked_users\": &#10;&#9;\"marissa_gifford\": \"2017-09-04T15:24:03+00:00\", &#10;&#9;\"gerhard_kipk\": \"2017-09-04T15:12:05+00:00\", &#10;&#9;\"okhotnikova_maria\": \"2017-09-04T15:11:43+00:00\", &#10;&#9;\"moonroom.studio\": \"2017-09-04T15:11:08+00:00\", &#10;&#9;\"shootinggalleryasia\": \"2017-09-04T14:56:28+00:00\", &#10;&#9;\"elytus\": \"2017-09-04T14:56:14+00:00\", &#10;&#9;\"andreamuscatellophotographer\": \"2017-09-04T14:55:45+00:00\", &#10;&#9;\"jaybkaufman\": \"2017-09-04T14:55:22+00:00\", &#10;&#9;\"aaryazz_\": \"2017-09-04T14:54:58+00:00\", &#10;&#9;\"kentyoungstrom\": \"2015-08-19T04:50:20+00:00\", &#10;&#9;\"voetbal.nu\": \"2015-08-18T17:52:25+00:00\", &#10;&#9;\"karsiyaka_karsiyaka\": \"2015-08-18T17:52:15+00:00\", &#10;&#9;\"rickymtz20\": \"2015-08-18T16:56:03+00:00\", &#10;&#9;\"nadia_mintus\": \"2015-08-18T16:55:52+00:00\", &#10;&#9;\"thepranav9\": \"2015-08-18T16:53:50+00:00\", &#10;&#9;\"davidcasteberg\": \"2015-08-18T16:53:38+00:00\"},"
@@ -75,7 +75,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./information_about_you.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.primary_location",
         "type": "PlaceVisits",
         "example_record": "{\"primary_location\": {\"city_name\": \"Amsterdam, Netherlands\"}}"
@@ -84,7 +84,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./likes.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.media_likes.*.comment_likes",
         "type": "Connections",
         "example_record": "{\"media_likes\": &#10;[&#10;[\"2020-04-19T16:08:32+00:00\", \"maivanderheide\"]&#10;]&#10;}"
@@ -93,7 +93,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./media.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.stories.*.photos.*.profile.*.videos",
         "type": "Message",
         "example_record": "{\"stories\": [{\"caption\": \"\", \"taken_at\": \"2020-01-05T08:53:51+00:00\", \"path\": \"stories/202001/226ec812d709f82e7c72361996c70b19.mp4\"}]}"
@@ -102,7 +102,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./messages.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "type": "Message",
         "example_record": "[{\"participants\": [\"lottebosman\", \"lauraboeschoten\"], \"conversation\": [{\"sender\": \"lauraboeschoten\", \"created_at\": \"2020-04-16T17:46:17.045033+00:00\", \"text\": \"Haha ja matje is wel handig anders glij je de hele tijd uit 😋\"}, {\"sender\": \"lottebosman\", \"created_at\": \"2020-04-16T17:26:22.524398+00:00\", \"text\": \"Heb wat spullen in huis gehaald💪\"}"
     },
@@ -110,7 +110,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./profile.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.date_joined.*.email.*.gender.*.private_account.*.name.",
         "type": "Auxiliary",
         "example_record": "{\"date_joined\": \"2012-04-11T16:11:21\", \"email\": \"lauraboeschoten@gmail.com\", \"gender\": \"unspecified\", \"private_account\": true, \"name\": \"Laura\", \"profile_pic_url\": \"https://scontent.cdninstagram.com/v/t51.2885-19/s150x150/79229391_591025898341383_2329940567472996352_n.jpg?_nc_ht=scontent.cdninstagram.com&_nc_ohc=lpZFLRcuCZcAX_yVln3&oh=da4c89754aa1207058c441e3c85219f2&oe=5EC6BA99\", \"username\": \"lauraboeschoten\", \"profile_picture_changes\": [{\"upload_timestamp\": \"2019-12-10T16:22:55+00:00\"}, {\"upload_timestamp\": \"2019-12-30T19:27:49+00:00\"}]}"
@@ -119,7 +119,7 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./searches.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "type": "Connections",
         "example_record": "[{\"search_click\": \"paulodybala\", \"time\": \"2020-04-20T13:11:19+00:00\", \"type\": \"user\"}, "
     },
@@ -127,9 +127,13 @@
         "provider": "Instagram",
         "datapackage": "Instagram",
         "file": "./seen_content.json",
-        "filetype": "JSON",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.ads_clicked.*.chaining_seen.*.ads_seen.*.posts_seen",
         "type": "Connections",
         "example_record": "{\"ads_clicked\": [{\"timestamp\": 1587242585, \"caption\": \"{{product.name}}\"}"
+    },
+    {
+        "provider": "Instagram",
+        "datapackage": "Instagram"
     }
 ]

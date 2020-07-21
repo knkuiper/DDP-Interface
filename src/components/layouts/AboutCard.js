@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Grid } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import About from '../layouts/About';
+import CardItem from '../layouts/CardItem';
 
 const styles = theme => ({
   root: {
@@ -24,7 +24,7 @@ class AboutCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Fragment>
+      <>
         <CssBaseline />
         <div className={classes.root}>
           <Grid container justify="center">
@@ -36,12 +36,20 @@ class AboutCard extends Component {
               className={classes.grid}
             >
               <Grid item xs={12}>
-                <About/>
+                <CardItem
+                  title="About Data Download Package Manager"
+                  body1="This a webpage is a resource for social science researchers looking to
+                  know more about data download packages from various social media platforms.
+                  Data from data download packages can be used in social and behavioural research.
+                  If you have any trouble using the tool or have any questions, please contact us at:"
+                  subtitle2="User guide tool"
+                  body2="Insert here a guide how to use the DDP tool "
+                />
               </Grid>
             </Grid>
           </Grid>
         </div>
-      </Fragment>
+      </>
     );
   }
 }
