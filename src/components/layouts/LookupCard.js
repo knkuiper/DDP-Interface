@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Typography, Paper, Grid, TextField } from '@material-ui/core';
-import { fade, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import SearchIcon from '@material-ui/icons/Search';
-import SourceData from '../data/index.json';
+import SourceData from '../data/data.json';
 import AddButton from '../buttons/AddButton';
 
 const styles = theme => ({
@@ -35,7 +35,6 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'flex-start',
     [theme.breakpoints.down('sm')]: {
-      display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center'
     }
@@ -60,8 +59,6 @@ const styles = theme => ({
     margin: 0,
     alignSelf: 'flex-end',
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      margin: 0,
       textAlign: 'center'
     }
   }
@@ -76,7 +73,7 @@ class LookupCard extends Component {
 
   filterList = e => {
     const updatedList = this.state.sourceData.filter(item => {
-      return item.Platform().search(e.target.value) !== -1;
+      return item.type.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
     });
     this.setState({ filterData: updatedList });
   };
@@ -86,7 +83,6 @@ class LookupCard extends Component {
     const searchBox = (
           <Grid container className={classes.search}>
             <TextField
-              className={classes.searchInput}
               onChange={this.filterList}
               label="Search"
               variant="standard"
@@ -94,6 +90,11 @@ class LookupCard extends Component {
             <SearchIcon />
           </Grid>
     );
+    const selectBox = this.state.filterData.map(indexlist => (
+      <li key={indexlist.id}>
+        {indexlist.type}
+      </li>
+    ));
 
       var populate = SourceData.map(function (value) {
             return(

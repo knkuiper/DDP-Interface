@@ -1,13 +1,12 @@
 import React from 'react';
 import '../App.css';
-import Example1 from '../layouts/Lookup.js';
-import Example2 from '../layouts/LookupCard.js';
+import Listcard from '../layouts/ListCard.js';
+import Search from '../layouts/Search.js';
 
 const Home = () => {
     return (
       <>
-        {/* <Example1 /> */}
-        <Example2 />
+        <Listcard />
       </>
     );
 }

@@ -3,7 +3,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import { Typography, Grid, Card } from '@material-ui/core';
 
 const styles = theme => ({
-  paper: {
+  cardContainter: {
     padding: theme.spacing(3),
     textAlign: 'left',
     color: theme.palette.text.secondary
@@ -24,7 +24,6 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'flex-start',
     [theme.breakpoints.down('sm')]: {
-      display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center'
     }
@@ -52,12 +51,10 @@ const styles = theme => ({
   },
   inlineRight: {
     width: '100%',
-    textAlign: 'right',
     margin: 0,
+    textAlign: 'right',
     alignSelf: 'flex-end',
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      margin: 0,
       textAlign: 'center'
     }
   },
@@ -72,49 +69,47 @@ class CardItem extends Component {
     const { title, subtitle1, subtitle2, body1, body2, button } = this.props;
     return (
       <>
-        <Card className={classes.paper}>
-          <div className={classes.itemContainer}>
-            <div className={classes.baseline}>
-              <div className={classes.inline}>
-                <Typography
-                  style={{ textTransform: 'uppercase' }}
-                  color='primary'
-                  variant="h6"
-                  gutterBottom
-                >
-                  {title}
-                </Typography>
-                <Typography
-                  style={{ textTransform: 'uppercase' }}
-                  variant="subtitle1"
-                  color='primary'
-                  gutterBottom
-                >
-                  {subtitle1}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  gutterBottom
-                >
-                  {body1}
-                </Typography>
-                <Typography
-                  style={{ textTransform: 'uppercase' }}
-                  variant="subtitle1"
-                  color='primary'
-                  gutterBottom
-                >
-                  {subtitle2}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  gutterBottom
-                >
-                  <i>{body2}</i>
-                </Typography>
-              </div>
-            </div>
-          </div>
+        <Card className={classes.cardContainter}>
+          <Grid className={classes.baseline}>
+            <Grid className={classes.inline}>
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                color='primary'
+                variant="h6"
+                gutterBottom
+              >
+                {title}
+              </Typography>
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                variant="subtitle1"
+                color='primary'
+                gutterBottom
+              >
+                {subtitle1}
+              </Typography>
+              <Typography
+                variant="body1"
+                gutterBottom
+              >
+                {body1}
+              </Typography>
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                variant="subtitle1"
+                color='primary'
+                gutterBottom
+              >
+                {subtitle2}
+              </Typography>
+              <Typography
+                variant="body1"
+                gutterBottom
+              >
+                <i>{body2}</i>
+              </Typography>
+            </Grid>
+          </Grid>
           <Grid className={classes.inlineRight}>
             {button}
           </Grid>

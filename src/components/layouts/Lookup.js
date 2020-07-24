@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from '@material-ui/core';
 import SourceData from '../data/data.json';
 
 class Example1 extends Component {
@@ -10,7 +11,7 @@ class Example1 extends Component {
 
     filterList = e => {
       const updatedList = this.state.sourceData.filter(item => {
-        return item.provider.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
+        return item.provider.toLowerCase().search(e.target.value.toLowerCase()) !== -1
       });
       this.setState({ filterData: updatedList });
     };
@@ -22,13 +23,20 @@ class Example1 extends Component {
           onChange={this.filterList}
         />
       );
-      const selectBox = this.state.filterData.map(indexlist => (
-        <li key={indexlist.provider}>{indexlist.provider}</li>
-      ));
+      const selectBox = this.state.filterData.map(indexlist => {
+        return (
+          <div>
+            <Card>
+              <li key={indexlist.id}>
+                {indexlist.provider}
+              </li>
+            </Card>
+          </div>
+        );
+      });
 
       return (
         <>
-          <h2>Step 1</h2>
           {searchBox}
           <ul>{selectBox}</ul>
         </>
