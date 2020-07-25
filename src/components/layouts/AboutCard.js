@@ -37,13 +37,24 @@ class AboutCard extends Component {
             >
               <Grid item xs={12}>
                 <CardItem
-                  title="About Data Download Package Manager"
-                  body1="This a webpage is a resource for social science researchers looking to
-                  know more about data download packages from various social media platforms.
-                  Data from data download packages can be used in social and behavioural research.
-                  If you have any trouble using the tool or have any questions, please contact us at:"
+                  title="The Data Download Package Manager"
+                  subtitle1="About the website"
+                  body1="{Draft} This webpage is a resource for researchers within
+                  the social and behavioural sciences who wish to know more about
+                  user data packages which can be downloaded from various social
+                  media platforms. Data from data download packages can be used
+                  in social and behavioural research.
+                  If you have questions about the tool or experience any issues
+                  using the tool, you can contact us at: "
                   subtitle2="User guide tool"
-                  body2="Insert here a guide how to use the DDP tool "
+                  body2="{Draft} This tool allows researchers to find information
+                  about the various social media data packages and how to use
+                  the infomration from these packages in their research. On the
+                  home page you can search for concepts and use the extra filter
+                  buttons to filter the search further. By pressing the add package
+                  button the selected package is added into the 'My packages
+                  folder'. On this page, an overview of the chosen packages and
+                  information can be downloaded to your own computer."
                 />
               </Grid>
             </Grid>

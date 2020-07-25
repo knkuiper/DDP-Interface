@@ -5,19 +5,9 @@ import { Typography, Grid, Card } from '@material-ui/core';
 const styles = theme => ({
   cardContainter: {
     padding: theme.spacing(3),
+    marginTop: 20,  
     textAlign: 'left',
     color: theme.palette.text.secondary
-  },
-  avatar: {
-    margin: 10,
-    backgroundColor: theme.palette.grey['200'],
-    color: theme.palette.text.primary,
-  },
-  avatarContainer: {
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0,
-      marginBottom: theme.spacing(4)
-    }
   },
   itemContainer: {
     display: 'flex',
@@ -106,7 +96,7 @@ class CardItem extends Component {
                 variant="body1"
                 gutterBottom
               >
-                <i>{body2}</i>
+                {body2}
               </Typography>
             </Grid>
           </Grid>

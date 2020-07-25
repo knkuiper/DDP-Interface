@@ -51,9 +51,10 @@ class PackageCard extends Component {
                 <CardItem
                   title="Saved packages"
                   subtitle1="Data"
-                  body1="Saved packages for code guide download"
+                  body1="Will show a list of the packages the users have saved
+                  to be downloaded."
                   subtitle2="Amount"
-                  body2="Number of saved packages"
+                  body2="Shows the number of saved packages to be downloaded."
                   button=<DownloadButton />
                 />
               </Grid>

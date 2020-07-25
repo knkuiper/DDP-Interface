@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { Typography, Grid, Card, TextField } from '@material-ui/core';
+import {
+  Typography,
+  Grid,
+  Card,
+  TextField
+ } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import SourceData from '../data/data.json';
 import SearchIcon from '@material-ui/icons/Search';
 import AddButton from '../buttons/AddButton';
+import FilterButtons from '../buttons/FilterButtons.js'
 
 const styles = theme => ({
   root: {
@@ -16,7 +22,7 @@ const styles = theme => ({
     padding: 15
   },
   grid: {
-    width: 1000
+    width: 1000,
   },
   cardContainter: {
     padding: theme.spacing(3),
@@ -84,11 +90,11 @@ class ListCard extends Component {
           <TextField
             onChange={this.updateSearch.bind(this)}
             label="Search"
-            //variant="standard"
             value={this.state.search}
           />
           <SearchIcon />
         </Grid>
+        <FilterButtons />
         <div>
           {filteredList.map(value =>
             <div key={value.id}>

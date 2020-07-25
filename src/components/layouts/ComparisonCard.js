@@ -17,7 +17,12 @@ const styles = theme => ({
   },
   grid: {
     width: 1000
-  }
+  },
+  cardContainter: {
+    padding: theme.spacing(3),
+    textAlign: 'left',
+    color: theme.palette.text.secondary
+  },
 });
 
 class ComparisonCard extends Component {
@@ -37,6 +42,7 @@ class ComparisonCard extends Component {
             >
               <Grid item xs={12}>
                 <CardItem
+                  className={classes.cards}
                   title="Comparison"
                   body1="Compare concepts and platforms"
                 />
