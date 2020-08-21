@@ -7,8 +7,12 @@ import {
  } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import SourceData from '../data/data.json';
+import clsx from 'clsx';
+import SourceData from '../data/index_v1.json';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
 import SearchIcon from '@material-ui/icons/Search';
+import IconButton from '@material-ui/core/IconButton';
 import AddButton from '../buttons/AddButton';
 import FilterButtons from '../buttons/FilterButtons.js'
 
@@ -67,23 +71,39 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center'
     }
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
   }
 });
 
 class ListCard extends Component {
   state = {
-      search: '',
+    expanded: false,
+    search: '',
   };
   updateSearch(e) {
     this.setState({search: e.target.value})
   }
+  handleExpandClick = () => {
+      this.setState({expanded: !this.state.expanded})
+  };
   render(){
+    const { classes } = this.props;
     let filteredList = SourceData.filter(
       (value) => {
-        return value.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        return value.Platform.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
     );
-    const { classes } = this.props;
+    let expanded = this.state.expanded;
+
     return (
       <>
         <Grid container className={classes.search}>
@@ -111,34 +131,56 @@ class ListCard extends Component {
                     <Grid item xs={12} md={12}>
                       <Card className={classes.cardContainter}>
                         <Grid className={classes.inline}>
+                          <Grid className={classes.inlineRight}>
+                            <AddButton />
+                          </Grid>
                           <Typography
                             style={{ textTransform: 'uppercase' }}
                             color='primary'
                             gutterBottom
                           >
-                            {value.provider}
+                            {value.Platform} {value.File}
                           </Typography>
                           <Typography variant="body1" gutterBottom>
-                            <b>Data package:</b> {value.datapackage}
+                            <b>Platform:</b> {value.Platform}
                           </Typography>
                           <Typography variant="body1" gutterBottom>
-                            <b>File:</b> {value.file}
+                            <b>File:</b> {value.File}
                           </Typography>
                           <Typography variant="body1" gutterBottom>
-                            <b>Filetype:</b> {value.filetype}
+                            <b>File format:</b> {value.File_format}
                           </Typography>
                           <Typography variant="body1" gutterBottom>
-                            <b>Type:</b> {value.type}
+                            <b>Description:</b> {value.Description}
                           </Typography>
                         </Grid>
-                        <Grid className={classes.inlineRight}>
-                          <AddButton />
+                        <Grid disableSpacing className={classes.inlineRight}>
+                          <IconButton
+                            className={clsx(classes.expand, {
+                              [classes.expandOpen]: expanded,
+                            })}
+                            onClick={this.handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                          >
+                            <ExpandMoreIcon />
+                          </IconButton>
+                        </Grid>
+                        <Grid className={classes.inline}>
+                          <Collapse in={expanded} timeout="auto" unmountOnExit>
+                            <Typography variant="body1" gutterBottom>
+                              <b>Filepath:</b> {value.Filepath}
+                            </Typography>
+                            <Typography variant="body1" gutterBottom>
+                              <b>Example record:</b> {value.Example_record}
+                            </Typography>
+                          </Collapse>
                         </Grid>
                       </Card>
-                    </Grid>
                   </Grid>
                 </Grid>
-              </div>
+              </Grid>
+            </div>
             </div>
           )}
         </div>

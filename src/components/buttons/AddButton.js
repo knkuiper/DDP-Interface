@@ -20,8 +20,9 @@ class AddButton extends Component {
               variant="contained"
               color="primary"
               startIcon={<AddIcon />}
-              onClick={() => this.handleFileDownload(this.props.attachment)}>
-              Add to my packages
+              //onClick={() => this.handleFileDownload(this.props.attachment)}
+            >
+              Add package
             </Button>
           );
     }

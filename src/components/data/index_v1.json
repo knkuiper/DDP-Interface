@@ -1,0 +1,230 @@
+﻿[
+    {
+        "Platform": "Instagram",
+        "File": "direct",
+        "File_format": "jpg, mp4",
+        "Tags": "photo, picture, video, private media, private message, direct message",
+        "Filepath": "./direct/YYYYMM/filename.jpg",
+        "Description": "Photos and videos shared by and with the Instagram user via direct messaging",
+        "Example_record": "Provide an example picture and video?",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "photos",
+        "File_format": "jpg",
+        "Tags": "photo, picture, public, timeline",
+        "Filepath": "./photos/YYYYMM/filename.jpg",
+        "Description": "Photos shared by Instagram user on the timeline",
+        "Example_record": "Provide an example picture?",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "profile",
+        "File_format": "jpg",
+        "Tags": "photo, picture, profile picture, public media",
+        "Filepath": "./profile/YYYYMM/filename.jpg",
+        "Description": "Profile picture of the Instagram account",
+        "Example_record": "Provide an example picture?",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "stories",
+        "File_format": "jpg, mp4",
+        "Tags": "photo, picture, video, public media, ephemeral, temporary, story",
+        "Filepath": "./stories/YYYYMM/filename.jpg",
+        "Description": "Photos and videos shared by the Instagram user as stories",
+        "Example_record": "Provide an example picture and video?",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "videos",
+        "File_format": "mp4",
+        "Tags": "video, public media, timeline",
+        "Filepath": "./videos/YYYYMM/filename.mp4",
+        "Description": "Videos shared by the Instagram user on the timeline",
+        "Example_record": "Provide an example video?",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "account_history",
+        "File_format": "json",
+        "Tags": "account history, user history, login history",
+        "Filepath": "./account_history.json",
+        "Elements ": "$.login_history.*.registration_info",
+        "Description": "Login history of user on different devices",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "autofill",
+        "File_format": "json",
+        "Tags": "autofill",
+        "Filepath": "./autofill.json",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "comments",
+        "File_format": "json",
+        "Tags": "comments, media comments, live comments, photo comments, picture comments, video comments",
+        "Filepath": "./comments.json",
+        "Elements ": "$.media_comments.*.live_comments",
+        "Description": "Comments provided and received by the Instagram user on photos, videos and live sessions",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "connections",
+        "File_format": "json",
+        "Tags": "connections, followers, friends, contacts, blocked, follow request, suggested users",
+        "Filepath": "./connections.json",
+        "Elements ": "$.blocked_users.*.follow_requests_sent.*.followers.*.following.*.dismissed_suggested_users",
+        "Description": "Other users followed by the Instagram user and followers of the Instagram user",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "devices",
+        "File_format": "json",
+        "Tags": "device, camera",
+        "Filepath": "./devices.json",
+        "Elements ": "$.camera.*.devices",
+        "Description": "Information regarding camera and devices on which Instagram is accessed",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "guides",
+        "File_format": "json",
+        "Filepath": "./guides.json",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "information about you",
+        "File_format": "json",
+        "Tags": "location, primary location",
+        "Filepath": "./information_about_you.json",
+        "Elements ": "$.primary_location",
+        "Description": "Primary location of the Instagram user",
+        "Example_record": "{\"primary_location\": {\"city_name\": \"Amsterdam, Netherlands\"}}",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "likes",
+        "File_format": "json",
+        "Tags": "media likes, comment likes, photo likes, picture likes, video likes, likes",
+        "Filepath": "./likes.json",
+        "Elements ": "$.media_likes.*.comment_likes",
+        "Description": "Likes of the Instagram user on media and comments",
+        "Example_record": "{\"media_likes\": [[\"2020-04-19T16:08:32+00:00\", \"maivanderheide\"]]}",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "media",
+        "File_format": "json",
+        "Tags": "caption, stories caption, photos caption, profile caption, video caption",
+        "Filepath": "./media.json",
+        "Elements ": "$.stories.*.photos.*.profile.*.videos",
+        "Description": "Captions attached to stories, photos, profile picture and videos of the Instagram user",
+        "Example_record": "{\"stories\": [{\"caption\": \"\", \"taken_at\": \"2020-01-05T08:53:51+00:00\", \"path\": \"stories/202001/226ec812d709f82e7c72361996c70b19.mp4\"}]}",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "messages",
+        "File_format": "json",
+        "Tags": "private message, direct message, conversation",
+        "Filepath": "./messages.json",
+        "Elements ": "$.participants.*.conversation.*.media_owner.*.",
+        "Description": "Private messages shared between the Instagram user and others ",
+        "Example_record": "[{\"participants\": [\"lottebosman\", \"lauraboeschoten\"], \"conversation\": [{\"sender\": \"lauraboeschoten\", \"created_at\": \"2020-04-16T17:46:17.045033+00:00\", \"text\": \"Haha ja matje is wel handig anders glij je de hele tijd uit 😋\"}, {\"sender\": \"lottebosman\", \"created_at\": \"2020-04-16T17:26:22.524398+00:00\", \"text\": \"Heb wat spullen in huis gehaald💪\"}",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "profile",
+        "File_format": "json",
+        "Tags": "biography, email, gender, sex, name, username, private account",
+        "Filepath": "./profile.json",
+        "Elements ": "$.biography.*.date_joined.*.email.*.gender.*.private_account.*.name.*.profile_pic_url.*.username.*.profile_picture_changes",
+        "Description": "Profile information of the Instagram user",
+        "Example_record": "{\"date_joined\": \"2012-04-11T16:11:21\", \"email\": \"lauraboeschoten@gmail.com\", \"gender\": \"unspecified\", \"private_account\": true, \"name\": \"Laura\", \"profile_pic_url\": \"https://scontent.cdninstagram.com/v/t51.2885-19/s150x150/79229391_591025898341383_2329940567472996352_n.jpg?_nc_ht=scontent.cdninstagram.com&_nc_ohc=lpZFLRcuCZcAX_yVln3&oh=da4c89754aa1207058c441e3c85219f2&oe=5EC6BA99\", \"username\": \"lauraboeschoten\", \"profile_picture_changes\": [{\"upload_timestamp\": \"2019-12-10T16:22:55+00:00\"}, {\"upload_timestamp\": \"2019-12-30T19:27:49+00:00\"}]}",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "saved",
+        "File_format": "json",
+        "Tags": "saved collections, saved media",
+        "Filepath": "./saved.json",
+        "Elements ": "$.saved_collections.*.saved_media",
+        "Description": "Photos, videos and stories saved by the Instagram user",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "searches",
+        "File_format": "json",
+        "Tags": "search, searches, search click",
+        "Filepath": "./searches.json",
+        "Elements ": "$.search_click",
+        "Description": "The most recent N clicked searches by the Instagram user",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "seen content",
+        "File_format": "json",
+        "Tags": "seen content, ads, seen posts",
+        "Filepath": "./seen_content.json",
+        "Elements ": "$.ads_clicked.*.chaining_seen.*.ads_seen.*.posts_seen",
+        "Description": "Content seen by the Instagram user, from users other then the users being followed, such as ads ",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "settings",
+        "File_format": "json",
+        "Tags": "allow comments from",
+        "Filepath": "./settings.json",
+        "Elements ": "$.allow_comments_from",
+        "Description": "Setting allowing comments from everyone or only from followers (?)",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "shopping",
+        "File_format": "json",
+        "Tags": "shopping",
+        "Filepath": "./shopping.json",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "stories activities",
+        "File_format": "json",
+        "Tags": "poll, emoji slider, countdown, quizz, story activity",
+        "Filepath": "./stories_activities.json",
+        "Elements ": "$.polls.*.emoji_sliders.*.countdowns.*.quizzes",
+        "Description": "Activities in stories in which the Instagram user participated",
+        "Date_checked": "202008"
+    },
+    {
+        "Platform": "Instagram",
+        "File": "uploaded contacts",
+        "File_format": "json",
+        "Tags": "contact, contacts",
+        "Filepath": "./uploaded_contacts.json",
+        "Elements ": "$.first_name.*.last_name.*.contact.*.imported_time",
+        "Description": "Contacts imported by the Instagram user",
+        "Date_checked": "202008"
+    }
+]

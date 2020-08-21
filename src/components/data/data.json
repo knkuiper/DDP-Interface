@@ -46,6 +46,7 @@
         "provider": "Google",
         "datapackage": "Hangouts",
         "file": "./Hangouts.json",
+        "filetype": "json",
         "element(column,xpath,jsonpath)": "$.conversations.*.events.*.chat_message",
         "type": "Message",
         "example_record": "\"chat_message\": {\r\n            \"message_content\": {\r\n              \"segment\": [\r\n                {\r\n                  \"type\": \"TEXT\",\r\n                  \"text\": \"Laten we chatten via Hangouts\",\r\n                  \"formatting\": {\r\n                    \"bold\": false,\r\n                    \"italics\": false,\r\n                    \"strikethrough\": false,\r\n                    \"underline\": false\r\n                  }\r\n                }\r\n              ]\r\n            }\r\n          }"

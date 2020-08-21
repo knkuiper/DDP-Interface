@@ -121,16 +121,16 @@ class LookupCard extends Component {
                                 {value.provider}
                               </Typography>
                               <Typography variant="body1" gutterBottom>
-                                <b>Data package:</b> {value.datapackage}
+                                <b>Platform:</b> {value.datapackage}
                               </Typography>
                               <Typography variant="body1" gutterBottom>
                                 <b>File:</b> {value.file}
                               </Typography>
                               <Typography variant="body1" gutterBottom>
-                                <b>Filetype:</b> {value.filetype}
+                                <b>File format:</b> {value.filetype}
                               </Typography>
                               <Typography variant="body1" gutterBottom>
-                                <b>Type:</b> {value.type}
+                                <b>Tags:</b> {value.type}
                               </Typography>
                             </Grid>
                           </Grid>
