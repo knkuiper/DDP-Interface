@@ -8,13 +8,15 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import clsx from 'clsx';
-import SourceData from '../data/index_v1.json';
+import SourceData from '../data/index_v2.json';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import AddButton from '../buttons/AddButton';
-import FilterButtons from '../buttons/FilterButtons.js'
+import FilterButtons from '../buttons/FilterButtons.js';
+import _ from 'lodash';
+
 
 const styles = theme => ({
   root: {
@@ -92,14 +94,14 @@ class ListCard extends Component {
   updateSearch(e) {
     this.setState({search: e.target.value})
   }
-  handleExpandClick = () => {
-      this.setState({expanded: !this.state.expanded})
+  handleExpandClick(id) {
+      this.setState({[`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
   };
+
   render(){
     const { classes } = this.props;
-    let filteredList = SourceData.filter(
-      (value) => {
-        return value.Platform.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    let filteredList = SourceData.filter(({Tags}) => {
+        return Tags.some(e => e.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
       }
     );
     let expanded = this.state.expanded;
@@ -159,21 +161,24 @@ class ListCard extends Component {
                             className={clsx(classes.expand, {
                               [classes.expandOpen]: expanded,
                             })}
-                            onClick={this.handleExpandClick}
-                            aria-expanded={expanded}
+                            onClick={this.handleExpandClick.bind(this,value.id)}
+                            aria-expanded={this.state[`expanded_${value.id}`] || false}
                             aria-label="show more"
                           >
                             <ExpandMoreIcon />
                           </IconButton>
                         </Grid>
                         <Grid className={classes.inline}>
-                          <Collapse in={expanded} timeout="auto" unmountOnExit>
+                          <Collapse in={this.state[`expanded_${value.id}`] || false} timeout="auto" unmountOnExit>
                             <Typography variant="body1" gutterBottom>
                               <b>Filepath:</b> {value.Filepath}
                             </Typography>
                             <Typography variant="body1" gutterBottom>
-                              <b>Example record:</b> {value.Example_record}
+                              <b>Example record:</b>
                             </Typography>
+                            <div>
+                              <img alt="example_record" src ={value.Example_record} height="250" width="400"/>
+                            </div>
                           </Collapse>
                         </Grid>
                       </Card>

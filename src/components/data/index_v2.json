@@ -1,114 +1,185 @@
 ﻿[
     {
+        "id": 1,
         "Platform": "Instagram",
         "File": "direct",
         "File_format": "jpg, mp4",
-        "Tags": "photo, picture, video, private media, private message, direct message",
+        "Tags": [
+          "photo",
+          "picture",
+          "video",
+          "private media",
+          "private message",
+          "direct message"
+        ],
         "Filepath": "./direct/YYYYMM/filename.jpg",
         "Description": "Photos and videos shared by and with the Instagram user via direct messaging",
         "Example_record": "Provide an example picture and video?",
         "Date_checked": "202008"
     },
     {
+        "id": 2,
         "Platform": "Instagram",
         "File": "photos",
         "File_format": "jpg",
-        "Tags": "photo, picture, public, timeline",
+        "Tags": [
+          "photo",
+          "picture",
+          "public",
+          "timeline"
+        ],
         "Filepath": "./photos/YYYYMM/filename.jpg",
         "Description": "Photos shared by Instagram user on the timeline",
         "Example_record": "Provide an example picture?",
         "Date_checked": "202008"
     },
     {
+        "id": 3,
         "Platform": "Instagram",
         "File": "profile",
         "File_format": "jpg",
-        "Tags": "photo, picture, profile picture, public media",
+        "Tags": [
+          "photo",
+          "picture",
+          "profile picture",
+          "public media"
+        ],
         "Filepath": "./profile/YYYYMM/filename.jpg",
         "Description": "Profile picture of the Instagram account",
         "Example_record": "Provide an example picture?",
         "Date_checked": "202008"
     },
     {
+        "id": 4,
         "Platform": "Instagram",
         "File": "stories",
         "File_format": "jpg, mp4",
-        "Tags": "photo, picture, video, public media, ephemeral, temporary, story",
+        "Tags": [
+          "photo",
+          "picture",
+          "video",
+          "public media",
+          "ephemeral",
+          "temporary",
+          "story"
+        ],
         "Filepath": "./stories/YYYYMM/filename.jpg",
         "Description": "Photos and videos shared by the Instagram user as stories",
         "Example_record": "Provide an example picture and video?",
         "Date_checked": "202008"
     },
     {
+        "id": 5,
         "Platform": "Instagram",
         "File": "videos",
         "File_format": "mp4",
-        "Tags": "video, public media, timeline",
+        "Tags": [
+          "video",
+          "public media",
+          "timeline"
+        ],
         "Filepath": "./videos/YYYYMM/filename.mp4",
         "Description": "Videos shared by the Instagram user on the timeline",
         "Example_record": "Provide an example video?",
         "Date_checked": "202008"
     },
     {
+        "id": 6,
         "Platform": "Instagram",
         "File": "account_history",
         "File_format": "json",
-        "Tags": "account history, user history, login history",
+        "Tags": [
+          "account history",
+          "user history",
+          "login history"
+        ],
         "Filepath": "./account_history.json",
         "Elements ": "$.login_history.*.registration_info",
         "Description": "Login history of user on different devices",
+
         "Date_checked": "202008"
     },
     {
+        "id": 7,
         "Platform": "Instagram",
         "File": "autofill",
         "File_format": "json",
-        "Tags": "autofill",
+        "Tags": [
+          "autofill"
+        ],
         "Filepath": "./autofill.json",
         "Date_checked": "202008"
     },
     {
+        "id": 8,
         "Platform": "Instagram",
         "File": "comments",
         "File_format": "json",
-        "Tags": "comments, media comments, live comments, photo comments, picture comments, video comments",
+        "Tags": [
+          "comments",
+          "media comments",
+          "live comments",
+          "photo comments",
+          "picture comments",
+          "video comments"
+        ],
         "Filepath": "./comments.json",
         "Elements ": "$.media_comments.*.live_comments",
         "Description": "Comments provided and received by the Instagram user on photos, videos and live sessions",
+        "Example_record": "/Users/katrine.n.kuiper/Developer/UU-HDS_Stud_ass/DDP-interface-apps/DDP-Interface/src/components/images/id8-media_comments.png",
         "Date_checked": "202008"
     },
     {
+        "id": 9,
         "Platform": "Instagram",
         "File": "connections",
         "File_format": "json",
-        "Tags": "connections, followers, friends, contacts, blocked, follow request, suggested users",
+        "Tags": [
+          "connections",
+          "followers",
+          "friends",
+          "contacts",
+          "blocked",
+          "follow request",
+          "suggested users"
+        ],
         "Filepath": "./connections.json",
         "Elements ": "$.blocked_users.*.follow_requests_sent.*.followers.*.following.*.dismissed_suggested_users",
         "Description": "Other users followed by the Instagram user and followers of the Instagram user",
         "Date_checked": "202008"
     },
     {
+        "id": 10,
         "Platform": "Instagram",
         "File": "devices",
         "File_format": "json",
-        "Tags": "device, camera",
+        "Tags": [
+          "device",
+          "camera"
+        ],
         "Filepath": "./devices.json",
         "Elements ": "$.camera.*.devices",
         "Description": "Information regarding camera and devices on which Instagram is accessed",
         "Date_checked": "202008"
     },
     {
+        "id": 11,
         "Platform": "Instagram",
         "File": "guides",
         "File_format": "json",
+        "Tags": [],
         "Filepath": "./guides.json",
         "Date_checked": "202008"
     },
     {
+        "id": 12,
         "Platform": "Instagram",
         "File": "information about you",
         "File_format": "json",
-        "Tags": "location, primary location",
+        "Tags": [
+          "location",
+          "primary location"
+        ],
         "Filepath": "./information_about_you.json",
         "Elements ": "$.primary_location",
         "Description": "Primary location of the Instagram user",
@@ -116,10 +187,18 @@
         "Date_checked": "202008"
     },
     {
+        "id": 13,
         "Platform": "Instagram",
         "File": "likes",
         "File_format": "json",
-        "Tags": "media likes, comment likes, photo likes, picture likes, video likes, likes",
+        "Tags": [
+          "media likes",
+          "comment likes",
+          "photo likes",
+          "picture likes",
+          "video likes",
+          "likes"
+        ],
         "Filepath": "./likes.json",
         "Elements ": "$.media_likes.*.comment_likes",
         "Description": "Likes of the Instagram user on media and comments",
@@ -127,10 +206,17 @@
         "Date_checked": "202008"
     },
     {
+        "id": 14,
         "Platform": "Instagram",
         "File": "media",
         "File_format": "json",
-        "Tags": "caption, stories caption, photos caption, profile caption, video caption",
+        "Tags": [
+          "caption",
+          "stories caption",
+          "photos caption",
+          "profile caption",
+          "video caption"
+        ],
         "Filepath": "./media.json",
         "Elements ": "$.stories.*.photos.*.profile.*.videos",
         "Description": "Captions attached to stories, photos, profile picture and videos of the Instagram user",
@@ -138,10 +224,15 @@
         "Date_checked": "202008"
     },
     {
+        "id": 15,
         "Platform": "Instagram",
         "File": "messages",
         "File_format": "json",
-        "Tags": "private message, direct message, conversation",
+        "Tags": [
+          "private message",
+          "direct message",
+          "conversation"
+        ],
         "Filepath": "./messages.json",
         "Elements ": "$.participants.*.conversation.*.media_owner.*.",
         "Description": "Private messages shared between the Instagram user and others ",
@@ -149,10 +240,19 @@
         "Date_checked": "202008"
     },
     {
+        "id": 16,
         "Platform": "Instagram",
         "File": "profile",
         "File_format": "json",
-        "Tags": "biography, email, gender, sex, name, username, private account",
+        "Tags": [
+          "biography",
+          "email",
+          "gender",
+          "sex",
+          "name",
+          "username",
+          "private account"
+        ],
         "Filepath": "./profile.json",
         "Elements ": "$.biography.*.date_joined.*.email.*.gender.*.private_account.*.name.*.profile_pic_url.*.username.*.profile_picture_changes",
         "Description": "Profile information of the Instagram user",
@@ -160,68 +260,99 @@
         "Date_checked": "202008"
     },
     {
+        "id": 17,
         "Platform": "Instagram",
         "File": "saved",
         "File_format": "json",
-        "Tags": "saved collections, saved media",
+        "Tags": [
+          "saved collections",
+          "saved media"
+        ],
         "Filepath": "./saved.json",
         "Elements ": "$.saved_collections.*.saved_media",
         "Description": "Photos, videos and stories saved by the Instagram user",
         "Date_checked": "202008"
     },
     {
+        "id": 18,
         "Platform": "Instagram",
         "File": "searches",
         "File_format": "json",
-        "Tags": "search, searches, search click",
+        "Tags": [
+          "search",
+          "searches",
+          "search click"
+        ],
         "Filepath": "./searches.json",
         "Elements ": "$.search_click",
         "Description": "The most recent N clicked searches by the Instagram user",
         "Date_checked": "202008"
     },
     {
+        "id": 19,
         "Platform": "Instagram",
         "File": "seen content",
         "File_format": "json",
-        "Tags": "seen content, ads, seen posts",
+        "Tags": [
+          "seen content",
+          "ads",
+          "seen posts"
+        ],
         "Filepath": "./seen_content.json",
         "Elements ": "$.ads_clicked.*.chaining_seen.*.ads_seen.*.posts_seen",
         "Description": "Content seen by the Instagram user, from users other then the users being followed, such as ads ",
         "Date_checked": "202008"
     },
     {
+        "id": 20,
         "Platform": "Instagram",
         "File": "settings",
         "File_format": "json",
-        "Tags": "allow comments from",
+        "Tags": [
+          "allow comments from"
+        ],
         "Filepath": "./settings.json",
         "Elements ": "$.allow_comments_from",
         "Description": "Setting allowing comments from everyone or only from followers (?)",
         "Date_checked": "202008"
     },
     {
+        "id": 21,
         "Platform": "Instagram",
         "File": "shopping",
         "File_format": "json",
-        "Tags": "shopping",
+        "Tags": [
+          "shopping"
+        ],
         "Filepath": "./shopping.json",
         "Date_checked": "202008"
     },
     {
+        "id": 22,
         "Platform": "Instagram",
         "File": "stories activities",
         "File_format": "json",
-        "Tags": "poll, emoji slider, countdown, quizz, story activity",
+        "Tags": [
+          "poll",
+          "emoji slider",
+          "countdown",
+          "quiz",
+          "story activity"
+        ],
         "Filepath": "./stories_activities.json",
         "Elements ": "$.polls.*.emoji_sliders.*.countdowns.*.quizzes",
         "Description": "Activities in stories in which the Instagram user participated",
         "Date_checked": "202008"
     },
     {
+        "id": 23,
         "Platform": "Instagram",
         "File": "uploaded contacts",
         "File_format": "json",
-        "Tags": "contact, contacts",
+        "Tags": [
+          "contact",
+          "contacts"
+        ],
         "Filepath": "./uploaded_contacts.json",
         "Elements ": "$.first_name.*.last_name.*.contact.*.imported_time",
         "Description": "Contacts imported by the Instagram user",
