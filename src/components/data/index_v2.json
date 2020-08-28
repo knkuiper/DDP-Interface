@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "id": 1,
         "Platform": "Instagram",
@@ -10,7 +10,8 @@
           "video",
           "private media",
           "private message",
-          "direct message"
+          "direct message",
+          "DM"
         ],
         "Filepath": "./direct/YYYYMM/filename.jpg",
         "Description": "Photos and videos shared by and with the Instagram user via direct messaging",
@@ -96,7 +97,8 @@
         "Filepath": "./account_history.json",
         "Elements ": "$.login_history.*.registration_info",
         "Description": "Login history of user on different devices",
-
+        "Example_record": "{\"login_history\": [{\"cookie_name\": \"*************************C3T\", \"ip_address\": \"2a02:a210:2502:b280:856d:6ab:b56c:6580\", \"language_code\": \"nl\", \"timestamp\": \"2020-04-15T20:11:02+00:00\", \"user_agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36\", \"device_id\": \"\"},",
+        "Example_record_anonymized": "{\"login_history\": [{\"cookie_name\": \"*************************C3T\", \"ip_address\": \"2a02:a210:2502:b280:856d:6ab:b56c:6580\", \"language_code\": \"nl\", \"timestamp\": \"2020-04-15T20:11:02+00:00\", \"user_agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36\", \"device_id\": \"\"},",
         "Date_checked": "202008"
     },
     {
@@ -126,7 +128,8 @@
         "Filepath": "./comments.json",
         "Elements ": "$.media_comments.*.live_comments",
         "Description": "Comments provided and received by the Instagram user on photos, videos and live sessions",
-        "Example_record": "/Users/katrine.n.kuiper/Developer/UU-HDS_Stud_ass/DDP-interface-apps/DDP-Interface/src/components/images/id8-media_comments.png",
+        "Example_record": "{\"media_comments\": \r\n\t[\r\n\t\t[\"2019-12-04T16:53:04+00:00\", \"👏 👏👏\", \"jeaninevanc\"], \r\n\t\t[\"2019-10-27T12:51:25+00:00\", \"@aspijk dank 😊😊\", \"wiesvp\"] \r\n\t]\r\n}",
+        "Example_record_anonymized": "{\"media_comments\": \r\n\t[\r\n\t\t[\"YYYY-MM-DDTHH:mm:ss+00:00\", \"[COMMENT TEXT]\", \"[USERNAME]\"]\r\n}",
         "Date_checked": "202008"
     },
     {
@@ -138,7 +141,7 @@
           "connections",
           "followers",
           "friends",
-          "contacts",
+          "contact",
           "blocked",
           "follow request",
           "suggested users"
@@ -146,6 +149,8 @@
         "Filepath": "./connections.json",
         "Elements ": "$.blocked_users.*.follow_requests_sent.*.followers.*.following.*.dismissed_suggested_users",
         "Description": "Other users followed by the Instagram user and followers of the Instagram user",
+        "Example_record": "{\"blocked_users\": \r\n\t\"marissa_gifford\": \"2017-09-04T15:24:03+00:00\", \r\n\t\"gerhard_kipk\": \"2017-09-04T15:12:05+00:00\", \r\n\t\"okhotnikova_maria\": \"2017-09-04T15:11:43+00:00\", \r\n\t\"moonroom.studio\": \"2017-09-04T15:11:08+00:00\", \r\n\t\"shootinggalleryasia\": \"2017-09-04T14:56:28+00:00\", \r\n\t\"elytus\": \"2017-09-04T14:56:14+00:00\", \r\n\t\"andreamuscatellophotographer\": \"2017-09-04T14:55:45+00:00\", \r\n\t\"jaybkaufman\": \"2017-09-04T14:55:22+00:00\", \r\n\t\"aaryazz_\": \"2017-09-04T14:54:58+00:00\", \r\n\t\"kentyoungstrom\": \"2015-08-19T04:50:20+00:00\", \r\n\t\"voetbal.nu\": \"2015-08-18T17:52:25+00:00\", \r\n\t\"karsiyaka_karsiyaka\": \"2015-08-18T17:52:15+00:00\", \r\n\t\"rickymtz20\": \"2015-08-18T16:56:03+00:00\", \r\n\t\"nadia_mintus\": \"2015-08-18T16:55:52+00:00\", \r\n\t\"thepranav9\": \"2015-08-18T16:53:50+00:00\", \r\n\t\"davidcasteberg\": \"2015-08-18T16:53:38+00:00\"},",
+        "Example_record_anonymized": "{\"blocked_users\": \r\n \"[USERNAME]\": \"YYYY-MM-DDTHH:mm:ss+00:00\", \r\n}",
         "Date_checked": "202008"
     },
     {
@@ -160,6 +165,7 @@
         "Filepath": "./devices.json",
         "Elements ": "$.camera.*.devices",
         "Description": "Information regarding camera and devices on which Instagram is accessed",
+        "Example_record": "{\"camera\": [{\"device_id\": \"bc8433ae4a0bf0d1e5c59741745acd49\", \"supported_sdk_versions\": \"55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0\", \"compression\": \"pvr_compression\", \"face_filter\": \"14\"}, {\"device_id\": \"4f0dc4c0c5accf014630f4c40664fb52\", \"supported_sdk_versions\": \"13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0\", \"compression\": \"pvr_compression\", \"face_filter\": \"14\"}],",
         "Date_checked": "202008"
     },
     {
@@ -184,6 +190,7 @@
         "Elements ": "$.primary_location",
         "Description": "Primary location of the Instagram user",
         "Example_record": "{\"primary_location\": {\"city_name\": \"Amsterdam, Netherlands\"}}",
+        "Example_record_anonymized": "{\"primary_location\": {\"city_name\": \"[CITY, COUNTRY]\"}}",
         "Date_checked": "202008"
     },
     {
@@ -203,6 +210,7 @@
         "Elements ": "$.media_likes.*.comment_likes",
         "Description": "Likes of the Instagram user on media and comments",
         "Example_record": "{\"media_likes\": [[\"2020-04-19T16:08:32+00:00\", \"maivanderheide\"]]}",
+        "Example_record_anonymized": "{\"media_likes\": [[\"YYYY-MM-DDTHH:mm:ss+00:00\", \"[USERNAME]\"]]}",
         "Date_checked": "202008"
     },
     {
@@ -221,6 +229,7 @@
         "Elements ": "$.stories.*.photos.*.profile.*.videos",
         "Description": "Captions attached to stories, photos, profile picture and videos of the Instagram user",
         "Example_record": "{\"stories\": [{\"caption\": \"\", \"taken_at\": \"2020-01-05T08:53:51+00:00\", \"path\": \"stories/202001/226ec812d709f82e7c72361996c70b19.mp4\"}]}",
+        "Example_record_anonymized": "{\"stories\": [{\"caption\": \"\", \"taken_at\": \"YYYY-MM-DDTHH:mm:ss+00:00\", \"path\": \"stories/YYYYMM/226ec812d709f82e7c72361996c70b19.mp4\"}]}",
         "Date_checked": "202008"
     },
     {
@@ -231,12 +240,14 @@
         "Tags": [
           "private message",
           "direct message",
+          "DM",
           "conversation"
         ],
         "Filepath": "./messages.json",
         "Elements ": "$.participants.*.conversation.*.media_owner.*.",
         "Description": "Private messages shared between the Instagram user and others ",
         "Example_record": "[{\"participants\": [\"lottebosman\", \"lauraboeschoten\"], \"conversation\": [{\"sender\": \"lauraboeschoten\", \"created_at\": \"2020-04-16T17:46:17.045033+00:00\", \"text\": \"Haha ja matje is wel handig anders glij je de hele tijd uit 😋\"}, {\"sender\": \"lottebosman\", \"created_at\": \"2020-04-16T17:26:22.524398+00:00\", \"text\": \"Heb wat spullen in huis gehaald💪\"}",
+        "Example_record_anonymized": "[{\"participants\": [\"[USERNAME]\", \"[USERNAME]\"], \"conversation\": [{\"sender\": \"[USERNAME]\", \"created_at\": \"YYYY-MM-DDTHH:mm:ss+00:00\", \"text\": \"[MESSAGE TEXT]\"}, {\"sender\": \"[USERNAME]\", \"created_at\": \"2020-04-16T17:26:22.524398+00:00\", \"text\": \"[MESSAGE TEXT]\"}",
         "Date_checked": "202008"
     },
     {
@@ -249,14 +260,15 @@
           "email",
           "gender",
           "sex",
-          "name",
           "username",
-          "private account"
+          "private account",
+          "profile"
         ],
         "Filepath": "./profile.json",
         "Elements ": "$.biography.*.date_joined.*.email.*.gender.*.private_account.*.name.*.profile_pic_url.*.username.*.profile_picture_changes",
         "Description": "Profile information of the Instagram user",
         "Example_record": "{\"date_joined\": \"2012-04-11T16:11:21\", \"email\": \"lauraboeschoten@gmail.com\", \"gender\": \"unspecified\", \"private_account\": true, \"name\": \"Laura\", \"profile_pic_url\": \"https://scontent.cdninstagram.com/v/t51.2885-19/s150x150/79229391_591025898341383_2329940567472996352_n.jpg?_nc_ht=scontent.cdninstagram.com&_nc_ohc=lpZFLRcuCZcAX_yVln3&oh=da4c89754aa1207058c441e3c85219f2&oe=5EC6BA99\", \"username\": \"lauraboeschoten\", \"profile_picture_changes\": [{\"upload_timestamp\": \"2019-12-10T16:22:55+00:00\"}, {\"upload_timestamp\": \"2019-12-30T19:27:49+00:00\"}]}",
+        "Example_record_anonymized": "{\"date_joined\": \"YYYY-MM-DDTHH:mm:ss\", \"email\": \"[EMAIL@ADDRESS]\", \"gender\": \"unspecified\", \"private_account\": true, \"name\": \"[NAME]\", \"profile_pic_url\": \"[PICTURE.JPG]\", \"username\": \"[USERNAME]\", \"profile_picture_changes\": [{\"upload_timestamp\": \"YYYY-MM-DDTHH:mm:ss+00:00\"}, {\"upload_timestamp\": YYYY-MM-DDTHH:mm:ss+00:00\"}]}",
         "Date_checked": "202008"
     },
     {
@@ -271,6 +283,8 @@
         "Filepath": "./saved.json",
         "Elements ": "$.saved_collections.*.saved_media",
         "Description": "Photos, videos and stories saved by the Instagram user",
+        "Example_record": "{\"saved_media\": [[\"2018-05-17T09:22:11+00:00\", \"katjaverheul\"], [\"2017-07-15T20:03:36+00:00\", \"lauraboeschoten\"]]}",
+        "Example_record_anonymized": "{\"saved_media\": [[\"YYYY-MM-DDTHH:mm:ss+00:00\", \"[USERNAME]\"], [\"YYYY-MM-DDTHH:mm:ss+00:00\", \"[USERNAME\"]]}",
         "Date_checked": "202008"
     },
     {
@@ -286,6 +300,8 @@
         "Filepath": "./searches.json",
         "Elements ": "$.search_click",
         "Description": "The most recent N clicked searches by the Instagram user",
+        "Example_record": "[{\"search_click\": \"paulodybala\", \"time\": \"2020-04-20T13:11:19+00:00\", \"type\": \"user\"}, ",
+        "Example_record_anonymized": "[{\"search_click\": \"[USERNAME]\", \"time\": \"YYYY-MM-DDTHH:mm:ss+00:00\", \"type\": \"user\"}, ",
         "Date_checked": "202008"
     },
     {
@@ -301,6 +317,8 @@
         "Filepath": "./seen_content.json",
         "Elements ": "$.ads_clicked.*.chaining_seen.*.ads_seen.*.posts_seen",
         "Description": "Content seen by the Instagram user, from users other then the users being followed, such as ads ",
+        "Example_record": "{\"ads_clicked\": [{\"timestamp\": 1587242585, \"caption\": \"{{product.name}}\"}, {\"timestamp\": 1587329413, \"caption\": \"The Perfect Shorts\"}]",
+        "Example_record_anonymized": "{\"ads_clicked\": [{\"timestamp\": 1587242585, \"caption\": \"{{product.name}}\"}, {\"timestamp\": 1587329413, \"caption\": \"[CAPTION TEXT]\"}]",
         "Date_checked": "202008"
     },
     {
@@ -314,6 +332,8 @@
         "Filepath": "./settings.json",
         "Elements ": "$.allow_comments_from",
         "Description": "Setting allowing comments from everyone or only from followers (?)",
+        "Example_record": "{\"allow_comments_from\": \"Everyone\"}",
+        "Example_record_anonymized": "{\"allow_comments_from\": \"Everyone\"}",
         "Date_checked": "202008"
     },
     {
@@ -336,12 +356,14 @@
           "poll",
           "emoji slider",
           "countdown",
-          "quiz",
+          "quizz",
           "story activity"
         ],
         "Filepath": "./stories_activities.json",
         "Elements ": "$.polls.*.emoji_sliders.*.countdowns.*.quizzes",
         "Description": "Activities in stories in which the Instagram user participated",
+        "Example_record": "{\"quizzes\": [[\"2020-03-07T12:05:15+00:00\", \"renovatingwillie\"]]}",
+        "Example_record_anonymized": "{\"quizzes\": [[\"YYYY-MM-DDTHH:mm:ss+00:00\", \"[USERNAME]\"]]}",
         "Date_checked": "202008"
     },
     {
@@ -356,6 +378,8 @@
         "Filepath": "./uploaded_contacts.json",
         "Elements ": "$.first_name.*.last_name.*.contact.*.imported_time",
         "Description": "Contacts imported by the Instagram user",
+        "Example_record": "[{\"first_name\": \"Marija\", \"last_name\": \"\", \"contact\": \"70313184\", \"imported_time\": \"2018-05-16T23:12:23+00:00\"}, ",
+        "Example_record_anonymized": "[{\"first_name\": \"[FIRST NAME]\", \"last_name\": \"[LAST NAME]\", \"contact\": \"70313184\", \"imported_time\": \"YYYY-MM-DDTHH:mm:ss+00:00\"}, ",
         "Date_checked": "202008"
     }
 ]

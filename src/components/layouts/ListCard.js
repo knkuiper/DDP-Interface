@@ -17,7 +17,6 @@ import AddButton from '../buttons/AddButton';
 import FilterButtons from '../buttons/FilterButtons.js';
 import _ from 'lodash';
 
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
