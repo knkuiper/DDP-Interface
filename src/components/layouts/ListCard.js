@@ -176,7 +176,7 @@ class ListCard extends Component {
                               <b>Example record:</b>
                             </Typography>
                             <div>
-                              <img alt="example_record" src ={value.Example_record} height="250" width="400"/>
+                              <img alt="example_record" src={value.Example_screenshot} height="120" width="760"/>
                             </div>
                           </Collapse>
                         </Grid>
