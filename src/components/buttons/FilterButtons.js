@@ -33,10 +33,16 @@ export default function FilterButtons() {
             <FormControl component="fieldset" className={classes.formControl}>
               <FormLabel component="legend">Select platform</FormLabel>
               <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange} row>
-                <FormControlLabel value="facebook" control={<Radio />} label="Facebook" />
-                <FormControlLabel value="instagram" control={<Radio />} label="Instagram" />
-                <FormControlLabel value="twitter" control={<Radio />} label="Twitter" />
                 <FormControlLabel value="google" control={<Radio />} label="Google" />
+                <FormControlLabel value="facebook" control={<Radio />} label="Facebook" />
+                <FormControlLabel value="whatsapp" control={<Radio />} label="Whatsapp" />
+                <FormControlLabel value="instagram" control={<Radio />} label="Instagram" />
+                {/* <FormControlLabel value="uber" control={<Radio />} label="Uber" />
+                  <FormControlLabel value="apple" control={<Radio />} label="Apple" />
+                  <FormControlLabel value="netflix" control={<Radio />} label="Netflix" />
+                  <FormControlLabel value="microsoft" control={<Radio />} label="Microsoft" />
+                  <FormControlLabel value="twitter" control={<Radio />} label="Twitter" />
+                <FormControlLabel value="linkedin" control={<Radio />} label="LinkedIn" /> */}
               </RadioGroup>
             </FormControl>
           </Grid>

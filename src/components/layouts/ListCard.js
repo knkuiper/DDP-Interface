@@ -89,20 +89,29 @@ class ListCard extends Component {
   state = {
     expanded: false,
     search: '',
+    filtering: false,
   };
   updateSearch(e) {
     this.setState({search: e.target.value})
-  }
+  };
+  updateFiltering(e) {
+    this.setState({filtering: e.target.value})
+  };
   handleExpandClick(id) {
       this.setState({[`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
   };
 
   render(){
     const { classes } = this.props;
-    let filteredList = SourceData.filter(({Tags}) => {
-        return Tags.some(e => e.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
-      }
-    );
+    let filteredList = SourceData.filter((e) => {
+      return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+    });
+
+    // let filteredList = SourceData.filter((e) => {
+    //     return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+    //     //&& e.Platform.includes(e => this.state.filtering);
+    //   }
+    // );
     let expanded = this.state.expanded;
 
     return (
@@ -115,7 +124,11 @@ class ListCard extends Component {
           />
           <SearchIcon />
         </Grid>
-        <FilterButtons />
+        <FilterButtons
+          onChange={this.updateFiltering.bind(this)}
+          label="Filter"
+          value={this.state.filtering}
+        />
         <div>
           {filteredList.map(value =>
             <div key={value.id}>
@@ -173,10 +186,13 @@ class ListCard extends Component {
                               <b>Filepath:</b> {value.Filepath}
                             </Typography>
                             <Typography variant="body1" gutterBottom>
+                              <b>Elements:</b> {value.Elements}
+                            </Typography>
+                            <Typography variant="body1" gutterBottom>
                               <b>Example record:</b>
                             </Typography>
                             <div>
-                              <img alt="example_record" src={value.Example_screenshot} height="120" width="760"/>
+                              <img alt="example_record" src={value.Example_screenshot} height="200" />
                             </div>
                           </Collapse>
                         </Grid>
