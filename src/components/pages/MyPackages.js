@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import PackageCard from '../layouts/PackageCard';
+import PackagesCard from '../layouts/PackagesCard';
 
 const Packages = () => {
     return (
         <>
-          <PackageCard />
+          <PackagesCard />
         </>
     );
 }

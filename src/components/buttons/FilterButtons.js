@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormGroup from '@material-ui/core/FormGroup';
+//import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 //import Checkbox from '@material-ui/core/Checkbox';
@@ -32,7 +32,7 @@ export default function FilterButtons() {
           <Grid item>
             <FormControl component="fieldset" className={classes.formControl}>
               <FormLabel component="legend">Select platform</FormLabel>
-              <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange} row>
+              <RadioGroup aria-label="platform" name="platform" value={value} onChange={handleChange} row>
                 <FormControlLabel value="google" control={<Radio />} label="Google" />
                 <FormControlLabel value="facebook" control={<Radio />} label="Facebook" />
                 <FormControlLabel value="whatsapp" control={<Radio />} label="Whatsapp" />
@@ -48,8 +48,8 @@ export default function FilterButtons() {
           </Grid>
           {/* <Grid item>
             <FormControl component="fieldset" className={classes.formControl}>
-              <FormLabel component="legend">Select conversation type</FormLabel>
-              <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+              <FormLabel component="legend">Select visibility</FormLabel>
+              <RadioGroup aria-label="timelimit" name="timelimit" value={value} onChange={handleChange}>
             <FormControlLabel value="public" control={<Radio />} label="Public" />
             <FormControlLabel value="private" control={<Radio />} label="Private" />
             <FormControlLabel value="1on1" control={<Radio />} label="1 on 1" />
@@ -58,19 +58,15 @@ export default function FilterButtons() {
             </Grid>
             <Grid item>
             <FormControl component="fieldset" className={classes.formControl}>
-              <FormLabel component="legend">Select age group</FormLabel>
+              <FormLabel component="legend">Select time visibility</FormLabel>
               <FormGroup>
             <FormControlLabel
-            control={<Checkbox onChange={handleChange} name=">20" />}
-            label=">20"
+            control={<Checkbox onChange={handleChange} name="Ephemeral" />}
+            label="Ephemeral"
             />
             <FormControlLabel
-            control={<Checkbox onChange={handleChange} name="20-40" />}
-            label="20-40"
-            />
-            <FormControlLabel
-            control={<Checkbox onChange={handleChange} name="40+" />}
-            label="40+"
+            control={<Checkbox onChange={handleChange} name="Permanent" />}
+            label="Permanent"
             />
               </FormGroup>
             </FormControl>

@@ -89,10 +89,11 @@ class ListCard extends Component {
   state = {
     expanded: false,
     search: '',
-    filtering: false,
+    filtering: "",
   };
   updateSearch(e) {
     this.setState({search: e.target.value})
+    console.log(e.target.value);
   };
   updateFiltering(e) {
     this.setState({filtering: e.target.value})
@@ -103,9 +104,17 @@ class ListCard extends Component {
 
   render(){
     const { classes } = this.props;
-    let filteredList = SourceData.filter((e) => {
-      return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
-    });
+    let filteredList = SourceData;
+
+    if(this.state.search) {
+      filteredList = filteredList.filter((e) => e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1));
+    }
+    if(this.state.filtering) {
+      filteredList = SourceData.filter((e) => e.Platform.includes(e => this.state.filtering));
+    }
+    // let filteredList = SourceData.filter((e) => {
+    //   return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+    // });
 
     // let filteredList = SourceData.filter((e) => {
     //     return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
@@ -192,7 +201,7 @@ class ListCard extends Component {
                               <b>Example record:</b>
                             </Typography>
                             <div>
-                              <img alt="example_record" src={value.Example_screenshot} height="200" />
+                              <img alt="example_record" src={value.Example_screenshot} width="800" />
                             </div>
                           </Collapse>
                         </Grid>

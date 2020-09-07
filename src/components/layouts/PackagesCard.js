@@ -32,7 +32,7 @@ const styles = theme => ({
   }
 });
 
-class PackageCard extends Component {
+class PackagesCard extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -66,4 +66,4 @@ class PackageCard extends Component {
   }
 }
 
-export default withStyles(styles)(PackageCard);
+export default withStyles(styles)(PackagesCard);
