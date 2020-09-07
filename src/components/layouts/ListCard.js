@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Typography,
   Grid,
-  Card,
   TextField
  } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import clsx from 'clsx';
 import SourceData from '../data/index_v2.json';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Collapse from '@material-ui/core/Collapse';
 import SearchIcon from '@material-ui/icons/Search';
-import IconButton from '@material-ui/core/IconButton';
-import AddButton from '../buttons/AddButton';
 import FilterButtons from '../buttons/FilterButtons.js';
+import ItemList from "../layouts/ItemList.js";
 import _ from 'lodash';
 
 const styles = theme => ({
@@ -85,43 +78,31 @@ const styles = theme => ({
   }
 });
 
-class ListCard extends Component {
-  state = {
-    expanded: false,
-    search: '',
-    filtering: "",
-  };
+class ListCardTesting extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: SourceData,
+      search: '',
+      selection: '',
+      expanded: false
+    }
+  }
   updateSearch(e) {
-    this.setState({search: e.target.value})
-    console.log(e.target.value);
+    this.setState({ search: e.target.value })
   };
   updateFiltering(e) {
-    this.setState({filtering: e.target.value})
+    this.setState({ selection: e.target.value })
   };
   handleExpandClick(id) {
-      this.setState({[`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
+      this.setState({ [`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
   };
 
   render(){
     const { classes } = this.props;
-    let filteredList = SourceData;
-
-    if(this.state.search) {
-      filteredList = filteredList.filter((e) => e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1));
-    }
-    if(this.state.filtering) {
-      filteredList = SourceData.filter((e) => e.Platform.includes(e => this.state.filtering));
-    }
-    // let filteredList = SourceData.filter((e) => {
-    //   return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
-    // });
-
-    // let filteredList = SourceData.filter((e) => {
-    //     return e.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
-    //     //&& e.Platform.includes(e => this.state.filtering);
-    //   }
-    // );
-    let expanded = this.state.expanded;
+    let filteredList = this.state.list.filter((item) => {
+      return item.Tags.some((Tags) => Tags.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+    });
 
     return (
       <>
@@ -136,86 +117,14 @@ class ListCard extends Component {
         <FilterButtons
           onChange={this.updateFiltering.bind(this)}
           label="Filter"
-          value={this.state.filtering}
+          value={this.state.selection}
         />
         <div>
-          {filteredList.map(value =>
-            <div key={value.id}>
-              <CssBaseline />
-              <div className={classes.root}>
-                <Grid container justify="center" className={classes.test}>
-                  <Grid
-                    container
-                    spacing={10}
-                    alignItems="center"
-                    justify="center"
-                    className={classes.grid}
-                  >
-                    <Grid item xs={12} md={12}>
-                      <Card className={classes.cardContainter}>
-                        <Grid className={classes.inline}>
-                          <Grid className={classes.inlineRight}>
-                            <AddButton />
-                          </Grid>
-                          <Typography
-                            style={{ textTransform: 'uppercase' }}
-                            color='primary'
-                            gutterBottom
-                          >
-                            {value.Platform} {value.File}
-                          </Typography>
-                          <Typography variant="body1" gutterBottom>
-                            <b>Platform:</b> {value.Platform}
-                          </Typography>
-                          <Typography variant="body1" gutterBottom>
-                            <b>File:</b> {value.File}
-                          </Typography>
-                          <Typography variant="body1" gutterBottom>
-                            <b>File format:</b> {value.File_format}
-                          </Typography>
-                          <Typography variant="body1" gutterBottom>
-                            <b>Description:</b> {value.Description}
-                          </Typography>
-                        </Grid>
-                        <Grid disableSpacing className={classes.inlineRight}>
-                          <IconButton
-                            className={clsx(classes.expand, {
-                              [classes.expandOpen]: expanded,
-                            })}
-                            onClick={this.handleExpandClick.bind(this,value.id)}
-                            aria-expanded={this.state[`expanded_${value.id}`] || false}
-                            aria-label="show more"
-                          >
-                            <ExpandMoreIcon />
-                          </IconButton>
-                        </Grid>
-                        <Grid className={classes.inline}>
-                          <Collapse in={this.state[`expanded_${value.id}`] || false} timeout="auto" unmountOnExit>
-                            <Typography variant="body1" gutterBottom>
-                              <b>Filepath:</b> {value.Filepath}
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>
-                              <b>Elements:</b> {value.Elements}
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>
-                              <b>Example record:</b>
-                            </Typography>
-                            <div>
-                              <img alt="example_record" src={value.Example_screenshot} width="800" />
-                            </div>
-                          </Collapse>
-                        </Grid>
-                      </Card>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </div>
-            </div>
-          )}
+          <ItemList filteredList={filteredList} />
         </div>
       </>
     );
   }
 }
 
-export default withStyles(styles)(ListCard);
+export default withStyles(styles)(ListCardTesting);
