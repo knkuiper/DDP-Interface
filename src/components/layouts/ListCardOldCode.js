@@ -85,7 +85,7 @@ const styles = theme => ({
   }
 });
 
-class ListCard extends Component {
+class ListCardOld extends Component {
   state = {
     expanded: false,
     search: '',
@@ -219,4 +219,4 @@ class ListCard extends Component {
   }
 }
 
-export default withStyles(styles)(ListCard);
+export default withStyles(styles)(ListCardOld);

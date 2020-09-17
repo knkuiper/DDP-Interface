@@ -93,7 +93,6 @@ class Item extends Component {
     const { classes } = this.props;
 
     let expanded = this.state.expanded;
-
     return (
       <>
         <div key={this.props.id}>
@@ -147,6 +146,12 @@ class Item extends Component {
                     </Grid>
                     <Grid className={classes.inline}>
                       <Collapse in={this.state[`expanded_${this.props.id}`] || false} timeout="auto" unmountOnExit>
+                        <Typography variant="body1" gutterBottom>
+                          <b>Visibility:</b> {this.props.Visibility}
+                        </Typography>
+                        <Typography variant="body1" gutterBottom>
+                          <b>Temporality:</b> {this.props.Temporality}
+                        </Typography>
                         <Typography variant="body1" gutterBottom>
                           <b>Filepath:</b> {this.props.Filepath}
                         </Typography>

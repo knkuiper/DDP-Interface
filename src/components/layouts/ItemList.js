@@ -7,6 +7,8 @@ class ItemList extends Component {
       return <Item
         key={item.id}
         Platform={item.Platform}
+        Visibility={item.Visibility}
+    		Temporality={item.Temporality}
         File={item.File}
         File_format={item.File_format}
         Tags={item.Tags}

@@ -1,5 +1,5 @@
 [{
-        "id": 1,
+        "id": "1",
         "Platform": "Instagram",
         "File": "direct",
         "File_format": "jpg, mp4",
@@ -111,7 +111,7 @@
         "Elements": "$.login_history.*.registration_info",
         "Description": "Login history of user on different devices",
         "Example_record_anonymized": "{\"login_history\": [{\"cookie_name\": \"*************************C3T\", \"ip_address\": \"2a02:a210:2502:b280:856d:6ab:b56c:6580\", \"language_code\": \"nl\", \"timestamp\": \"2020-04-15T20:11:02+00:00\", \"user_agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36\", \"device_id\": \"\"},",
-        "Example_screenshot": "img/instagram_id6_account.png",
+        "Example_screenshot": "img/006_instagram_account.png",
         "Date_checked": "202008"
     },
     {

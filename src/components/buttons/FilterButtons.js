@@ -23,14 +23,13 @@ class FilterButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selection: '',
+      select_platform: '',
       list: SourceData,
     };
     this.updateFiltering = this.updateFiltering.bind(this);
   }
   updateFiltering(e) {
-    this.setState({ selection: e.target.value });
-    console.log(e.target.value);
+    this.setState({ select_platform: e.target.value });
   }
 
   render() {
@@ -44,8 +43,8 @@ class FilterButtons extends Component {
               <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Select platform</FormLabel>
                 <RadioGroup
-                  aria-label="platform"
-                  name="platform"
+                  aria-label="select_platform"
+                  name="select_platform"
                   value={this.props.Platform}
                   onChange={this.updateFiltering} row
                 >
