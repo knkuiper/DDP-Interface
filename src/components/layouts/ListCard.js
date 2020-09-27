@@ -180,6 +180,7 @@ function ListCard(props) {
 
         <div>
           <ItemList filteredList={data} onChange={handleChange} />
+          {data.length === 0 && <span>Found nothing! Please try another search term</span>}
         </div>
       </>
     );
