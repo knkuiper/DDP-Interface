@@ -12,11 +12,9 @@ class ItemList extends Component {
         File={item.File}
         File_format={item.File_format}
         Tags={item.Tags}
-        Filter_tags={item.Filter_tags}
         Filepath={item.Filepath}
         Elements={item.Elements}
         Description={item.Description}
-        Example_record_anonymized={item.Example_record_anonymized}
         Example_screenshot={item.Example_screenshot}
              />
            });

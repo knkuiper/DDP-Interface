@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   Grid,
   TextField
@@ -85,63 +85,44 @@ const styles = theme => ({
   }
 });
 
-class ListCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      list: SourceData,
-      search: '',
-      select_platform: '',
-    };
-  }
-  // updateSearch(e) {
-  //   this.setState({ search: e.target.value })
-  //   console.log(e.target.value)
-  // };
-  updateFiltering = e => {
-    const value = e.target.value;
-    //const platform = e.Platform;
-    this.setState({ search: value });
-    //this.setState({ select_platform: e.target.value })
-    console.log(value);
+function ListCard(props) {
+  const { classes } = props;
+
+  const [searchText, setSearchText] = useState("");
+  const [data, setData] = useState(SourceData);
+  const [selectPlatform, setPlatform] = useState("");
+  const [visibility, setVisibility] = useState("");
+  const [temporality, setTemporality] = useState("");
+
+  // exclude column list from filter
+  const excludeColumns = ["id", "Elements", "Filepath"];
+
+  const handleChange = value => {
+    setSearchText(value);
+    filterData(value);
   };
 
-  render(){
-    const { classes } = this.props;
-
-    var searchValue = this.state.search.toLowerCase();
-
-    let filterResults = this.state.list.filter(item => {
-      return (
-        // Search for the tags used
-        //item.Tags.some(Tags => Tags.toLowerCase().search(searchValue) !== -1) //||
-
-        // Code to search for any words found in the objects
-        Object.keys(item).some(key => item[key].toString().search(searchValue) !== -1)
-
-        //item.Platform === this.state.select_platform
-      );
-    });
-
-    // if (this.state.search && this.state.select_platform) {
-    //   filterResults = filterResults.filter(item => {
-    //     return (
-    //       item.search === item.Tags.some(Tags => Tags.toLowerCase().indexOf(this.state.search.toLowerCase())) //&&
-    //       //item.Platform.some(Platform === Platform.toLowerCase().indexOf(this.state.select_platform))
-    //     );
-    //   });
-    // }
-
-
-    //console.log(filterResults[0].Platform + " " + filterResults[0].Tags);
+  const filterData = (value) => {
+    const lowercasedValue = value.toLowerCase().trim();
+    if (lowercasedValue === "") setData(SourceData);
+    else {
+      const filteredData = SourceData.filter(item => {
+        return Object.keys(item).some(key =>
+          excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(lowercasedValue)
+        );
+      });
+      setData(filteredData);
+    }
+  }
+  console.log(data);
 
     return (
       <>
         <Grid container className={classes.search}>
           <TextField
-            onChange={this.updateFiltering}
+            onChange={e => handleChange(e.target.value)}
             label="Search"
-            value={this.state.search}
+            value={searchText}
           />
           <SearchIcon />
         </Grid>
@@ -159,18 +140,18 @@ class ListCard extends Component {
                 <RadioGroup
                   aria-label="select_platform"
                   name="select_platform"
-                  value={this.state.select_platform}
-                  onChange={this.updateFiltering}
+                  value={selectPlatform}
+                  onChange={e => handleChange(e.target.value)}
                 >
-                  {/*<FormControlLabel value="Google" control={<Radio />} label="Google" />*/}
+                  <FormControlLabel value="Google" control={<Radio />} label="Google" />
                   <FormControlLabel value="Facebook" control={<Radio />} label="Facebook" />
-                  <FormControlLabel value="Whatsapp" control={<Radio />} label="Whatsapp" />
+                  <FormControlLabel value="WhatsApp" control={<Radio />} label="WhatsApp" />
                   <FormControlLabel value="Instagram" control={<Radio />} label="Instagram" />
                   {/* <FormControlLabel value="uber" control={<Radio />} label="Uber" />
-                    <FormControlLabel value="apple" control={<Radio />} label="Apple" />
-                    <FormControlLabel value="netflix" control={<Radio />} label="Netflix" />
-                    <FormControlLabel value="microsoft" control={<Radio />} label="Microsoft" />
-                    <FormControlLabel value="twitter" control={<Radio />} label="Twitter" />
+                      <FormControlLabel value="apple" control={<Radio />} label="Apple" />
+                      <FormControlLabel value="netflix" control={<Radio />} label="Netflix" />
+                      <FormControlLabel value="microsoft" control={<Radio />} label="Microsoft" />
+                      <FormControlLabel value="twitter" control={<Radio />} label="Twitter" />
                   <FormControlLabel value="linkedin" control={<Radio />} label="LinkedIn" /> */}
                 </RadioGroup>
               </FormControl>
@@ -178,19 +159,19 @@ class ListCard extends Component {
             <Grid item>
               <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Select visibility</FormLabel>
-                <RadioGroup aria-label="visibility" name="visibility" value={this.value} onChange={this.updateFiltering}>
-                  <FormControlLabel value="public" control={<Radio />} label="Public" />
-                  <FormControlLabel value="personal" control={<Radio />} label="Personal" />
-                  <FormControlLabel value="interaction" control={<Radio />} label="Interaction" />
+                <RadioGroup aria-label="visibility" name="visibility" value={visibility} onChange={handleChange}>
+                  <FormControlLabel control={<Radio />} value="public" label="Public" />
+                  <FormControlLabel control={<Radio />} value="personal" label="Personal" />
+                  <FormControlLabel control={<Radio />} value="interaction" label="Interaction" />
                 </RadioGroup>
               </FormControl>
             </Grid>
             <Grid item>
               <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Select temporality</FormLabel>
-                <FormGroup aria-label="temporality" name="temporality" value={this.value} onChange={this.updateFiltering}>
-                  <FormControlLabel value="timestamped" control={<Checkbox  />} label="Timestamped" />
-                  <FormControlLabel value="time invariant" control={<Checkbox />} label="Time invariant" />
+                <FormGroup aria-label="temporality" name="temporality" value={temporality} onChange={handleChange}>
+                  <FormControlLabel control={<Checkbox />} value="timestamped" label="Timestamped" />
+                  <FormControlLabel control={<Checkbox />} value="timeinvariant" label="Time invariant" />
                 </FormGroup>
               </FormControl>
             </Grid>
@@ -198,11 +179,10 @@ class ListCard extends Component {
         </div>
 
         <div>
-          <ItemList filteredList={filterResults} onChange={this.updateFiltering} />
+          <ItemList filteredList={data} onChange={handleChange} />
         </div>
       </>
     );
   }
-}
 
 export default withStyles(styles)(ListCard);

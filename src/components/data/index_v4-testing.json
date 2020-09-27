@@ -653,7 +653,7 @@
 		"Elements ": "$.facial_data",
 		"Description": "Facial recognition color codes used by Instagram to detect facebook user",
 		"Example_record_anonymized": "{\r\n  \"facial_data\": {\r\n    \"threshold_green\": [SCORE],\r\n    \"threshold_yellow\": [SCORE],\r\n    \"threshold_red\": [SCORE],\r\n    \"example_count\": [COUNT],\r\n    \"raw_data\": [...]\r\n  }\r\n}",
-		"Example_screenshot": "img/101_facebook.png"
+		"Example_screenshot": "101_facebook.png"
 	},
 	{
 		"id": "102",
@@ -687,7 +687,7 @@
 		"Elements ": "$.friend_peer_group",
 		"Description": "Life stage classified by Facebook based on friend peer group",
 		"Example_record_anonymized": "{\r\n  \"friend_peer_group\": \"[GROUP CATEGORY]\"\r\n}",
-		"Example_screenshot": "img/102_facebook.png"
+		"Example_screenshot": "102_facebook.png"
 	},
 	{
 		"id": "103",
@@ -712,7 +712,7 @@
 		"Filepath": "./about_you/messenger.json",
 		"Elements ": "$.messenger",
 		"Example_record_anonymized": "{\r\n\t\"messenger\": {\r\n\t\t\"secret_conversations\": {\r\n\t\t\t\"has_sent_message\": [TRUE/FALSE],\r\n\t\t\t\"has_received_message\": [TRUE/FALSE],\r\n\t\t\t\"tincan_devices\": [{\r\n\t\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\t\"name\": \"[DEVICE]\"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}",
-		"Example_screenshot": "img/103_facebook.png"
+		"Example_screenshot": "103_facebook.png"
 	},
 	{
 		"id": "104",
@@ -728,7 +728,7 @@
 		"Elements ": "$.notifications",
 		"Description": "Last N notifications user received from Facebook",
 		"Example_record_anonymized": "{\r\n  \"notifications\": [\r\n    {\r\n      \"timestamp\": [UNIX TIME],\r\n      \"unread\": [TRUE/FALSE],\r\n      \"href\": \"[URL]\",\r\n      \"text\": \"[TEXT]\"\r\n    }\r\n  ]\r\n}",
-		"Example_screenshot": "img/104_facebook.png"
+		"Example_screenshot": "104_facebook.png"
 	},
 	{
 		"id": "105",
@@ -753,7 +753,7 @@
 		"Elements ": "$.Page Notifications.*.Language Settings.*.Locale Changes",
 		"Description": "Settings set by the user regarding notifications, language and location",
 		"Example_record_anonymized": "{\r\n\t\"preferences\": [{\r\n\t\t\"name\": \"Page Notifications\",\r\n\t\t\"description\": \"[PREFERENCE DESCRIPTION]\",\r\n\t\t\"entries\": [{\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"name\": \"[PAGE NAME]\",\r\n\t\t\t\t\"uri\": \"[URL]\"\r\n\t\t\t}\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/105_facebook.png"
+		"Example_screenshot": "105_facebook.png"
 	},
 	{
 		"id": "106",
@@ -796,7 +796,7 @@
 		"Elements ": "$.Facebook Watch Videos and Shows.*.Articles.*.Ads",
 		"Description": "Videos, shows, articles and ads shown to the user by Facebook",
 		"Example_record_anonymized": "{\r\n  \"viewed_things\": [\r\n    {\r\n      \"name\": \"Facebook Watch Videos and Shows\",\r\n      \"description\": \"Videos and shows you've recently visited or viewed from Facebook Watch and time you've spent watching shows\",\r\n      \"children\": [\r\n        {\r\n          \"name\": \"Time Spent\",\r\n          \"description\": \"The amount of time you've spent watching videos from a Show Page\",\r\n          \"entries\": [\r\n            {\r\n              \"timestamp\": [UNIX TIME],\r\n              \"data\": {\r\n                \"name\": \"[FACEBOOK SHOW PAGE]\",\r\n                \"uri\": \"[URL]\",\r\n                \"watch_time\": \"[TIMES WATCHED]\"\r\n              }\r\n            }]\r\n        }]\r\n    }]\r\n}",
-		"Example_screenshot": "img/106_facebook.png"
+		"Example_screenshot": "106_facebook.png"
 	},
 	{
 		"id": "107",
@@ -812,7 +812,7 @@
 		"Elements ": "$.Profile visits.*.Page visits",
 		"Description": "The last N profiles and pages visited by the user",
 		"Example_record_anonymized": "{\r\n\t\"visited_things\": [{\r\n\t\t\"name\": \"Profile visits\",\r\n\t\t\"description\": \"People whose profiles you've visited\",\r\n\t\t\"entries\": [{\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"name\": \"[FULL NAME]\",\r\n\t\t\t\t\"uri\": \"[URL]\"\r\n\t\t\t}\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/107_facebook.png"
+		"Example_screenshot": "107_facebook.png"
 	},
 	{
 		"id": "108",
@@ -836,7 +836,7 @@
 		"Elements ": "$.address_book",
 		"Description": "Contact information of the user's contacts",
 		"Example_record_anonymized": "{\r\n\t\"address_book\": {\r\n\t\t\"address_book\": [{\r\n\t\t\t\"name\": \"[FULL NAME]\",\r\n\t\t\t\"details\": [{\r\n\t\t\t\t\"contact_point\": \"[PHONE NR]\"\r\n\t\t\t}],\r\n\t\t\t\"created_timestamp\": [UNIX TIME],\r\n\t\t\t\"updated_timestamp\": [UNIX TIME]\r\n\t\t}]\r\n\t}\r\n}",
-		"Example_screenshot": "img/108_facebook.png"
+		"Example_screenshot": "108_facebook.png"
 	},
 	{
 		"id": "109",
@@ -852,7 +852,7 @@
 		"Elements ": "$.topics",
 		"Description": "Topics Facebook thinks that are of interest to the user",
 		"Example_record_anonymized": "{\r\n\t\"topics\": [\r\n\t\t\"[TOPIC 1]\",\r\n\t\t\"[TOPIC 2]\"\r\n\t]\r\n}",
-		"Example_screenshot": "img/109_facebook.png"
+		"Example_screenshot": "109_facebook.png"
 	},
 	{
 		"id": "110",
@@ -868,7 +868,7 @@
 		"Elements ": "$.custom_audiences",
 		"Description": "Advertisers who uploaded a contact list with your information",
 		"Example_record_anonymized": "{\r\n\t\"custom_audiences\": [\r\n\t\t\"[PAGE 1]\"\r\n\t]\r\n}",
-		"Example_screenshot": "img/110_facebook.png"
+		"Example_screenshot": "110_facebook.png"
 	},
 	{
 		"id": "111",
@@ -884,7 +884,7 @@
 		"Elements ": "$.history",
 		"Description": "The N last ads the user clicked on",
 		"Example_record_anonymized": "{\r\n\t\"history\": [{\r\n\t\t\"title\": \"[PAGE NAME]\",\r\n\t\t\"action\": \"Clicked Ad\",\r\n\t\t\"timestamp\": [UNIX TIME]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/111_facebook.png"
+		"Example_screenshot": "111_facebook.png"
 	},
 	{
 		"id": "112",
@@ -900,7 +900,7 @@
 		"Elements ": "$.off_facebook_activity",
 		"Description": "Off facebook activity by the user linked to the user's account",
 		"Example_record_anonymized": "{\r\n\t\"off_facebook_activity\": [{\r\n\t\t\t\"name\": \"[PAGE NAME]\",\r\n\t\t\t\"events\": [{\r\n\t\t\t\t\t\"id\": [RANDOM NR],\r\n\t\t\t\t\t\"type\": \"PAGE_VIEW\",\r\n\t\t\t\t\t\"timestamp\": [UNIX TIME]\r\n\t\t\t\t}]\r\n    }]\r\n}",
-		"Example_screenshot": "img/112_facebook.png"
+		"Example_screenshot": "112_facebook.png"
 	},
 	{
 		"id": "113",
@@ -916,7 +916,7 @@
 		"Elements ": "$.installed_apps",
 		"Description": "Apps installed by the user linked to the user's Facebook account",
 		"Example_record_anonymized": "{\r\n\t\"installed_apps\": [{\r\n\t\t\"name\": \"[APP NAME]\",\r\n\t\t\"added_timestamp\": [UNIX TIME]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/113_facebook.png"
+		"Example_screenshot": "113_facebook.png"
 	},
 	{
 		"id": "114",
@@ -932,7 +932,7 @@
 		"Elements ": "$.app_posts",
 		"Description": "Posts at the user's timeline generated by other apps",
 		"Example_record_anonymized": "{\r\n\t\"app_posts\": [{\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"title\": \"[TITLE OF POST]\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/114_facebook.png"
+		"Example_screenshot": "114_facebook.png"
 	},
 	{
 		"id": "115",
@@ -972,7 +972,7 @@
 		"Elements ": "$.comments",
 		"Description": "Comments by the user on diverse forms of media typically seen in the `timeline'",
 		"Example_record_anonymized": "{\r\n\t\"comments\": [{\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"data\": [{\r\n\t\t\t\"comment\": {\r\n\t\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\t\"comment\": \"[TEXT]\",\r\n\t\t\t\t\"author\": \"[FULL NAME]\"\r\n\t\t\t}\r\n\t\t}],\r\n\t\t\"title\": \"[FULL NAME] replied to [FULL NAME]'s comment.\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/116_facebook.png"
+		"Example_screenshot": "116_facebook.png"
 	},
 	{
 		"id": "117",
@@ -1004,7 +1004,7 @@
 		"Elements ": "$.events_invited",
 		"Description": "Events the user is invited to",
 		"Example_record_anonymized": "{\r\n  \"events_invited\": [{\r\n      \"name\": \"[EVENT NAME]\",\r\n      \"start_timestamp\": [UNIX TIME],\r\n      \"end_timestamp\": [UNIX TIME]\r\n    }]\r\n}",
-		"Example_screenshot": "img/117_facebook.png"
+		"Example_screenshot": "117_facebook.png"
 	},
 	{
 		"id": "118",
@@ -1036,7 +1036,7 @@
 		"Elements ": "$.events_joined.*.events_interested.*.",
 		"Description": "Events the user joined or was interested in",
 		"Example_record_anonymized": "{\r\n\t\"event_responses\": {\r\n\t\t\"events_joined\": [{\r\n\t\t\t\"name\": \"[EVENT NAME]\",\r\n\t\t\t\"start_timestamp\": [UNIX TIME],\r\n\t\t\t\"end_timestamp\": [UNIX TIME]\r\n\r\n\t\t}]\r\n\t}\r\n}",
-		"Example_screenshot": "img/118_facebook.png"
+		"Example_screenshot": "118_facebook.png"
 	},
 	{
 		"id": "119",
@@ -1068,7 +1068,7 @@
 		"Elements ": "$.your_events",
 		"Description": "Events organised by the user",
 		"Example_record_anonymized": "{\r\n\t\"your_events\": [{\r\n\t\t\"name\": \"[EVENT NAME]\",\r\n\t\t\"start_timestamp\": [UNIX TIME],\r\n\t\t\"end_timestamp\": [UNIX TIME],\r\n\t\t\"place\": {\r\n\t\t\t\"name\": \"[LOCATION\",\r\n\t\t\t\"coordinate\": {\r\n\t\t\t\t\"latitude\": [LATTITUDE],\r\n        \"longitude\": [LONGITUDE]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"description\": \"[OPEN TEXT] \",\r\n\t\t\"create_timestamp\": [UNIX TIME]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/119_facebook.png"
+		"Example_screenshot": "119_facebook.png"
 	},
 	{
 		"id": "120",
@@ -1108,7 +1108,7 @@
 		"Elements ": "$.friends",
 		"Description": "Friends of the user",
 		"Example_record_anonymized": "{\r\n\t\"friends\": [{\r\n\t\t\"name\": \"[FULL NAME]\",\r\n\t\t\"timestamp\": [UNIX TIME]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/122_facebook.png"
+		"Example_screenshot": "122_facebook.png"
 	},
 	{
 		"id": "123",
@@ -1132,7 +1132,7 @@
 		"Elements ": "$.received_requests",
 		"Description": "Pending friend requests received by the user",
 		"Example_record_anonymized": "{\r\n  \"received_requests\": [{\r\n      \"name\": \"[FULL NAME]\",\r\n      \"timestamp\": [UNIX TIME]\r\n    }]\r\n}",
-		"Example_screenshot": "img/123_facebook.png"
+		"Example_screenshot": "123_facebook.png"
 	},
 	{
 		"id": "124",
@@ -1156,7 +1156,7 @@
 		"Elements ": "$.rejected_requests",
 		"Description": "Friend requests rejected by the user",
 		"Example_record_anonymized": "{\r\n  \"rejected_requests\": [{\r\n    \"name\": \"[FULLE NAME]\",\r\n    \"timestamp\": [UNIX TIME]\r\n  }]\r\n}",
-		"Example_screenshot": "img/124_facebook.png"
+		"Example_screenshot": "124_facebook.png"
 	},
 	{
 		"id": "125",
@@ -1180,7 +1180,7 @@
 		"Elements ": "$.deleted_friends",
 		"Description": "Friends deleted by the user",
 		"Example_record_anonymized": "{\r\n  \"deleted_friends\": [{\r\n    \"name\": \"[FULL NAME\",\r\n    \"timestamp\": [UNIX TIME]\r\n  }]\r\n}",
-		"Example_screenshot": "img/125_facebook.png"
+		"Example_screenshot": "125_facebook.png"
 	},
 	{
 		"id": "126",
@@ -1204,7 +1204,7 @@
 		"Elements ": "$.sent_requests",
 		"Description": "Pending friend requests that were sent by the user",
 		"Example_record_anonymized": "{\r\n  \"sent_requests\": [{\r\n    \"name\": \"[FULL NAME]\",\r\n    \"timestamp\": [UNIX TIME]\r\n  }]\r\n}",
-		"Example_screenshot": "img/126_facebook.png"
+		"Example_screenshot": "126_facebook.png"
 	},
 	{
 		"id": "127",
@@ -1228,7 +1228,7 @@
 		"Elements ": "$.groups_joined",
 		"Description": "Groups the user joined",
 		"Example_record_anonymized": "{\r\n  \"groups_joined\": [{\r\n    \"timestamp\": [UNIX TIME],\r\n    \"title\": \"[ACTIVITY][GROUP NAME]\"\r\n  }]\r\n}",
-		"Example_screenshot": "img/127_facebook.png"
+		"Example_screenshot": "127_facebook.png"
 	},
 	{
 		"id": "128",
@@ -1252,7 +1252,7 @@
 		"Elements ": "$.groups_admined",
 		"Description": "Groups where the user is administrator",
 		"Example_record_anonymized": "{\r\n  \"groups_admined\": [{\r\n    \"name\": \"[GROUP NAME]\",\r\n    \"timestamp\": [UNIX TIME]\r\n  }]\r\n}",
-		"Example_screenshot": "img/128_facebook.png"
+		"Example_screenshot": "128_facebook.png"
 	},
 	{
 		"id": "129",
@@ -1287,7 +1287,7 @@
 		"Elements ": "$.group_posts",
 		"Description": "Posts by the user in groups",
 		"Example_record_anonymized": "{\r\n\t\"group_posts\": {\r\n\t\t\"activity_log_data\": [{\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"data\": [{\r\n\t\t\t\t\t\"post\": \"[OPEN TEXT]\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"update_timestamp\": [UNIX TIME]\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"title\": \"[FULL NAME][POSTED IN][GROUP NAME]\"\r\n\t\t}]\r\n\t}\r\n}",
-		"Example_screenshot": "img/129_facebook.png"
+		"Example_screenshot": "129_facebook.png"
 	},
 	{
 		"id": "130",
@@ -1303,7 +1303,7 @@
 		"Elements ": "$.news_feed_topics",
 		"Description": "Topics facebook thinks that the user likes on his/her news feed",
 		"Example_record_anonymized": "{\r\n  \"news_feed_topics\": [\r\n    \"[TOPIC]\",\r\n    \"[TOPIC]\"\r\n  ]\r\n}",
-		"Example_screenshot": "img/130_facebook.png"
+		"Example_screenshot": "130_facebook.png"
 	},
 	{
 		"id": "131",
@@ -1319,7 +1319,7 @@
 		"Elements ": "$.news_topics",
 		"Description": "News topics facebook thinks that the user is interested in",
 		"Example_record_anonymized": "{\r\n  \"news_topics\": [\r\n    \"[TOPIC]\",\r\n    \"[TOPIC]\"\r\n  ]\r\n}",
-		"Example_screenshot": "img/131_facebook.png"
+		"Example_screenshot": "131_facebook.png"
 	},
 	{
 		"id": "132",
@@ -1353,7 +1353,7 @@
 		"Elements ": "$.events_interactions",
 		"Description": "",
 		"Example_record_anonymized": "{\r\n\t\"events_interactions\": [{\r\n\t\t\"name\": \"\",\r\n\t\t\"description\": \"\",\r\n\t\t\"entries\": [{\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"value\": \"[CLASSIFICATION VALUE]\"\r\n\t\t\t}\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/132_facebook.png"
+		"Example_screenshot": "132_facebook.png"
 	},
 	{
 		"id": "133",
@@ -1388,7 +1388,7 @@
 		"Elements ": "$.group_interactions",
 		"Description": "Amount of times the user interacted with a certain group",
 		"Example_record_anonymized": "{\r\n\t\"group_interactions\": [{\r\n\t\t\"name\": \"\",\r\n\t\t\"description\": \"\",\r\n\t\t\"entries\": [{\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"name\": \"[GROUP NAME]\",\r\n\t\t\t\t\"value\": \"[#] times\",\r\n\t\t\t\t\"uri\": \"[URI]\"\r\n\t\t\t}\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/133_facebook.png"
+		"Example_screenshot": "133_facebook.png"
 	},
 	{
 		"id": "134",
@@ -1414,7 +1414,7 @@
 		"Elements ": "$.menu_items",
 		"Description": "Menu items the user used",
 		"Example_record_anonymized": "{\r\n\t\"menu_items\": [{\r\n\t\t\"name\": \"\",\r\n\t\t\"description\": \"\",\r\n\t\t\"entries\": [{\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"name\": \"[GROUP NAME\",\r\n\t\t\t\t\"uri\": \"[URI]\"\r\n\t\t\t}\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/134_facebook.png"
+		"Example_screenshot": "134_facebook.png"
 	},
 	{
 		"id": "135",
@@ -1449,7 +1449,7 @@
 		"Elements ": "$people_interactions",
 		"Description": "Other users who the user interacted with",
 		"Example_record_anonymized": "{\r\n\t\"people_interactions\": [{\r\n\t\t\"name\": \"\",\r\n\t\t\"description\": \"\",\r\n\t\t\"entries\": [{\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"name\": \"[FULL NAME]\",\r\n\t\t\t\t\"uri\": \"[URI]\"\r\n\t\t\t}\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/135_facebook.png"
+		"Example_screenshot": "135_facebook.png"
 	},
 	{
 		"id": "136",
@@ -1476,7 +1476,7 @@
 		"Elements ": "$.other_likes",
 		"Description": "Likes that the user gave on external websites",
 		"Example_record_anonymized": "{\r\n\t\"other_likes\": [{\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"attachments\": [{\r\n\t\t\t\"data\": [{\r\n\t\t\t\t\"external_context\": {\r\n\t\t\t\t\t\"url\": \"[URL]\"\r\n\t\t\t\t}\r\n\t\t\t}]\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/136_facebook.png"
+		"Example_screenshot": "136_facebook.png"
 	},
 	{
 		"id": "137",
@@ -1503,7 +1503,7 @@
 		"Elements ": "$.page_likes",
 		"Description": "Facebook pages that the user likes",
 		"Example_record_anonymized": "{\r\n  \"page_likes\": [{\r\n    \"name\": \"[PAGE NAME]\",\r\n    \"timestamp\": [UNIX TIME]\r\n  }]\r\n}",
-		"Example_screenshot": "img/137_facebook.png"
+		"Example_screenshot": "137_facebook.png"
 	},
 	{
 		"id": "138",
@@ -1529,7 +1529,7 @@
 		"Elements ": "$.reactions",
 		"Description": "Reactions the user gave to posts of other users",
 		"Example_record_anonymized": "{\r\n  \"reactions\": [{\r\n      \"timestamp\": [UNIX TIME],\r\n      \"data\": [{\r\n          \"reaction\": {\r\n            \"reaction\": \"[EMOJI TYPE]\",\r\n            \"actor\": \"[FULL NAME]\"\r\n          }\r\n        }],\r\n      \"title\": \"[FULL NAME reacted to [FULL NAME]'s post.\"\r\n    }]\r\n}",
-		"Example_screenshot": "img/138_facebook.png"
+		"Example_screenshot": "138_facebook.png"
 	},
 	{
 		"id": "139",
@@ -1552,7 +1552,7 @@
 		"Elements ": "$.last_location",
 		"Description": "Last visited location of the user",
 		"Example_record_anonymized": "{\r\n  \"last_location\": {\r\n    \"time\": [UNIX TIME],\r\n    \"coordinate\": {\r\n      \"latitude\": [LATITUDE],\r\n      \"longitude\": [LONGITUDE]\r\n    }\r\n  }\r\n}",
-		"Example_screenshot": "img/139_facebook.png"
+		"Example_screenshot": "139_facebook.png"
 	},
 	{
 		"id": "140",
@@ -1575,7 +1575,7 @@
 		"Elements ": "$.primary_location.*.zipcode",
 		"Description": "Primary location of the user",
 		"Example_record_anonymized": "{\r\n\t\"primary_location\": {\r\n\t\t\"city_region_pairs\": [\r\n\t\t\t[\r\n\t\t\t\t\"[CITY]\",\r\n\t\t\t\t\"[REGION\"\r\n\t\t\t]\r\n\t\t],\r\n\t\t\"zipcode\": [\r\n\t\t\t\"[ZIPCODE]\"\r\n\t\t]\r\n\t}\r\n}",
-		"Example_screenshot": "img/140_facebook.png"
+		"Example_screenshot": "140_facebook.png"
 	},
 	{
 		"id": "141",
@@ -1598,7 +1598,7 @@
 		"Elements ": "$.timezone",
 		"Description": "Current (or primary?) timezone of the user",
 		"Example_record_anonymized": "{\r\n  \"timezone\": \"[REGION/COUNTRY]\"\r\n}",
-		"Example_screenshot": "img/141_facebook.png"
+		"Example_screenshot": "141_facebook.png"
 	},
 	{
 		"id": "142",
@@ -1641,7 +1641,7 @@
 		"Elements ": "$.participants.*.messages.*.title.*.is_still_participant.*.thread_type.*.thread_path",
 		"Description": "Messages archived by the user",
 		"Example_record_anonymized": "{\r\n\t\"participants\": [{\r\n\t\t\t\"name\": \"[FULL NAME]\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"[FULL NAME]\"\r\n\t\t}],\r\n\t\"messages\": [{\r\n\t\t\"sender_name\": \"[FULL NAME]\",\r\n\t\t\"timestamp_ms\": [UNIX TIME],\r\n\t\t\"content\": \"[FREE TEXT]\",\r\n\t\t\"type\": \"Generic\"\r\n\t}],\r\n\t\"title\": \"[FULL NAME]\",\r\n\t\"is_still_participant\": true,\r\n\t\"thread_type\": \"Regular\",\r\n\t\"thread_path\": \"[PATH]\"\r\n}",
-		"Example_screenshot": "img/143_facebook.png"
+		"Example_screenshot": "143_facebook.png"
 	},
 	{
 		"id": "144",
@@ -1676,7 +1676,7 @@
 		"Elements ": "$.participants.*.messages.*.title.*.is_still_participant.*.thread_type.*.thread_path",
 		"Description": "Messages to the user that were filtered by Facebook",
 		"Example_record_anonymized": "{\r\n  \"participants\": [{\r\n      \"name\": \"[FULL NAME]\"\r\n    },\r\n    {\r\n      \"name\": \"[FULL NAME]\"\r\n    }],\r\n  \"messages\": [{\r\n      \"sender_name\": \"[FULL NAME]\",\r\n      \"timestamp_ms\": [UNIX TIME],\r\n      \"content\": \"[FREE TEXT]\",\r\n      \"type\": \"Generic\"\r\n    }],\r\n  \"title\": \"[FULL NAME]\",\r\n  \"is_still_participant\": true,\r\n  \"thread_type\": \"Regular\",\r\n  \"thread_path\": \"[PATH]\"\r\n}",
-		"Example_screenshot": "img/144_facebook.png"
+		"Example_screenshot": "144_facebook.png"
 	},
 	{
 		"id": "145",
@@ -1711,7 +1711,7 @@
 		"Elements ": "$.participants.*.messages.*.title.*.is_still_participant.*.thread_type.*.thread_path",
 		"Description": "Messages sent and received by the user",
 		"Example_record_anonymized": "{\r\n  \"participants\": [\r\n    {\r\n      \"name\": \"[FULL NAME]\"\r\n    },\r\n    {\r\n      \"name\": \"[FULL NAME]\"\r\n    }\r\n  ],\r\n  \"messages\": [\r\n    {\r\n      \"sender_name\": \"[FULL NAME]\",\r\n      \"timestamp_ms\": [UNIX TIME],\r\n      \"content\": \"[FREE TEXT]\",\r\n      \"type\": \"Generic\"\r\n    }\r\n  ],\r\n  \"title\": \"[FULL NAME]\",\r\n  \"is_still_participant\": true,\r\n  \"thread_type\": \"Regular\",\r\n  \"thread_path\": \"[PATH]\"\r\n}",
-		"Example_screenshot": "img/145_facebook.png"
+		"Example_screenshot": "145_facebook.png"
 	},
 	{
 		"id": "146",
@@ -1746,7 +1746,7 @@
 		"Elements ": "$.participants.*.messages.*.title.*.is_still_participant.*.thread_type.*.thread_path",
 		"Description": "Message requests sent and received by the user",
 		"Example_record_anonymized": "{\r\n  \"participants\": [\r\n    {\r\n      \"name\": \"[FULL NAME]\"\r\n    },\r\n    {\r\n      \"name\": \"[FULL NAME]\"\r\n    }\r\n  ],\r\n  \"messages\": [{\r\n      \"sender_name\": \"[FULL NAME]\",\r\n      \"timestamp_ms\": [UNIX TIME],\r\n      \"content\": \"[FREE TEXT]\",\r\n      \"type\": \"Generic\"\r\n    }],\r\n  \"title\": \"[FULL NAME]\",\r\n  \"is_still_participant\": true,\r\n  \"thread_type\": \"Regular\",\r\n  \"thread_path\": \"[PATH]\"\r\n}",
-		"Example_screenshot": "img/146_facebook.png"
+		"Example_screenshot": "146_facebook.png"
 	},
 	{
 		"id": "147",
@@ -1799,7 +1799,7 @@
 		"Elements ": "$.pokes",
 		"Description": "Pokes sent and received by the user",
 		"Example_record_anonymized": "{\r\n  \"pokes\": {\r\n    \"data\": [{\r\n        \"poker\": \"[FULL NAME]\",\r\n        \"pokee\": \"[FULL NAME]\",\r\n        \"rank\": 0,\r\n        \"timestamp\": [UNIX TIME]\r\n      }]\r\n  }\r\n}",
-		"Example_screenshot": "img/148_facebook.png"
+		"Example_screenshot": "148_facebook.png"
 	},
 	{
 		"id": "149",
@@ -1824,7 +1824,7 @@
 		"Elements ": "$.poll_votes",
 		"Description": "Polls the user voted in",
 		"Example_record_anonymized": "{\r\n\t\"poll_votes\": [{\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"attachments\": [{\r\n\t\t\t\"data\": [{\r\n\t\t\t\t\"poll\": {\r\n\t\t\t\t\t\"options\": [{\r\n\t\t\t\t\t\t\"option\": \"[CHOSEN POLL OPTION]\",\r\n\t\t\t\t\t\t\"voted\": true\r\n\t\t\t\t\t}]\r\n\t\t\t\t}\r\n\t\t\t}]\r\n\t\t}],\r\n\t\t\"title\": \"[FULL NAME] voted on [PAGE]'s poll.\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/149_facebook.png"
+		"Example_screenshot": "149_facebook.png"
 	},
 	{
 		"id": "150",
@@ -1851,7 +1851,7 @@
 		"Elements ": "$.support_correspondence",
 		"Description": "Correspondence between user and Facebook support team",
 		"Example_record_anonymized": "{\r\n\t\"support_correspondence\": [{\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"subject\": \"You anonymously reported [FULL NAME]'s photo for displaying hate speech.\",\r\n\t\t\"messages\": [{\r\n\t\t\t\"from\": \"FB Rep\",\r\n\t\t\t\"to\": \"[FULL NAME]\",\r\n\t\t\t\"subject\": \"\",\r\n\t\t\t\"message\": \"[FREE TEXT\",\r\n\t\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\t\"attachments\": [\r\n\r\n\t\t\t]\r\n\t\t}]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/150_facebook.png"
+		"Example_screenshot": "150_facebook.png"
 	},
 	{
 		"id": "151",
@@ -1876,7 +1876,7 @@
 		"Elements ": "$.payments",
 		"Description": "Payments made by the user via Facebook",
 		"Example_record_anonymized": "{\r\n  \"payments\": {\r\n    \"preferred_currency\": \"[CURRENCY]\",\r\n    \"payments\": [\r\n      \r\n    ]\r\n  }\r\n}",
-		"Example_screenshot": "img/152_facebook.png"
+		"Example_screenshot": "152_facebook.png"
 	},
 	{
 		"id": "153",
@@ -2029,7 +2029,7 @@
 		"Elements ": "$.photos.*.cover_photo",
 		"Description": "Text corresponding to photos shared by the user",
 		"Example_record_anonymized": "{\r\n  \"name\": \"[ALBUM TITLE]\",\r\n  \"photos\": [{\r\n      \"uri\": \"[URL]\",\r\n      \"creation_timestamp\": [UNIX TIME],\r\n      \"title\": \"[ALBUM TITLE]\"\r\n    }]\r\n}",
-		"Example_screenshot": "img/159_facebook.png"
+		"Example_screenshot": "159_facebook.png"
 	},
 	{
 		"id": "160",
@@ -2074,7 +2074,7 @@
 		"Filepath": "./posts/your_posts_#.json",
 		"Description": "Text of the post generated by the user",
 		"Example_record_anonymized": "[{\r\n\t\"timestamp\": [UNIX TIME],\r\n\t\"data\": [{\r\n\t\t\"post\": \"[FREE TEXT]\"\r\n\t}],\r\n\t\"title\": \"[FULL NAME] posted in [GROUP NAME].\"\r\n}]",
-		"Example_screenshot": "img/161_facebook.png"
+		"Example_screenshot": "161_facebook.png"
 	},
 	{
 		"id": "162",
@@ -2107,7 +2107,7 @@
 		"Elements ": "$.name.*.emails.*.birthday.*.gender.*.previous_names.*.other_names.*.current_city.*.hometown.*.previous_relationships.*.family_members.*.education_experiences.*.work_experiences.*.blood_info.*.phone_numbers.*.pages.*.groups.*.registration_timestamp.*.profile_iru",
 		"Description": "Profile information of the user",
 		"Example_record_anonymized": "{\r\n  \"profile\": {\r\n    \"name\": {\r\n      \"full_name\": \"[FULL NAME]\",\r\n      \"first_name\": \"[FIRST NAME]\",\r\n      \"middle_name\": \"[MIDDLE NAME]\",\r\n      \"last_name\": \"[LAST NAME]\"\r\n    }\r\n  }\r\n}",
-		"Example_screenshot": "img/162_facebook.png"
+		"Example_screenshot": "162_facebook.png"
 	},
 	{
 		"id": "163",
@@ -2140,7 +2140,7 @@
 		"Elements ": "$.profile_updates",
 		"Description": "Profile updates of the user",
 		"Example_record_anonymized": "{\r\n  \"profile_updates\": [{\r\n      \"timestamp\": [UNIX TIME],\r\n      \"title\": \"[FULL NAME] updated her current city to [CITY], [COUNTRY].\"\r\n    }]\r\n}",
-		"Example_screenshot": "img/163_facebook.png"
+		"Example_screenshot": "163_facebook.png"
 	},
 	{
 		"id": "164",
@@ -2163,7 +2163,7 @@
 		"Elements ": "$.saves_and_collections",
 		"Description": "Items saved by the user",
 		"Example_record_anonymized": "{\r\n\t\"saves_and_collections\": [{\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"attachments\": [{\r\n\t\t\t\"data\": [{\r\n\t\t\t\t\"external_context\": {\r\n\t\t\t\t\t\"name\": \"[TITLE]\",\r\n\t\t\t\t\t\"source\": \"[PAGE SOURCE]\",\r\n\t\t\t\t\t\"url\": \"[URL]\"\r\n\t\t\t\t}\r\n\t\t\t}]\r\n\t\t}],\r\n\t\t\"title\": \"[FULL NAME] saved a link\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/164_facebook.png"
+		"Example_screenshot": "164_facebook.png"
 	},
 	{
 		"id": "165",
@@ -2189,7 +2189,7 @@
 		"Elements ": "$.searches",
 		"Description": "Searches performed by the user",
 		"Example_record_anonymized": "{\r\n\t\"searches\": [{\r\n\t\t\"timestamp\": \"[UNIX TIME]\",\r\n\t\t\"attachments\": [{\r\n\t\t\t\"data\": [{\r\n\t\t\t\t\"text\": \"[FREE TEXT]\"\r\n\t\t\t}]\r\n\t\t}],\r\n\t\t\"data\": [{\r\n\t\t\t\"text\": \"[FREE TEXT]\"\r\n\t\t}],\r\n\t\t\"title\": \"You searched Facebook\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/165_facebook.png"
+		"Example_screenshot": "165_facebook.png"
 	},
 	{
 		"id": "166",
@@ -2215,7 +2215,7 @@
 		"Elements ": "$account_activity",
 		"Description": "Login activity of the user account",
 		"Example_record_anonymized": "{\r\n\t\"account_activity\": [{\r\n\t\t\"action\": \"Session updated\",\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"ip_address\": \"[IP ADDRESS]\",\r\n\t\t\"user_agent\": \"Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBDV/iPhone12,1;FBMD/iPhone;FBSN/iOS;FBSV/13.6.1;FBSS/2;FBID/phone;FBLC/nl_NL;FBOP/5]\",\r\n\t\t\"datr_cookie\": \"********************\",\r\n\t\t\"city\": \"[CITY]\",\r\n\t\t\"region\": \"[REGION]\",\r\n\t\t\"country\": \"[COUNTRY]\",\r\n\t\t\"site_name\": \"www.facebook.com\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/166_facebook.png"
+		"Example_screenshot": "166_facebook.png"
 	},
 	{
 		"id": "167",
@@ -2231,7 +2231,7 @@
 		"Elements ": "$.admin_records",
 		"Description": "Administrative registrations of the user",
 		"Example_record_anonymized": "{\r\n\t\"admin_records\": [{\r\n\t\t\"event\": \"Checkpoint completed\",\r\n\t\t\"session\": {\r\n\t\t\t\"created_timestamp\": [UNIX TIME],\r\n\t\t\t\"ip_address\": \"[IP ADDRESS]\",\r\n\t\t\t\"user_agent\": \"\",\r\n\t\t\t\"datr_cookie\": \"\"\r\n\t\t}\r\n\t}]\r\n}",
-		"Example_screenshot": "img/167_facebook.png"
+		"Example_screenshot": "167_facebook.png"
 	},
 	{
 		"id": "168",
@@ -2247,7 +2247,7 @@
 		"Elements ": "$.recognized_devices",
 		"Description": "Devices of the user recognized by Facebook",
 		"Example_record_anonymized": "{\r\n\t\"recognized_devices\": [{\r\n\t\t\"name\": \"Chrome op Windows\",\r\n\t\t\"created_timestamp\": [UNIX TIME],\r\n\t\t\"ip_address\": \"[IP ADDRESS]\",\r\n\t\t\"user_agent\": \"Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBAV/251.0.0.50.110;FBBV/188958159;FBDV/iPhone12,1;FBMD/iPhone;FBSN/iOS;FBSV/13.3;FBSS/2;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/190291779;FBCR/KPN NL]\",\r\n\t\t\"datr_cookie\": \"\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/168_facebook.png"
+		"Example_screenshot": "168_facebook.png"
 	},
 	{
 		"id": "169",
@@ -2263,7 +2263,7 @@
 		"Elements ": "$.contact_verifications",
 		"Description": "Verified contact information of the user",
 		"Example_record_anonymized": "{\r\n\t\"contact_verifications\": [{\r\n\t\t\"contact\": \"[EMAIL ADDRESS]\",\r\n\t\t\"contact_type\": [CLASSIFICATION TYPE OF CONTACT INFORMATION ?],\r\n\t\t\"verification_time\": [UNIX TIME]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/169_facebook.png"
+		"Example_screenshot": "169_facebook.png"
 	},
 	{
 		"id": "170",
@@ -2279,7 +2279,7 @@
 		"Elements ": "$.datr_stats",
 		"Description": "?",
 		"Example_record_anonymized": "{\r\n\t\"datr_stats\": {\r\n\t\t\"SMK1********************\": [\r\n\t\t\t[UNIX TIME],\r\n\t\t\t[UNIX TIME]\r\n\t\t]\r\n\t}\r\n}",
-		"Example_screenshot": "img/170_facebook.png"
+		"Example_screenshot": "170_facebook.png"
 	},
 	{
 		"id": "171",
@@ -2295,7 +2295,7 @@
 		"Elements ": "$.login_protection_data",
 		"Description": "?",
 		"Example_record_anonymized": "{\r\n\t\"login_protection_data\": [{\r\n\t\t\"name\": \"Cookie: ********************\",\r\n\t\t\"session\": {\r\n\t\t\t\"created_timestamp\": [UNIX TIME],\r\n\t\t\t\"updated_timestamp\": [UNIX TIME]\r\n\t\t}\r\n\t}]\r\n}",
-		"Example_screenshot": "img/171_facebook.png"
+		"Example_screenshot": "171_facebook.png"
 	},
 	{
 		"id": "172",
@@ -2310,7 +2310,7 @@
 		"Filepath": "./security_and_login_information/logins_and_logouts.json",
 		"Elements ": "$.account_accesses",
 		"Example_record_anonymized": "{\r\n\t\"account_accesses\": [{\r\n\t\t\"action\": \"[LOGIN/LOGOUT]\",\r\n\t\t\"timestamp\": [UNIX TIME],\r\n\t\t\"site\": \"www.facebook.com\",\r\n\t\t\"ip_address\": \"[IP ADDRESS]\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/172_facebook.png"
+		"Example_screenshot": "172_facebook.png"
 	},
 	{
 		"id": "173",
@@ -2325,7 +2325,7 @@
 		"Filepath": "./security_and_login_information/mobile_devices.json",
 		"Elements ": "$.devices",
 		"Example_record_anonymized": "{\r\n\t\"devices\": [{\r\n\t\t\"type\": \"[PHONE MODEL]\",\r\n\t\t\"os\": \"[SOFTWARE VERSION]\",\r\n\t\t\"update_time\": [UNIX TIME],\r\n\t\t\"advertiser_id\": \"8856fd59-ba48-4df2-ac5e-c9890fac0458\",\r\n\t\t\"redact_tokens\": [\r\n\t\t\t\"********************\",\r\n\t\t\t\"********************\",\r\n\t\t\t\"********************\"\r\n\t\t]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/173_facebook.png"
+		"Example_screenshot": "173_facebook.png"
 	},
 	{
 		"id": "174",
@@ -2340,7 +2340,7 @@
 		"Filepath": "./security_and_login_information/used_ip_addresses.json",
 		"Elements ": "$.used_ip_address",
 		"Example_record_anonymized": "{\r\n\t\"used_ip_address\": [{\r\n\t\t\"ip\": \"[IP ADDRESS]\",\r\n\t\t\"action\": \"Login\",\r\n\t\t\"timestamp\": [UNIX TIME]\r\n\t}]\r\n}",
-		"Example_screenshot": "img/174_facebook.png"
+		"Example_screenshot": "174_facebook.png"
 	},
 	{
 		"id": "175",
@@ -2362,7 +2362,7 @@
 		"Filepath": "./security_and_login_information/where_you're_logged_in.json",
 		"Elements ": "$.active_sessions",
 		"Example_record_anonymized": "{\r\n\t\"active_sessions\": [{\r\n\t\t\"created_timestamp\": [UNIX TIME],\r\n\t\t\"updated_timestamp\": [UNIX TIME],\r\n\t\t\"ip_address\": \"[IP ADDRESS]\",\r\n\t\t\"user_agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36\",\r\n\t\t\"datr_cookie\": \"********************\",\r\n\t\t\"device\": \"[DEVICE]\",\r\n\t\t\"location\": \"[CITY, COUNTRY]\",\r\n\t\t\"app\": \"[APP]\"\r\n\t}]\r\n}",
-		"Example_screenshot": "img/175_facebook.png"
+		"Example_screenshot": "175_facebook.png"
 	},
 	{
 		"id": "176",
@@ -2377,7 +2377,7 @@
 		"Filepath": "./security_and_login_information/your_facebook_activity.json",
 		"Elements ": "$.last_activity",
 		"Example_record_anonymized": "{\r\n\t\"last_activity\": {\r\n\t\t\"last_activity_time\": {\r\n\t\t\t\"Website\": {\r\n\t\t\t\t\"activity_by_day\": [\r\n\t\t\t\t\t[UNIX TIME],\r\n\t\t\t\t\t[UNIX TIME],\r\n\t\t\t\t\t[UNIX TIME]\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-		"Example_screenshot": "img/176_facebook.png"
+		"Example_screenshot": "176_facebook.png"
 	},
 	{
 		"id": "201",
