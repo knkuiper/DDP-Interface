@@ -4,11 +4,10 @@ import {
   TextField
  } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import SourceData from '../data/index_v4.json';
+import SourceData from '../data/index_v4_new.json';
 import SearchIcon from '@material-ui/icons/Search';
 //import FilterButtons from '../buttons/FilterButtons.js';
 import ItemList from "../layouts/ItemList.js";
-
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -88,8 +87,8 @@ const styles = theme => ({
 function ListCard(props) {
   const { classes } = props;
 
-  const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(SourceData);
+  const [searchText, setSearchText] = useState("");
   const [selectPlatform, setPlatform] = useState("");
   const [visibility, setVisibility] = useState("");
   const [temporality, setTemporality] = useState("");
@@ -159,7 +158,12 @@ function ListCard(props) {
             <Grid item>
               <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Select visibility</FormLabel>
-                <RadioGroup aria-label="visibility" name="visibility" value={visibility} onChange={handleChange}>
+                <RadioGroup
+                  aria-label="visibility"
+                  name="visibility"
+                  value={visibility}
+                  onChange={e => handleChange(e.target.value)}
+                >
                   <FormControlLabel control={<Radio />} value="public" label="Public" />
                   <FormControlLabel control={<Radio />} value="personal" label="Personal" />
                   <FormControlLabel control={<Radio />} value="interaction" label="Interaction" />
@@ -169,7 +173,12 @@ function ListCard(props) {
             <Grid item>
               <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend">Select temporality</FormLabel>
-                <FormGroup aria-label="temporality" name="temporality" value={temporality} onChange={handleChange}>
+                <FormGroup
+                  aria-label="temporality"
+                  name="temporality"
+                  value={temporality}
+                  onChange={e => handleChange(e.target.value)}
+                >
                   <FormControlLabel control={<Checkbox />} value="timestamped" label="Timestamped" />
                   <FormControlLabel control={<Checkbox />} value="timeinvariant" label="Time invariant" />
                 </FormGroup>
