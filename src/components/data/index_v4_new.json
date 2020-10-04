@@ -1379,12 +1379,12 @@
 		"Visibility": "Interaction",
 		"Temporality": "Timestamped",
 		"File_format": ".html",
-		"Tags": "Visual content, Connections ",
+		"Tags": "Visual content, Connections",
 		"Filepath": "./Whatsapp Chat - [CHATNAME]/########-STICKER-YYYY-MM-DD-HH-MM-SS.html"
 	},
 	{
 		"id": "206",
-		"Platform": "Whatsapp",
+		"Platform": "WhatsApp",
 		"Visibility": "Personal",
 		"Temporality": "Timestamped",
 		"File_format": ".html",

@@ -117,7 +117,7 @@ class Item extends Component {
                         color='primary'
                         gutterBottom
                       >
-                        {this.props.Platform} {this.props.File}
+                        {this.props.Platform} {this.props.File} 
                       </Typography>
                       <Typography variant="body1" gutterBottom>
                         <b>Platform:</b> {this.props.Platform}
