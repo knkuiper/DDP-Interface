@@ -1379,12 +1379,12 @@
 		"Visibility": "Interaction",
 		"Temporality": "Timestamped",
 		"File_format": ".html",
-		"Tags": "Visual content, Connections ",
+		"Tags": "Visual content, Connections",
 		"Filepath": "./Whatsapp Chat - [CHATNAME]/########-STICKER-YYYY-MM-DD-HH-MM-SS.html"
 	},
 	{
 		"id": "206",
-		"Platform": "Whatsapp",
+		"Platform": "WhatsApp",
 		"Visibility": "Personal",
 		"Temporality": "Timestamped",
 		"File_format": ".html",
@@ -1679,6 +1679,8 @@
 		"Example_record_anonymized": "window.YTD.following.part0 = [ {\r\n  \"following\" : {\r\n    \"accountId\" : \"842520310226198528\",\r\n    \"userLink\" : \"https://twitter.com/intent/user?user_id=842520310226198528\"\r\n  }\r\n},"
 	},
 	{
+		"id": "355",
+		"Platform": "Twitter",
 		"Visibility": "Personal",
 		"Temporality": "Time invariant",
 		"File": "ip-audit",
@@ -1737,6 +1739,8 @@
 		"Example_record_anonymized": "window.YTD.lists_subscribed.part0 = []"
 	},
 	{
+		"id": "356",
+		"Platform": "Twitter",
 		"File": "manifest",
 		"File_format": ".js",
 		"Filepath": "./data/manifest.js",
@@ -1850,6 +1854,8 @@
 		"Example_record_anonymized": "window.YTD.periscope_profile_description.part0 = []"
 	},
 	{
+		"id": "357",
+		"Platform": "Twitter",
 		"Visibility": "Personal",
 		"File": "personalization",
 		"File_format": ".js",
@@ -2322,9 +2328,6 @@
 		"File_format": ".csv",
 		"Filepath": "./Votes.csv",
 		"Elements": "$.Date.*.Link.*.OptionText"
-	},
-	{
-		"Elements": "$.Member Age.*.Company Names.*.Company Names.*.Company Follower of.*.Company Names.*.Company Category.*.Company Size.*.Degrees.*.degreeClass.*.Member Schools.*.Company Growth Rate.*.Fields of Study.*.Company Connections.*.Function By Size.*.Job Functions.*.Member Gender.*.Graduation Year.*.Member Groups.*.Company Industries.*.Member Interests.*.Interface Locales.*.interfaceLocale.*.Member Traits.*.Profile Locations.*.Job Seniorities.*.Member Skills.*.Job Titles.*.Job Titles.*.Job Titles.*.Years of Experience"
 	},
 	{
 		"id": "701",

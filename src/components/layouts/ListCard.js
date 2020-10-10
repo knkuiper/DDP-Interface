@@ -18,181 +18,239 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.grey["A500"],
-    overflow: "hidden",
-    backgroundSize: "cover",
-    backgroundPosition: "0 400px",
-    padding: 15
-  },
-  grid: {
-    width: 1000,
-  },
-  cardContainter: {
-    padding: theme.spacing(3),
-    textAlign: 'left',
-    color: theme.palette.text.secondary
+    padding: 15,
   },
   search: {
-    margin: 20,
-    padding: 20,
+    margin: 10,
+    padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
     color: theme.palette.text.primary
   },
+  filter: {
+    margin: 10,
+    padding: 10,
+    width: '15%'
+  },
   itemContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-      justifyContent: 'center'
-    }
-  },
-  inline: {
-    marginBottom: 0,
-    marginLeft: theme.spacing(4),
-    [theme.breakpoints.down('sm')]: {
-      display: 'flex',
-      flexDirection: 'column',
-      textAlign: 'center',
-      alignItems: 'center',
-      width: '100%',
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2 ),
-      marginLeft: 0
-    }
-  },
-  inlineRight: {
-    width: '100%',
-    textAlign: 'right',
-    margin: 0,
-    alignSelf: 'flex-end',
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'center'
-    }
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
+    margin: 10,
+    padding: 10,
+    width: '80%'
   }
 });
 
 function ListCard(props) {
   const { classes } = props;
 
-  const [data, setData] = useState(SourceData);
+  const [data] = useState(SourceData);
+  //filterstate for text and buttons
   const [searchText, setSearchText] = useState("");
-  const [selectPlatform, setPlatform] = useState("");
-  const [visibility, setVisibility] = useState("");
-  const [temporality, setTemporality] = useState("");
+  const [filter, setFilter] = useState(new Set());
 
   // exclude column list from filter
   const excludeColumns = ["id", "Elements", "Filepath"];
 
-  const handleChange = value => {
+  const handleInputChange = (value) => {
     setSearchText(value);
-    filterData(value);
+    //filterData(value);
   };
 
-  const filterData = (value) => {
-    const lowercasedValue = value.toLowerCase().trim();
-    if (lowercasedValue === "") setData(SourceData);
-    else {
-      const filteredData = SourceData.filter(item => {
-        return Object.keys(item).some(key =>
-          excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(lowercasedValue)
-        );
-      });
-      setData(filteredData);
-    }
-  }
-  console.log(data);
+  const filterClick = (value) => {
+     if (filter.has(value)) {
+       setFilter(prevFilter => {
+         const newSet = new Set(prevFilter);
+         newSet.delete(value);
+         return newSet;
+       });
+     } else {
+        setFilter(prevFilter => {
+         const newSet = new Set(prevFilter);
+         newSet.add(value);
+         return newSet;
+       });
+     }
+   };
 
-    return (
-      <>
+  let filteredData = data.filter(item => {
+    if (filter.size > 0 && !(filter.has(item.Platform)) && !(filter.has(item.Visibility)) && !(filter.has(item.Temporality)))
+      return false;
+
+    if (searchText.length > 0 && !(Object.keys(item).some(key => excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(searchText.toLowerCase().trim()))))
+       return false;
+
+    return true;
+  });
+
+  // const filterData = (value) => {
+  //   const lowercasedValue = value.toLowerCase().trim();
+  //   if (filter.size > 0 && !filter.has(data.Platform))
+  //     return false;
+  //   if ((searchText.length > 0 && )
+  //   else {
+  //     const filteredData = data.filter(item => {
+  //       return Object.keys(item).some(key =>
+  //         excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(lowercasedValue)
+  //       );
+  //     });
+  //     setData(filteredData);
+  //   }
+  // }
+  // console.log(data);
+
+  console.log(searchText);
+  console.log(filteredData.length);
+
+  return (
+    <>
+      <Grid container
+        spacing={3}
+        className={classes.root}
+      >
         <Grid container className={classes.search}>
           <TextField
-            onChange={e => handleChange(e.target.value)}
+            onChange={(e) => handleInputChange(e.target.value)}
             label="Search"
             value={searchText}
           />
           <SearchIcon />
         </Grid>
-        {/* <FilterButtons
-          onChange={this.updateFiltering.bind(this)}
-          label="Filter"
-          value={this.state.selection}
-        /> */}
-
-        <div className={classes.root}>
-          <Grid container justify="center">
+        <Grid item className={classes.filter}>
+          <FormControl component="fieldset" className={classes.formControl}>
             <Grid item>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Select platform</FormLabel>
-                <RadioGroup
-                  aria-label="select_platform"
-                  name="select_platform"
-                  value={selectPlatform}
-                  onChange={e => handleChange(e.target.value)}
-                >
-                  <FormControlLabel value="Google" control={<Radio />} label="Google" />
-                  <FormControlLabel value="Facebook" control={<Radio />} label="Facebook" />
-                  <FormControlLabel value="WhatsApp" control={<Radio />} label="WhatsApp" />
-                  <FormControlLabel value="Instagram" control={<Radio />} label="Instagram" />
-                  {/* <FormControlLabel value="uber" control={<Radio />} label="Uber" />
-                      <FormControlLabel value="apple" control={<Radio />} label="Apple" />
-                      <FormControlLabel value="netflix" control={<Radio />} label="Netflix" />
-                      <FormControlLabel value="microsoft" control={<Radio />} label="Microsoft" />
-                      <FormControlLabel value="twitter" control={<Radio />} label="Twitter" />
-                  <FormControlLabel value="linkedin" control={<Radio />} label="LinkedIn" /> */}
-                </RadioGroup>
-              </FormControl>
+              <FormLabel component="legend">Select platform</FormLabel>
+              <RadioGroup
+                aria-label="platform"
+                name="platform"
+                onChange={(e) => filterClick(e.target.value)}
+                value={filter}
+              >
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Google"
+                  checked={filter.has("Google")}
+                  onChange={(e) => filterClick("Google")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Facebook"
+                  checked={filter.has("Facebook")}
+                  onChange={(e) => filterClick("Facebook")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="WhatsApp"
+                  checked={filter.has("WhatsApp")}
+                  onChange={(e) => filterClick("WhatsApp")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Instagram"
+                  checked={filter.has("Instagram")}
+                  onChange={(e) => filterClick("Instagram")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Uber"
+                  checked={filter.has("Uber")}
+                  onChange={(e) => filterClick("Uber")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Apple"
+                  checked={filter.has("Apple")}
+                  onChange={(e) => filterClick("Apple")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Netflix"
+                  checked={filter.has("Netflix")}
+                  onChange={(e) => filterClick("Netflix")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Microsoft"
+                  checked={filter.has("Microsoft")}
+                  onChange={(e) => filterClick("Microsoft")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Twitter"
+                  checked={filter.has("Twitter")}
+                  onChange={(e) => filterClick("Twitter")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="LinkedIn"
+                  checked={filter.has("LinkedIn")}
+                  onChange={(e) => filterClick("LinkedIn")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Snapchat"
+                  checked={filter.has("Snapchat")}
+                  onChange={(e) => filterClick("Snapchat")}
+                />
+              </RadioGroup>
             </Grid>
             <Grid item>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Select visibility</FormLabel>
-                <RadioGroup
-                  aria-label="visibility"
-                  name="visibility"
-                  value={visibility}
-                  onChange={e => handleChange(e.target.value)}
-                >
-                  <FormControlLabel control={<Radio />} value="public" label="Public" />
-                  <FormControlLabel control={<Radio />} value="personal" label="Personal" />
-                  <FormControlLabel control={<Radio />} value="interaction" label="Interaction" />
-                </RadioGroup>
-              </FormControl>
+              <FormLabel component="legend">Select visibility</FormLabel>
+              <FormGroup
+                aria-label="visibility"
+                name="visibility"
+                onChange={(e) => filterClick(e.target.value)}
+                value={filter}
+              >
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Platform"
+                  checked={filter.has("Platform")}
+                  onChange={(e) => filterClick("Platform")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Personal"
+                  checked={filter.has("Personal")}
+                  onChange={(e) => filterClick("Personal")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Interaction"
+                  checked={filter.has("Interaction")}
+                  onChange={(e) => filterClick("Interaction")}
+                />
+              </FormGroup>
             </Grid>
             <Grid item>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Select temporality</FormLabel>
-                <FormGroup
-                  aria-label="temporality"
-                  name="temporality"
-                  value={temporality}
-                  onChange={e => handleChange(e.target.value)}
-                >
-                  <FormControlLabel control={<Checkbox />} value="timestamped" label="Timestamped" />
-                  <FormControlLabel control={<Checkbox />} value="timeinvariant" label="Time invariant" />
-                </FormGroup>
-              </FormControl>
+              <FormLabel component="legend">Select temporality</FormLabel>
+              <FormGroup
+                aria-label="temporality"
+                name="temporality"
+                onChange={e => filterClick(e.target.value)}
+                value={filter}
+              >
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Timestamped"
+                  checked={filter.has("Timestamped")}
+                  onChange={(e) => filterClick("Timestamped")}
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Time invariant"
+                  checked={filter.has("Time invariant")}
+                  onChange={(e) => filterClick("Time invariant")}
+                />
+              </FormGroup>
             </Grid>
-          </Grid>
-        </div>
-
-        <div>
-          <ItemList filteredList={data} onChange={handleChange} />
-          {data.length === 0 && <span>Found nothing! Please try another search term</span>}
-        </div>
-      </>
-    );
-  }
+          </FormControl>
+        </Grid>
+        <Grid item className={classes.itemContainer}>
+          <ItemList filteredList={filteredData} key={filteredData.id}/>
+          {filteredData.length === 0 && <div>Found nothing! Please try again with a different search term.</div>}
+        </Grid>
+      </Grid>
+    </>
+  );
+}
 
 export default withStyles(styles)(ListCard);
