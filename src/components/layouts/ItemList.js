@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import {Grid} from '@material-ui/core';
 import Item from "../layouts/Item.js";
 
 class ItemList extends Component {
   render() {
     let items = this.props.filteredList.map((item) => {
-      return <Item
-          key={item.id}
+      return <div key={item.id}>
+        <Item
           Platform={item.Platform}
           Visibility={item.Visibility}
           Temporality={item.Temporality}
@@ -17,13 +16,14 @@ class ItemList extends Component {
           Elements={item.Elements}
           Description={item.Description}
           Example_screenshot={item.Example_screenshot} />
-        });
-  return (
-    <>
-      {items}
-    </>
-  )
-}
+      </div>
+    });
+    return (
+      <>
+        {items}
+      </>
+    )
+  }
 }
 
 export default ItemList;

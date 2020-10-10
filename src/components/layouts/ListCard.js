@@ -47,10 +47,6 @@ function ListCard(props) {
   const [searchText, setSearchText] = useState("");
   const [filter, setFilter] = useState(new Set());
 
-  const [platform, setPlatform] = useState(new Set());
-  const [visibility, setVisibility] = useState(new Set());
-  const [temporality, setTemporality] = useState(new Set());
-
   // exclude column list from filter
   const excludeColumns = ["id", "Elements", "Filepath"];
 
@@ -76,11 +72,11 @@ function ListCard(props) {
    };
 
   let filteredData = data.filter(item => {
-    if (filter.size > 0 && !(filter.has(item.Platform) || filter.has(item.Visibility) || filter.has(item.Temporality)))
+    if (filter.size > 0 && !(filter.has(item.Platform)) && !(filter.has(item.Visibility)) && !(filter.has(item.Temporality)))
       return false;
 
     if (searchText.length > 0 && !(Object.keys(item).some(key => excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(searchText.toLowerCase().trim()))))
-      return false;
+       return false;
 
     return true;
   });
@@ -103,7 +99,6 @@ function ListCard(props) {
 
   console.log(searchText);
   console.log(filteredData.length);
-  console.log(filteredData);
 
   return (
     <>
@@ -119,10 +114,7 @@ function ListCard(props) {
           />
           <SearchIcon />
         </Grid>
-        <Grid item
-          className={classes.filter}
-          direction="column"
-        >
+        <Grid item className={classes.filter}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid item>
               <FormLabel component="legend">Select platform</FormLabel>
@@ -133,67 +125,67 @@ function ListCard(props) {
                 value={filter}
               >
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Google"
                   checked={filter.has("Google")}
                   onChange={(e) => filterClick("Google")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Facebook"
                   checked={filter.has("Facebook")}
                   onChange={(e) => filterClick("Facebook")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="WhatsApp"
                   checked={filter.has("WhatsApp")}
                   onChange={(e) => filterClick("WhatsApp")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Instagram"
                   checked={filter.has("Instagram")}
                   onChange={(e) => filterClick("Instagram")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Uber"
                   checked={filter.has("Uber")}
                   onChange={(e) => filterClick("Uber")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Apple"
                   checked={filter.has("Apple")}
                   onChange={(e) => filterClick("Apple")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Netflix"
                   checked={filter.has("Netflix")}
                   onChange={(e) => filterClick("Netflix")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Microsoft"
                   checked={filter.has("Microsoft")}
                   onChange={(e) => filterClick("Microsoft")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Twitter"
                   checked={filter.has("Twitter")}
                   onChange={(e) => filterClick("Twitter")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="LinkedIn"
                   checked={filter.has("LinkedIn")}
                   onChange={(e) => filterClick("LinkedIn")}
                 />
                 <FormControlLabel
-                  control={<Radio />}
+                  control={<Checkbox />}
                   label="Snapchat"
                   checked={filter.has("Snapchat")}
                   onChange={(e) => filterClick("Snapchat")}
@@ -253,7 +245,7 @@ function ListCard(props) {
           </FormControl>
         </Grid>
         <Grid item className={classes.itemContainer}>
-          <ItemList filteredList={filteredData} />
+          <ItemList filteredList={filteredData} key={filteredData.id}/>
           {filteredData.length === 0 && <div>Found nothing! Please try again with a different search term.</div>}
         </Grid>
       </Grid>

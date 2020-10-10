@@ -79,7 +79,7 @@ class Item extends Component {
         <div key={this.props.id}>
           <CssBaseline />
           <Grid container className={classes.root}>
-            <Grid item xs={12} sm={16} md={20}>
+            <Grid item xs={12} sm={12} md={12}>
               <Card className={classes.cardContainter}>
                 <Grid className={classes.inline}>
                   <Grid className={classes.inlineRight}>
