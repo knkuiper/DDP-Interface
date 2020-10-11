@@ -1415,7 +1415,8 @@
 		"Filepath": "./data/account-creation-ip.js",
 		"Elements": "$.accountId.*.userCreationIp",
 		"Description": "Ip address used when the account was created",
-		"Example_record_anonymized": "window.YTD.account_creation_ip.part0 = [ {\r\n  \"accountCreationIp\" : {\r\n    \"accountId\" : \"1239864219564216322\",\r\n    \"userCreationIp\" : \"213.127.32.58\"\r\n  }\r\n} ]"
+		"Example_record_anonymized": "window.YTD.account_creation_ip.part0 = [ {\r\n  \"accountCreationIp\" : {\r\n    \"accountId\" : \"1239864219564216322\",\r\n    \"userCreationIp\" : \"213.127.32.58\"\r\n  }\r\n} ]",
+		"Example_screenshot": "img/302_twitter.png"
 	},
 	{
 		"id": "303",
@@ -1439,7 +1440,8 @@
 		"Filepath": "./data/account_timezone.js",
 		"Elements": "$.accountId.*.timeZone",
 		"Description": "Timezone currently associated with the account",
-		"Example_record_anonymized": "window.YTD.account_timezone.part0 = [ {\r\n  \"accountTimezone\" : {\r\n    \"accountId\" : \"1239864219564216322\"\r\n  }\r\n} ]"
+		"Example_record_anonymized": "window.YTD.account_timezone.part0 = [ {\r\n  \"accountTimezone\" : {\r\n    \"accountId\" : \"1239864219564216322\"\r\n  }\r\n} ]",
+		"Example_screenshot": "img/304_twitter.png"
 	},
 	{
 		"id": "305",
@@ -1522,7 +1524,8 @@
 		"File_format": ".js",
 		"Filepath": "./data/ageinfo.js",
 		"Elements": "$.ageInfo",
-		"Example_record_anonymized": "window.YTD.ageinfo.part0 = [ {\r\n  \"ageMeta\" : {\r\n    \"ageInfo\" : {\r\n      \"age\" : [ \"32\" ],\r\n      \"birthDate\" : \"1988-06-29\"\r\n    }\r\n  }\r\n} ]"
+		"Example_record_anonymized": "window.YTD.ageinfo.part0 = [ {\r\n  \"ageMeta\" : {\r\n    \"ageInfo\" : {\r\n      \"age\" : [ \"32\" ],\r\n      \"birthDate\" : \"1988-06-29\"\r\n    }\r\n  }\r\n} ]",
+		"Example_screenshot": "img/311_twitter.png"
 	},
 	{
 		"id": "312",
