@@ -64,16 +64,20 @@ const styles = theme => ({
 
 class Item extends Component {
   state = {
-    expanded: false
+    expanded: ''
   };
   handleExpandClick(id) {
       this.setState({[`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
+  };
+  handleAddClick(id) {
+    alert('test');
   };
 
   render() {
     const { classes } = this.props;
 
     let expanded = this.state.expanded;
+
     return (
       <>
         <div key={this.props.id}>
@@ -83,7 +87,9 @@ class Item extends Component {
               <Card className={classes.cardContainter}>
                 <Grid className={classes.inline}>
                   <Grid className={classes.inlineRight}>
-                    <AddButton />
+                    <AddButton
+                      //onClick={this.handleAddClick.bind(this.props)}
+                    />
                   </Grid>
                   <Typography
                     style={{ textTransform: 'uppercase' }}
