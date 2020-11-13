@@ -134,7 +134,11 @@ function ListCard(props) {
           <Grid item className={classes.filter}>
             <FormControl component="fieldset" className={classes.formControl}>
               <Grid item>
-                <FormLabel component="legend">Select platform</FormLabel>
+                <FormLabel
+                  component="legend"
+                >
+                  Select platform
+                </FormLabel>
                 <FormGroup
                   aria-label="platform"
                   name="platform"

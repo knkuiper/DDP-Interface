@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Typography,
   Grid,
-  Card
+  Card,
+  Link
  } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -64,7 +65,7 @@ const styles = theme => ({
 
 class Item extends Component {
   state = {
-    expanded: ''
+    expanded: false
   };
   handleExpandClick(id) {
       this.setState({[`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
@@ -75,8 +76,7 @@ class Item extends Component {
 
   render() {
     const { classes } = this.props;
-
-    let expanded = this.state.expanded;
+    const preventDefault = (event) => event.preventDefault();
 
     return (
       <>
@@ -88,7 +88,13 @@ class Item extends Component {
                 <Grid className={classes.inline}>
                   <Grid className={classes.inlineRight}>
                     <AddButton
-                      //onClick={this.handleAddClick.bind(this.props)}
+                      // onClick={() =>
+                      //   props.addToSavedList({ //addToCart
+                      //     id: this.props.id,
+                      //     this.props,
+                      //     amount: 1
+                      //   })
+                      // }
                     />
                   </Grid>
                   <Typography
@@ -114,13 +120,13 @@ class Item extends Component {
                 <Grid className={classes.inlineRight}>
                   <IconButton
                     className={clsx(classes.expand, {
-                      [classes.expandOpen]: expanded,
+                      [classes.expandOpen]: this.state[`expanded_${this.props.id}`] || false,
                     })}
                     onClick={this.handleExpandClick.bind(this,this.props.id)}
                     aria-expanded={this.state[`expanded_${this.props.id}`] || false}
                     aria-label="show more"
                   >
-                    <ExpandMoreIcon />
+                    <ExpandMoreIcon/>
                   </IconButton>
                 </Grid>
                 <Grid className={classes.inline}>
@@ -132,7 +138,8 @@ class Item extends Component {
                       <b>Temporality:</b> {this.props.Temporality}
                     </Typography>
                     <Typography variant="body1" gutterBottom>
-                      <b>Filepath:</b> {this.props.Filepath}
+                      <b>Filepath:</b> {/*<Link href="#" onClick={preventDefault}> */}
+                      {this.props.Filepath} {/*</Link> */}
                     </Typography>
                     <Typography variant="body1" gutterBottom>
                       <b>Elements:</b> {this.props.Elements}
@@ -141,7 +148,7 @@ class Item extends Component {
                       <b>Example record:</b>
                     </Typography>
                     <div>
-                      <img alt="example_record" src={this.props.Example_screenshot} width="800" />
+                      <img alt="example_record" src={this.props.Example_screenshot} width="1000"/>
                     </div>
                   </Collapse>
                 </Grid>

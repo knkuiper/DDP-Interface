@@ -22,7 +22,7 @@ class AddButton extends Component {
               startIcon={<AddIcon />}
               //onClick={() => this.handleFileDownload(this.props.attachment)}
             >
-              Add package
+              Save
             </Button>
           );
     }

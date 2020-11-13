@@ -11,10 +11,7 @@ const styles = theme => ({
   list: {
     fontSize: "14px",
     margin: 0,
-    paddingLeft: "0",
     listStyle: "none",
-    paddingTop: "0",
-    paddingBottom: "0",
     color: "inherit"
   },
   listItem: {
@@ -23,13 +20,11 @@ const styles = theme => ({
     position: "relative",
     display: "block",
     width: "auto",
-    margin: "0",
-    padding: "0",
+    padding: 10,
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       "&:after": {
-        width: "calc(100% - 30px)",
-        content: '""',
+        width: "calc(100% - 20px)",
         display: "block",
         height: "1px",
         marginLeft: "15px",
@@ -58,7 +53,7 @@ class HeaderButtons extends Component {
             <Button
               href="/packages"
               aria-label="packages"
-              size="small"
+              size="medium"
               startIcon={<CreateNewFolderIcon />}
             >
               My packages
@@ -68,7 +63,7 @@ class HeaderButtons extends Component {
             <Button
               href="/comparison"
               aria-label="comparison"
-              size="small"
+              size="medium"
               startIcon={<CompareIcon />}
             >
               Comparison
@@ -78,7 +73,7 @@ class HeaderButtons extends Component {
             <Button
               href="/info"
               aria-label="info"
-              size="small"
+              size="medium"
               startIcon={<InfoIcon />}
             >
               About
