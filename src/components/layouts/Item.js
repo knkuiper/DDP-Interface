@@ -3,15 +3,15 @@ import {
   Typography,
   Grid,
   Card,
-  Link
+  Button
  } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AddIcon from '@material-ui/icons/Add';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import AddButton from '../buttons/AddButton';
 import _ from 'lodash';
 
 const styles = theme => ({
@@ -70,13 +70,14 @@ class Item extends Component {
   handleExpandClick(id) {
       this.setState({[`expanded_${id}`]: _.isUndefined(this.state[`expanded_${id}`])?true: !this.state[`expanded_${id}`] });
   };
-  handleAddClick(id) {
-    alert('test');
+  handleAddFunc() {
+     console.log("clicked", this.props);
+     //const existingPackage = this.state.cart.filter(p => p.id === this.props.id);
   };
 
   render() {
     const { classes } = this.props;
-    const preventDefault = (event) => event.preventDefault();
+    //const preventDefault = (event) => event.preventDefault();
 
     return (
       <>
@@ -87,15 +88,16 @@ class Item extends Component {
               <Card className={classes.cardContainter}>
                 <Grid className={classes.inline}>
                   <Grid className={classes.inlineRight}>
-                    <AddButton
-                      // onClick={() =>
-                      //   props.addToSavedList({ //addToCart
-                      //     id: this.props.id,
-                      //     this.props,
-                      //     amount: 1
-                      //   })
-                      // }
-                    />
+                    <Button
+                      aria-label="save"
+                      size="small"
+                      variant="contained"
+                      color="primary"
+                      startIcon={<AddIcon />}
+                      onClick={this.handleAddFunc.bind(this)}
+                    >
+                      Save
+                    </Button>
                   </Grid>
                   <Typography
                     style={{ textTransform: 'uppercase' }}

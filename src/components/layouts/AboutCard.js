@@ -37,6 +37,7 @@ class AboutCard extends Component {
             >
               <Grid item xs={12}>
                 <CardItem
+                  className={classes.card}
                   title="The Data Download Package Manager"
                   subtitle1="About the website"
                   body1="{Draft} This webpage is a resource for researchers within
