@@ -15,7 +15,9 @@ class ItemList extends Component {
           Filepath={item.Filepath}
           Elements={item.Elements}
           Description={item.Description}
-          Example_screenshot={item.Example_screenshot} />
+          Example_screenshot={item.Example_screenshot}
+          //addFunc={this.handleAddFunc.bind()}
+        />
       </div>
     });
     return (

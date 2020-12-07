@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import Home from './pages/Home';
 import Packages from './pages/MyPackages';
@@ -41,6 +41,9 @@ class App extends Component {
                     <Route path="/packages" component={ Packages }/>
                     <Route path="/comparison" component={ Comparison }/>
                     <Route path="/info" component={ Info }/>
+                    <Route path='/'>
+                      <Redirect to="/home" />
+                    </Route>
                   </Switch>
                 </div>
               </BrowserRouter>

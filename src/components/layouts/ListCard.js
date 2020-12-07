@@ -131,6 +131,7 @@ function ListCard(props) {
             />
             <SearchIcon />
           </Grid>
+
           <Grid item className={classes.filter}>
             <FormControl component="fieldset" className={classes.formControl}>
               <Grid item>

@@ -33,8 +33,18 @@ const styles = theme => ({
 });
 
 class PackagesCard extends Component {
+  state = {
+      cart: [{
+        id: 4,
+        file: "test",
+        description: "this is a test",
+        units: 3
+      }]
+  }
+
   render() {
     const { classes } = this.props;
+
     return (
       <>
         <CssBaseline />
@@ -49,10 +59,11 @@ class PackagesCard extends Component {
             >
               <Grid item xs={12}>
                 <CardItem
+                  className={classes.card}
                   title="Saved packages"
                   subtitle1="Data"
-                  body1="Will show a list of the packages the users have saved
-                  to be downloaded."
+                  body1={this.state.cart.map((c) => { return <div> Will show a list of the packages saved
+                    to be downloaded. {c.file} {c.units} </div>})}
                   subtitle2="Amount"
                   body2="Shows the number of saved packages to be downloaded."
                   button=<DownloadButton />
