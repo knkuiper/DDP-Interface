@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import ListCard from '../layouts/ListCard.js';
+import ExploreList from '../layouts/ExploreList.js';
 
 const Explorer = () => {
     return (
       <>
-        <ListCard />
+        <ExploreList />
       </>
     );
 }

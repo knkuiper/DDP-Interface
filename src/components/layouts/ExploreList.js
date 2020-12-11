@@ -3,7 +3,7 @@ import { Grid, TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import SourceData from '../data/index_v4_new.json';
 import SearchIcon from '@material-ui/icons/Search';
-import ItemList from "../layouts/ItemList.js";
+import ItemList from "./ItemList.js";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
@@ -35,7 +35,7 @@ const styles = theme => ({
   }
 });
 
-function ListCard(props) {
+function ExploreList(props) {
   const { classes } = props;
 
   const [data] = useState(SourceData);
@@ -286,4 +286,4 @@ function ListCard(props) {
     );
   }
 
-export default withStyles(styles)(ListCard);
+export default withStyles(styles)(ExploreList);

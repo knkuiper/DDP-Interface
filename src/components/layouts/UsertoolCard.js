@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Grid, Typography, Card, CardMedia } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import DownloadButton from '../buttons/DownloadButton';
 
 const styles = theme => ({
   root: {
@@ -54,21 +53,11 @@ const styles = theme => ({
       textAlign: 'center'
     }
   }
-});
+}); 
 
-class PackagesCard extends Component {
-  state = {
-      cart: [{
-        id: 4,
-        file: "test",
-        description: "this is a test",
-        units: 3
-      }]
-  }
-
+class UsertoolCard extends Component {
   render() {
     const { classes } = this.props;
-
     return (
       <>
         <CssBaseline />
@@ -85,39 +74,24 @@ class PackagesCard extends Component {
                 <Card className={classes.cardContainter}>
                   <Grid className={classes.baseline}>
                     <Grid className={classes.inline}>
-                      <Typography gutterBottom
-                        style={{ textTransform: 'uppercase' }}
-                        color='primary'
-                        variant="h6"
-                      >
-                        Saved packages
-                      </Typography>
-                      <Typography gutterBottom                        
-                        style={{ textTransform: 'uppercase' }}
-                        color='primary'
-                      >
-                        Data
-                      </Typography>
-                      <Typography gutterBottom>
-                        {this.state.cart.map((c) => {
-                          return <div key={c.id}> Will show a list of the packages saved
-                          to be downloaded. {c.file} {c.units} </div>
-                        })}
-                      </Typography>
                       <Typography
                         style={{ textTransform: 'uppercase' }}
                         color='primary'
+                        variant="h6"
                         gutterBottom
                       >
-                        Amount
+                        User guide tool
                       </Typography>
                       <Typography gutterBottom>
-                        Shows the number of saved packages to be downloaded.
+                        This tool allows researchers to find information about the 
+                        various social media data packages and how to use the information from these 
+                        packages in their research. On the home page you can search for concepts 
+                        and use the extra filter buttons to filter the search further. By pressing 
+                        the add package button the selected package is added into the 'My packages 
+                        folder'. On this page, an overview of the chosen packages and information 
+                        can be downloaded to your own computer.
                       </Typography>
-                    </Grid>
-                  </Grid>
-                  <Grid className={classes.inlineRight}>
-                    <DownloadButton />
+                    </Grid> 
                   </Grid>
                 </Card>
               </Grid>
@@ -129,4 +103,4 @@ class PackagesCard extends Component {
   }
 }
 
-export default withStyles(styles)(PackagesCard);
+export default withStyles(styles)(UsertoolCard);
