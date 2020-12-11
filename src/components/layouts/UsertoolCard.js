@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Typography, Card, CardMedia } from '@material-ui/core';
+import { Grid, Typography, Card } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 

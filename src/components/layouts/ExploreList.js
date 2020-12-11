@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, TextField, Button } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import SourceData from '../data/index_v4_new.json';
 import SearchIcon from '@material-ui/icons/Search';
