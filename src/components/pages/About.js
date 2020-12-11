@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import AboutCard from '../layouts/AboutCard';
 
-const Info = () => {
+const About = () => {
     return (
         <>
           <AboutCard />
@@ -10,4 +10,4 @@ const Info = () => {
     );
 }
 
-export default Info;
+export default About;

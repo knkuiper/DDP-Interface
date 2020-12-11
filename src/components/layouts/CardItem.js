@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/styles/withStyles';
-import { Typography, Grid, Card } from '@material-ui/core';
+import { Typography, Grid, Card, CardMedia } from '@material-ui/core';
 
 const styles = theme => ({
   cardContainter: {
@@ -56,7 +56,7 @@ const styles = theme => ({
 class CardItem extends Component {
   render() {
     const { classes } = this.props;
-    const { title, subtitle1, subtitle2, body1, body2, button } = this.props;
+    const { title, subtitle1, subtitle2, subtitle3, body1, body2, body3, button, image, alt } = this.props;
     return (
       <>
         <Card className={classes.cardContainter}>
@@ -97,6 +97,26 @@ class CardItem extends Component {
                 gutterBottom
               >
                 {body2}
+              </Typography>
+              <CardMedia
+                component="img"
+                alt={alt}
+                height="250"
+                image={image}
+              />
+              <Typography
+                style={{ textTransform: 'uppercase' }}
+                variant="subtitle1"
+                color='primary'
+                gutterBottom
+              >
+                {subtitle3}
+              </Typography>
+              <Typography
+                variant="body1"
+                gutterBottom
+              >
+                {body3}
               </Typography>
             </Grid>
           </Grid>
