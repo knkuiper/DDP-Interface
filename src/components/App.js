@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import Home from './pages/Home';
+import Explorer from './pages/Explorer';
 import Packages from './pages/MyPackages';
 import Comparison from './pages/Comparison';
-import Info from './pages/Info';
+import About from './pages/About';
 import Header from './layouts/Header';
 import './App.css';
 
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#4db6ac',
-            light: '#82e9de',
-            dark: '#00867d'
+            main: '#24A793'
         },
         secondary: {
-            main:'#b2dfdb',
-            light: '#e5ffff',
-            dark: '#82ada9'
-        },
-        tertiary: {
-            main: "FFFFFF"
+          main:'#F2F2F2'
+            //001240
         },
         error: {
-            main: '#FF0000'
+            main: '#C00A35'
         },
     },
 });
@@ -37,12 +31,12 @@ class App extends Component {
                 <div>
                   <Header />
                   <Switch>
-                    <Route path="/home" component={ Home }/>
                     <Route path="/packages" component={ Packages }/>
-                    <Route path="/comparison" component={ Comparison }/>
-                    <Route path="/info" component={ Info }/>
+                    <Route path="/explorer" component={ Explorer } />
+                    <Route path="/comparison" component={Comparison} />
+                    <Route path="/about" component={ About }/>
                     <Route path='/'>
-                      <Redirect to="/home" />
+                      <Redirect to="/about" />
                     </Route>
                   </Switch>
                 </div>

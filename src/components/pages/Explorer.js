@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import ListCard from '../layouts/ListCard.js';
 
-const Home = () => {
+const Explorer = () => {
     return (
       <>
         <ListCard />
@@ -10,4 +10,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Explorer;

@@ -62,11 +62,13 @@ class PackagesCard extends Component {
                   className={classes.card}
                   title="Saved packages"
                   subtitle1="Data"
-                  body1={this.state.cart.map((c) => { return <div> Will show a list of the packages saved
-                    to be downloaded. {c.file} {c.units} </div>})}
+                  body1={this.state.cart.map((c) => {
+                    return <div key={c.id}> Will show a list of the packages saved
+                    to be downloaded. {c.file} {c.units} </div>
+                  })}
                   subtitle2="Amount"
                   body2="Shows the number of saved packages to be downloaded."
-                  button=<DownloadButton />
+                  button={<DownloadButton />}
                 />
               </Grid>
             </Grid>

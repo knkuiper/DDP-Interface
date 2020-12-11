@@ -43,8 +43,14 @@ class ComparisonCard extends Component {
               <Grid item xs={12}>
                 <CardItem
                   className={classes.cards}
-                  title="Comparison"
-                  body1="Compare concepts and platforms"
+                  title="User guide tool"
+                  body1="{Draft} This tool allows researchers to find information about the 
+                  various social media data packages and how to use the information from these 
+                  packages in their research. On the home page you can search for concepts 
+                  and use the extra filter buttons to filter the search further. By pressing 
+                  the add package button the selected package is added into the 'My packages 
+                  folder'. On this page, an overview of the chosen packages and information 
+                  can be downloaded to your own computer."
                 />
               </Grid>
             </Grid>

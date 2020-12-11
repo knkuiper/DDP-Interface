@@ -3,9 +3,11 @@ import { Typography, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
-import InfoIcon from '@material-ui/icons/Info';
-import CompareIcon from '@material-ui/icons/Compare';
+import HomeIcon from '@material-ui/icons/Home';
+//import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
+//import FindInPageIcon from '@material-ui/icons/FindInPage';
+// import InfoIcon from '@material-ui/icons/Info';
+// import CompareIcon from '@material-ui/icons/Compare';
 
 const styles = theme => ({
   list: {
@@ -28,7 +30,6 @@ const styles = theme => ({
         display: "block",
         height: "1px",
         marginLeft: "15px",
-        backgroundColor: "#e5e5e5"
       }
     }
   }
@@ -41,42 +42,51 @@ class HeaderButtons extends Component {
     return (
         <List className={classes.list}>
           <ListItem className={classes.listItem}>
-            <Button href="/home">
-              <Typography
-                variant="h6"
-              >
-                DDP manager
+              <HomeIcon style={{ fontSize: 30 }} />
+              Logo?
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Button href="/info"
+              aria-label="info"
+              size="medium"
+              //startIcon={<InfoIcon />}
+            >
+              <Typography>
+                about
               </Typography>
             </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
-            <Button
-              href="/packages"
+            <Button href="/explorer"
+              aria-label="meta-explorer"
+              size="medium"
+              //startIcon={<FindInPageIcon />}
+            >
+              <Typography>
+                DDP meta-explorer
+              </Typography>
+            </Button>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Button href="/packages"
               aria-label="packages"
               size="medium"
-              startIcon={<CreateNewFolderIcon />}
+              //startIcon={<CreateNewFolderIcon />}
             >
-              My packages
+              <Typography> 
+              saved files
+              </Typography>
             </Button>
           </ListItem>
           <ListItem className={classes.listItem}>
-            <Button
-              href="/comparison"
+            <Button href="/comparison"
               aria-label="comparison"
               size="medium"
-              startIcon={<CompareIcon />}
+              //startIcon={<CompareIcon />}
             >
-              Comparison
-            </Button>
-          </ListItem>
-          <ListItem className={classes.listItem}>
-            <Button
-              href="/info"
-              aria-label="info"
-              size="medium"
-              startIcon={<InfoIcon />}
-            >
-              About
+              <Typography>
+                user guide tool
+              </Typography>
             </Button>
           </ListItem>
         </List>

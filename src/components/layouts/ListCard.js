@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Grid, TextField } from '@material-ui/core';
+import { Grid, TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import SourceData from '../data/index_v4_new.json';
 import SearchIcon from '@material-ui/icons/Search';
 import ItemList from "../layouts/ItemList.js";
-//import Radio from '@material-ui/core/Radio';
-//import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import InfoIcon from '@material-ui/icons/Info';
+import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   root: {
@@ -135,10 +135,11 @@ function ListCard(props) {
           <Grid item className={classes.filter}>
             <FormControl component="fieldset" className={classes.formControl}>
               <Grid item>
-                <FormLabel
-                  component="legend"
-                >
+                <FormLabel component="legend">
                   Select platform
+                  <IconButton color="primary" size="small">
+                    <InfoIcon fontSize="small" />
+                  </IconButton>
                 </FormLabel>
                 <FormGroup
                   aria-label="platform"
@@ -215,7 +216,12 @@ function ListCard(props) {
                 </FormGroup>
               </Grid>
               <Grid item>
-                <FormLabel component="legend">Select visibility</FormLabel>
+                <FormLabel component="legend">
+                  Select visibility
+                  <IconButton color="primary" size="small">
+                    <InfoIcon fontSize="small" />
+                  </IconButton>
+                </FormLabel>
                 <FormGroup
                   aria-label="visibility"
                   name="visibility"
@@ -243,7 +249,12 @@ function ListCard(props) {
                 </FormGroup>
               </Grid>
               <Grid item>
-                <FormLabel component="legend">Select temporality</FormLabel>
+                <FormLabel component="legend">
+                  Select temporality
+                  <IconButton color="primary" size="small">
+                    <InfoIcon fontSize="small" />
+                  </IconButton>
+                </FormLabel>
                 <FormGroup
                   aria-label="temporality"
                   name="temporality"
@@ -266,7 +277,6 @@ function ListCard(props) {
               </Grid>
             </FormControl>
           </Grid>
-
           <Grid item className={classes.itemContainer}>
             <ItemList filteredList={filteredData} />
             {filteredData.length === 0 && <div>Found nothing! Please try again with a different search term or filters.</div>}
