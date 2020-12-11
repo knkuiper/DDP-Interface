@@ -17,7 +17,7 @@ const styles = theme => ({
       flexDirection: 'column',
       justifyContent: 'center'
     }
-  },
+  }
   baseline: {
     alignSelf: 'baseline',
     marginLeft: theme.spacing(4),
@@ -47,9 +47,6 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center'
     }
-  },
-  backButton: {
-    marginRight: theme.spacing(2)
   }
 });
 

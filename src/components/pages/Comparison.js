@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import ComparisonCard from '../layouts/ComparisonCard';
+import UsertoolCard from '../layouts/UsertoolCard';
 
 const Comparison = () => {
     return (
         <>
-          <ComparisonCard />
+          <UsertoolCard />
         </>
     );
 }
