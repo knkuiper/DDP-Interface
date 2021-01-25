@@ -98,12 +98,12 @@ class PackagesCard extends Component {
                       >
                         Data
                       </Typography>
-                      <Typography gutterBottom>
+                     <Typography gutterBottom>
                         {this.state.cart.map((c) => {
                           return <div key={c.id}> Will show a list of the packages saved
-                          to be downloaded. {c.file} {c.units} </div>
+                          to be downloaded. {/*  {c.file} {c.units} */} </div>
                         })}
-                      </Typography>
+                      </Typography> 
                       <Typography
                         style={{ textTransform: 'uppercase' }}
                         color='primary'
@@ -111,7 +111,8 @@ class PackagesCard extends Component {
                       >
                         Amount
                       </Typography>
-                      <Typography gutterBottom>
+                      <Typography variant="body1"
+                        gutterBottom>
                         Shows the number of saved packages to be downloaded.
                       </Typography>
                     </Grid>

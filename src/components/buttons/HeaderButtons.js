@@ -18,7 +18,6 @@ const styles = theme => ({
   },
   listItem: {
     float: "left",
-    color: "inherit",
     position: "relative",
     display: "block",
     width: "auto",

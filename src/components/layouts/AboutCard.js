@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Typography, Card, CardMedia } from '@material-ui/core';
+import { Grid, Typography, Card, CardMedia, List, ListItem, ListItemText } from '@material-ui/core';
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
@@ -52,6 +52,11 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center'
     }
+  },
+  media: {
+    height: '100%',
+    width: '100%',
+    padding: 30
   }
 });
 
@@ -61,33 +66,33 @@ class AboutCard extends Component {
     return (
       <>
         <CssBaseline />
-        <div className={classes.root}>
-          <Grid container justify="center">
-            <Grid
-              spacing={10}
-              alignItems="center"
-              justify="center"
-              container
-              className={classes.grid}
-            >
+          <div className={classes.root}>
+            <Grid container justify="center">
+              <Grid
+                spacing={10}
+                alignItems="center"
+                justify="center"
+                container
+                className={classes.grid}
+              >
               <Grid item xs={12}>
                 <Card className={classes.cardContainter}>
                   <Grid className={classes.baseline}>
                     <Grid className={classes.inline}>
-                      <Typography gutterBottom
-                        style={{ textTransform: 'uppercase' }}
+                      <Typography variant="h5"  
                         color='primary'
-                        variant="h6"
-                      >
+                        style={{ textTransform: 'uppercase' }}                        
+                        gutterBottom>
                         Data Download Packages meta explorer
                       </Typography>
-                      <Typography gutterBottom
-                        style={{ textTransform: 'uppercase' }}
+                      <Typography variant="h6"
                         color='primary'
-                      >
-                        Data download packages
+                        style={{ textTransform: 'uppercase' }}
+                        gutterBottom>
+                        About data download packages
                       </Typography>
-                      <Typography gutterBottom>
+                      <Typography variant="body1" 
+                        gutterBottom>
                         The EU General Data Protection Regulation obliges 
                         any entity that processes personal data of citizens of the 
                         European Union to provide that data to the data subject when 
@@ -97,71 +102,164 @@ class AboutCard extends Component {
                         and online shops comply by providing Data Download Packages (DDPs) 
                         to the data subjects.
                       </Typography>
-                      <Typography gutterBottom
-                        style={{ textTransform: 'uppercase' }}
+                      <Typography variant="h6"
                         color='primary'
-                      >
+                        style={{ textTransform: 'uppercase' }}
+                        gutterBottom>
                         Using Data Download Packages for scientific research
                       </Typography>
-                      <Typography gutterBottom>
+                      <Typography variant="body1"
+                        gutterBottom>
                         If research subjects voluntarily donate their DDPs for 
                         scientific research, they can be used to answer social scientific 
                         questions – with consent – regarding citizens’ digital life. 
-                         
+                        </Typography>
+                        <Typography variant="body1"
+                          gutterBottom>
                         To enable using DDPs for scientific research, Boeschoten et al. (2020) 
-                        propose to use the following five steps:  
-                        1.	Data subjects are recruited as respondents using standard survey 
-                        sampling techniques and the researcher determines which DDPs are relevant 
-                        for the particular research question under investigation.
-                        2.	Respondents request their DDPs with the various selected providers,
-                        storing these locally on their own device. 
-                        3.	Stored DDPs are locally processed to extract relevant research 
-                        variables.
-                        4.	Consent is requested of the respondent to send the derived 
-                        variables to the researcher.
-                        5.	The researcher further analyzes the extracted variables to 
-                        answer the research question under investigation.
-                      </Typography>
+                        propose to use the following five steps: 
+                        </Typography>
+                        <List>
+                          <ListItem>
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                    1.	Data subjects are recruited as respondents using standard survey 
+                                    sampling techniques and the researcher determines which DDPs are relevant 
+                                    for the particular research question under investigation.
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                    2.	Respondents request their DDPs with the various selected providers,
+                                    storing these locally on their own device.
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                  3.	Stored DDPs are locally processed to extract relevant research 
+                                  variables.
+                                    </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                    4.	Consent is requested of the respondent to send the derived 
+                                    variables to the researcher.
+                                      </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                    5.	The researcher further analyzes the extracted variables to 
+                                    answer the research question under investigation.
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                        </List>
                       <CardMedia
+                        className={classes.media}
                         component="img"
                         alt="ddp-pipeline"
-                        height="250"
                         image="img/ddp-pipeline.png"
                       />
-                      <Typography gutterBottom
-                        style={{ textTransform: 'uppercase' }}
+                      <Typography variant="h6"
                         color='primary'
+                        style={{ textTransform: 'uppercase' }}
+                        gutterBottom
                       >
                         Exploring the content of Data Download Packages
                       </Typography>
-                      <Typography gutterBottom>
+                      <Typography variant="body1"
+                        gutterBottom>
                         DDPs can be collected from any entity that processes personal data. 
                         The range is enormous and for researchers it can be challenging to obtain 
                         insight in the data that is exactly collected by all these different entities. 
                         This meta explorer aims to centralize and facilitate the process of finding 
                         the appropriate DDP for a particular research question. 
-                         
-                        The DDP meta explorer facilitates the following processes: 
-                         
-                        -	Provides insight in what type of content can be found in DDPs of different 
-                        entities
-                        -	Helps to find the appropriate file or folder within a particular DDP when 
-                        a particular research question is considered
-                        -	Provides the exact location where the selected information can be found in 
-                        a DDP and allows for this information to be saved
-                         
-                        The DDP meta explorer currently is currently constructed and now contains 
-                        DDP meta information of major social media platforms that have been collected 
-                        in the second half of 2020. We aim to include information of many more entities 
-                        as well as to update the information regularly. In addition, we aim to information
-                        with links to existing open source code that can for example be used in the 
-                        ‘local signal processing’ phase.
-
-                        Below, you can find more information about the entities currently included 
-                        and the type of characteristics you can use to specify your search for the right 
-                        DDP files to help you answer your research question.
                       </Typography>
-                    </Grid>
+                      <Typography variant="body1"
+                        gutterBottom>
+                        The DDP meta explorer facilitates the following processes: 
+                      </Typography>
+                      <List>
+                        <ListItem>
+                          <ListItemText 
+                            primary={
+                              <React.Fragment>
+                                <Typography variant="body1">
+                                  -	Provides insight in what type of content can be found in DDPs of different entities
+                                </Typography>
+                              </React.Fragment>
+                            }
+                          />
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                    -	Helps to find the appropriate file or folder within a particular DDP when 
+                                    a particular research question is considered
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                          <ListItem >
+                            <ListItemText
+                              primary={
+                                <React.Fragment>
+                                  <Typography variant="body1">
+                                    -	Provides the exact location where the selected information can be found in 
+                                    a DDP and allows for this information to be saved
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                        </List>
+                        <Typography variant="body1"
+                          gutterBottom>
+                          The DDP meta explorer currently is currently constructed and now contains 
+                          DDP meta information of major social media platforms that have been collected 
+                          in the second half of 2020. We aim to include information of many more entities 
+                          as well as to update the information regularly. In addition, we aim to information
+                          with links to existing open source code that can for example be used in the 
+                          ‘local signal processing’ phase.
+                        </Typography>
+                        <Typography variant="body1"
+                          gutterBottom>
+                          Below, you can find more information about the entities currently included 
+                          and the type of characteristics you can use to specify your search for the right 
+                          DDP files to help you answer your research question.
+                        </Typography>
+                      </Grid>
                   </Grid>
                 </Card>
               </Grid>

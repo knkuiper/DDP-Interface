@@ -82,7 +82,8 @@ class UsertoolCard extends Component {
                       >
                         User guide tool
                       </Typography>
-                      <Typography gutterBottom>
+                      <Typography variant="body1"
+                        gutterBottom>
                         This tool allows researchers to find information about the 
                         various social media data packages and how to use the information from these 
                         packages in their research. On the home page you can search for concepts 
