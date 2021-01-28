@@ -11,6 +11,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import InfoIcon from '@material-ui/icons/Info';
 import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
@@ -34,6 +36,13 @@ const styles = theme => ({
     width: '80%'
   }
 });
+
+const HtmlTooltip = withStyles((theme) => ({
+  tooltip: {
+    maxWidth: 220,
+    textAlign: "center",
+  },
+}))(Tooltip);
 
 function ExploreList(props) {
   const { classes } = props;
@@ -137,9 +146,18 @@ function ExploreList(props) {
               <Grid item>
                 <FormLabel component="legend">
                   Select platform
+                  <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                        <Typography gutterBottom>Platform</Typography>
+                        <p>Restrict the search by searching only within a specific platform.</p>
+                    </React.Fragment>
+                  }
+                  >
                   <IconButton color="primary" size="small">
                     <InfoIcon fontSize="small" />
-                  </IconButton>
+                    </IconButton>
+                  </HtmlTooltip>
                 </FormLabel>
                 <FormGroup
                   aria-label="platform"
@@ -148,67 +166,89 @@ function ExploreList(props) {
                   value={filterPlatform}
                 >
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox 
+                      color="primary"
+                    />}
                     label="Google"
                     checked={filterPlatform.has("Google")}
                     onChange={(e) => filterClickPlatform("Google")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox 
+                      color="primary"
+                    />}
                     label="Facebook"
                     checked={filterPlatform.has("Facebook")}
                     onChange={(e) => filterClickPlatform("Facebook")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="WhatsApp"
                     checked={filterPlatform.has("WhatsApp")}
                     onChange={(e) => filterClickPlatform("WhatsApp")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Instagram"
                     checked={filterPlatform.has("Instagram")}
                     onChange={(e) => filterClickPlatform("Instagram")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Uber"
                     checked={filterPlatform.has("Uber")}
                     onChange={(e) => filterClickPlatform("Uber")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Apple"
                     checked={filterPlatform.has("Apple")}
                     onChange={(e) => filterClickPlatform("Apple")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Netflix"
                     checked={filterPlatform.has("Netflix")}
                     onChange={(e) => filterClickPlatform("Netflix")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Microsoft"
                     checked={filterPlatform.has("Microsoft")}
                     onChange={(e) => filterClickPlatform("Microsoft")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Twitter"
                     checked={filterPlatform.has("Twitter")}
                     onChange={(e) => filterClickPlatform("Twitter")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="LinkedIn"
                     checked={filterPlatform.has("LinkedIn")}
                     onChange={(e) => filterClickPlatform("LinkedIn")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Snapchat"
                     checked={filterPlatform.has("Snapchat")}
                     onChange={(e) => filterClickPlatform("Snapchat")}
@@ -218,9 +258,18 @@ function ExploreList(props) {
               <Grid item>
                 <FormLabel component="legend">
                   Select visibility
-                  <IconButton color="primary" size="small">
-                    <InfoIcon fontSize="small" />
-                  </IconButton>
+                  <HtmlTooltip
+                    title={
+                      <React.Fragment>
+                        <Typography gutterBottom>Visibility</Typography>
+                        <p>Restrict the search by searching only within a specific type of content visibility.</p>
+                      </React.Fragment>
+                    }
+                  >
+                    <IconButton color="primary" size="small">
+                      <InfoIcon fontSize="small" />
+                    </IconButton>
+                  </HtmlTooltip>
                 </FormLabel>
                 <FormGroup
                   aria-label="visibility"
@@ -229,19 +278,25 @@ function ExploreList(props) {
                   value={filterVisibility}
                 >
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Platform"
                     checked={filterVisibility.has("Platform")}
                     onChange={(e) => filterClickVisibility("Platform")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Personal"
                     checked={filterVisibility.has("Personal")}
                     onChange={(e) => filterClickVisibility("Personal")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Interaction"
                     checked={filterVisibility.has("Interaction")}
                     onChange={(e) => filterClickVisibility("Interaction")}
@@ -251,9 +306,18 @@ function ExploreList(props) {
               <Grid item>
                 <FormLabel component="legend">
                   Select temporality
-                  <IconButton color="primary" size="small">
-                    <InfoIcon fontSize="small" />
-                  </IconButton>
+                  <HtmlTooltip
+                    title={
+                      <React.Fragment>
+                        <Typography gutterBottom>Temporality</Typography>
+                        <p>Restrict the search by searching only within a specific type of content temporality.</p>
+                      </React.Fragment>
+                    }
+                  >
+                    <IconButton color="primary" size="small">
+                      <InfoIcon fontSize="small" />
+                    </IconButton>
+                  </HtmlTooltip>
                 </FormLabel>
                 <FormGroup
                   aria-label="temporality"
@@ -262,13 +326,17 @@ function ExploreList(props) {
                   value={filterTemporality}
                 >
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Timestamped"
                     checked={filterTemporality.has("Timestamped")}
                     onChange={(e) => filterClickTemporality("Timestamped")}
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={<Checkbox
+                      color="primary"
+                    />}
                     label="Time invariant"
                     checked={filterTemporality.has("Time invariant")}
                     onChange={(e) => filterClickTemporality("Time invariant")}
