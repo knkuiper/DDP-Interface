@@ -144,6 +144,9 @@ class Item extends Component {
                     <Typography variant="body1" gutterBottom>
                       <b>Example record:</b>
                     </Typography>
+                    <Typography variant="body1" gutterBottom>
+                      <b>Tags:</b> {this.props.Tags}
+                    </Typography>
                     <div>
                       <img alt="example_record" src={this.props.Example_screenshot} width="1000"/>
                     </div>

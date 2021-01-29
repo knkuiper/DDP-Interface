@@ -9,6 +9,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Chip from '@material-ui/core/Chip';
 import InfoIcon from '@material-ui/icons/Info';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -34,6 +35,8 @@ const styles = theme => ({
     margin: 10,
     padding: 10,
     width: '80%'
+  },
+  chipsContainer: {
   }
 });
 
@@ -54,6 +57,7 @@ function ExploreList(props) {
   const [filterPlatform, setFilterPlatform] = useState(new Set());
   const [filterVisibility, setFilterVisibility] = useState(new Set());
   const [filterTemporality, setFilterTemporality] = useState(new Set());
+  const [filterTags, setFilterTags] = useState(new Set());
 
   // exclude column list from filter
   const excludeColumns = ["id", "Elements", "Filepath", "Visibility", "Timestamped"];
@@ -63,295 +67,364 @@ function ExploreList(props) {
   };
 
   const filterClickPlatform = (value) => {
-     if (filterPlatform.has(value)) {
-       setFilterPlatform(prevFilter => {
-         const newSet = new Set(prevFilter);
-         newSet.delete(value);
-         return newSet;
-       });
-     } else {
-        setFilterPlatform(prevFilter => {
-         const newSet = new Set(prevFilter);
-         newSet.add(value);
-         return newSet;
-       });
-     }
-   };
+    if (filterPlatform.has(value)) {
+      setFilterPlatform(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.delete(value);
+        return newSet;
+      });
+    } else {
+      setFilterPlatform(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.add(value);
+        return newSet;
+      });
+    }
+  }
 
-   const filterClickVisibility = (value) => {
-      if (filterVisibility.has(value)) {
-        setFilterVisibility(prevFilter => {
-          const newSet = new Set(prevFilter);
-          newSet.delete(value);
-          return newSet;
-        });
-      } else {
-         setFilterVisibility(prevFilter => {
-          const newSet = new Set(prevFilter);
-          newSet.add(value);
-          return newSet;
-        });
-      }
-    };
+  const filterClickVisibility = (value) => {
+    if (filterVisibility.has(value)) {
+      setFilterVisibility(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.delete(value);
+        return newSet;
+      });
+    } else {
+      setFilterVisibility(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.add(value);
+        return newSet;
+      });
+    }
+  };
 
-    const filterClickTemporality = (value) => {
-       if (filterTemporality.has(value)) {
-         setFilterTemporality(prevFilter => {
-           const newSet = new Set(prevFilter);
-           newSet.delete(value);
-           return newSet;
-         });
-       } else {
-          setFilterTemporality(prevFilter => {
-           const newSet = new Set(prevFilter);
-           newSet.add(value);
-           return newSet;
-         });
-       }
-     };
+  const filterClickTemporality = (value) => {
+    if (filterTemporality.has(value)) {
+      setFilterTemporality(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.delete(value);
+        return newSet;
+      });
+    } else {
+      setFilterTemporality(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.add(value);
+        return newSet;
+      });
+    }
+  };
 
-   let filteredData = data.filter(item => {
-     if (filterPlatform.size > 0 && !(filterPlatform.has(item.Platform)))
-        return false;
+  const filterChipsTags = (value) => {
+    if (filterTags.has(value)) {
+      setFilterTags(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.delete(value);
+        return newSet;
+      });
+    } else {
+      setFilterTags(prevFilter => {
+        const newSet = new Set(prevFilter);
+        newSet.add(value);
+        return newSet;
+      });
+    }
+  };
+  
+  let filteredData = data.filter(item => {
+    if (filterPlatform.size > 0 && !(filterPlatform.has(item.Platform)))
+      return false;
 
-     if (filterVisibility.size > 0 && !(filterVisibility.has(item.Visibility)))
-        return false;
+    if (filterVisibility.size > 0 && !(filterVisibility.has(item.Visibility)))
+      return false;
 
-     if (filterTemporality.size > 0 && !(filterTemporality.has(item.Temporality)))
-        return false;
+    if (filterTemporality.size > 0 && !(filterTemporality.has(item.Temporality)))
+      return false;
 
-     if (searchText.length > 0 && !(Object.keys(item).some(key => excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(searchText.toLowerCase().trim()))))
-        return false;
+    if (filterTags.size > 0 && !(filterTags.has(item.Tags)))
+      return false;
 
-     return true;
-   });
+    if (searchText.length > 0 && !(Object.keys(item).some(key => excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(searchText.toLowerCase().trim()))))
+      return false;
 
-    return (
-      <>
-        <Grid container
-          spacing={3}
-          className={classes.root}
-        >
-          <Grid container className={classes.search}>
-            <TextField
-              onChange={(e) => handleInputChange(e.target.value)}
-              label="Search"
-              value={searchText}
-            />
-            <SearchIcon />
-          </Grid>
+    return true;
+  });
 
-          <Grid item className={classes.filter}>
-            <FormControl component="fieldset" className={classes.formControl}>
-              <Grid item>
-                <FormLabel component="legend">
-                  Select platform
-                  <HtmlTooltip
+  console.log(filterTags);
+  console.log(filteredData.length);
+  
+  return (
+    <>
+      <Grid container
+        spacing={3}
+        className={classes.root}
+      >
+      <Grid container className={classes.search}>
+        <TextField
+          onChange={(e) => handleInputChange(e.target.value)}
+          label="Search"
+          value={searchText}
+        />
+        <SearchIcon />
+        <Grid item>
+          <FormLabel component="legend">
+            Select tags
+              <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography gutterBottom>Tags</Typography>
+                  <p>Restrict the search by searching only within a specific tag.</p>
+                </React.Fragment>
+              }
+            >
+              <IconButton color="primary" size="small">
+                <InfoIcon fontSize="small" />
+              </IconButton>
+            </HtmlTooltip>
+          </FormLabel>
+          <div className={classes.chips}>
+              <Chip 
+                label="Location"
+                onClick={e => filterChipsTags("Location")}
+              />
+              <Chip
+                label="Visual content"
+                onClick={e => filterChipsTags("Visual content")}
+              />
+              <Chip
+                label="Textual content"
+                onClick={e => filterChipsTags("Textual content")}
+              />
+              <Chip
+                label="Connections"
+                onClick={e => filterChipsTags("Connections")}
+              />
+              <Chip
+                label="Platform"
+                onClick={e => filterChipsTags("Platform")}
+              />
+              <Chip
+                label="Profile"
+                onClick={e => filterChipsTags("Profile")}
+              />
+              <Chip
+                label="Third party"
+                onClick={e => filterChipsTags("Third party")}
+              />
+          </div>
+        </Grid>
+        </Grid>
+
+        <Grid item className={classes.filter}>
+          <FormControl component="fieldset" className={classes.formControl}>
+            <Grid item>
+              <FormLabel component="legend">
+                Select platform
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                      <Typography gutterBottom>Platform</Typography>
+                      <p>Restrict the search by searching only within a specific platform.</p>
+                  </React.Fragment>
+                }
+                >
+                <IconButton color="primary" size="small">
+                  <InfoIcon fontSize="small" />
+                  </IconButton>
+                </HtmlTooltip>
+              </FormLabel>
+              <FormGroup
+                aria-label="platform"
+                name="platform"
+                onChange={(e) => filterClickPlatform(e.target.value)}
+                value={filterPlatform}
+              >
+                <FormControlLabel
+                  control={<Checkbox 
+                    color="primary"
+                  />}
+                  label="Google"
+                  checked={filterPlatform.has("Google")}
+                  onChange={(e) => filterClickPlatform("Google")}
+                />
+                <FormControlLabel
+                  control={<Checkbox 
+                    color="primary"
+                  />}
+                  label="Facebook"
+                  checked={filterPlatform.has("Facebook")}
+                  onChange={(e) => filterClickPlatform("Facebook")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="WhatsApp"
+                  checked={filterPlatform.has("WhatsApp")}
+                  onChange={(e) => filterClickPlatform("WhatsApp")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Instagram"
+                  checked={filterPlatform.has("Instagram")}
+                  onChange={(e) => filterClickPlatform("Instagram")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Uber"
+                  checked={filterPlatform.has("Uber")}
+                  onChange={(e) => filterClickPlatform("Uber")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Apple"
+                  checked={filterPlatform.has("Apple")}
+                  onChange={(e) => filterClickPlatform("Apple")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Netflix"
+                  checked={filterPlatform.has("Netflix")}
+                  onChange={(e) => filterClickPlatform("Netflix")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Microsoft"
+                  checked={filterPlatform.has("Microsoft")}
+                  onChange={(e) => filterClickPlatform("Microsoft")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Twitter"
+                  checked={filterPlatform.has("Twitter")}
+                  onChange={(e) => filterClickPlatform("Twitter")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="LinkedIn"
+                  checked={filterPlatform.has("LinkedIn")}
+                  onChange={(e) => filterClickPlatform("LinkedIn")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Snapchat"
+                  checked={filterPlatform.has("Snapchat")}
+                  onChange={(e) => filterClickPlatform("Snapchat")}
+                />
+              </FormGroup>
+            </Grid>
+            <Grid item>
+              <FormLabel component="legend">
+                Select visibility
+                <HtmlTooltip
                   title={
                     <React.Fragment>
-                        <Typography gutterBottom>Platform</Typography>
-                        <p>Restrict the search by searching only within a specific platform.</p>
+                      <Typography gutterBottom>Visibility</Typography>
+                      <p>Restrict the search by searching only within a specific type of content visibility.</p>
                     </React.Fragment>
                   }
-                  >
+                >
                   <IconButton color="primary" size="small">
                     <InfoIcon fontSize="small" />
-                    </IconButton>
-                  </HtmlTooltip>
-                </FormLabel>
-                <FormGroup
-                  aria-label="platform"
-                  name="platform"
-                  onChange={(e) => filterClickPlatform(e.target.value)}
-                  value={filterPlatform}
+                  </IconButton>
+                </HtmlTooltip>
+              </FormLabel>
+              <FormGroup
+                aria-label="visibility"
+                name="visibility"
+                onChange={(e) => filterClickVisibility(e.target.value)}
+                value={filterVisibility}
+              >
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Platform"
+                  checked={filterVisibility.has("Platform")}
+                  onChange={(e) => filterClickVisibility("Platform")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Personal"
+                  checked={filterVisibility.has("Personal")}
+                  onChange={(e) => filterClickVisibility("Personal")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Interaction"
+                  checked={filterVisibility.has("Interaction")}
+                  onChange={(e) => filterClickVisibility("Interaction")}
+                />
+              </FormGroup>
+            </Grid>
+            <Grid item>
+              <FormLabel component="legend">
+                Select temporality
+                <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography gutterBottom>Temporality</Typography>
+                      <p>Restrict the search by searching only within a specific type of content temporality.</p>
+                    </React.Fragment>
+                  }
                 >
-                  <FormControlLabel
-                    control={<Checkbox 
-                      color="primary"
-                    />}
-                    label="Google"
-                    checked={filterPlatform.has("Google")}
-                    onChange={(e) => filterClickPlatform("Google")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox 
-                      color="primary"
-                    />}
-                    label="Facebook"
-                    checked={filterPlatform.has("Facebook")}
-                    onChange={(e) => filterClickPlatform("Facebook")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="WhatsApp"
-                    checked={filterPlatform.has("WhatsApp")}
-                    onChange={(e) => filterClickPlatform("WhatsApp")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Instagram"
-                    checked={filterPlatform.has("Instagram")}
-                    onChange={(e) => filterClickPlatform("Instagram")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Uber"
-                    checked={filterPlatform.has("Uber")}
-                    onChange={(e) => filterClickPlatform("Uber")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Apple"
-                    checked={filterPlatform.has("Apple")}
-                    onChange={(e) => filterClickPlatform("Apple")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Netflix"
-                    checked={filterPlatform.has("Netflix")}
-                    onChange={(e) => filterClickPlatform("Netflix")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Microsoft"
-                    checked={filterPlatform.has("Microsoft")}
-                    onChange={(e) => filterClickPlatform("Microsoft")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Twitter"
-                    checked={filterPlatform.has("Twitter")}
-                    onChange={(e) => filterClickPlatform("Twitter")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="LinkedIn"
-                    checked={filterPlatform.has("LinkedIn")}
-                    onChange={(e) => filterClickPlatform("LinkedIn")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Snapchat"
-                    checked={filterPlatform.has("Snapchat")}
-                    onChange={(e) => filterClickPlatform("Snapchat")}
-                  />
-                </FormGroup>
-              </Grid>
-              <Grid item>
-                <FormLabel component="legend">
-                  Select visibility
-                  <HtmlTooltip
-                    title={
-                      <React.Fragment>
-                        <Typography gutterBottom>Visibility</Typography>
-                        <p>Restrict the search by searching only within a specific type of content visibility.</p>
-                      </React.Fragment>
-                    }
-                  >
-                    <IconButton color="primary" size="small">
-                      <InfoIcon fontSize="small" />
-                    </IconButton>
-                  </HtmlTooltip>
-                </FormLabel>
-                <FormGroup
-                  aria-label="visibility"
-                  name="visibility"
-                  onChange={(e) => filterClickVisibility(e.target.value)}
-                  value={filterVisibility}
-                >
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Platform"
-                    checked={filterVisibility.has("Platform")}
-                    onChange={(e) => filterClickVisibility("Platform")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Personal"
-                    checked={filterVisibility.has("Personal")}
-                    onChange={(e) => filterClickVisibility("Personal")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Interaction"
-                    checked={filterVisibility.has("Interaction")}
-                    onChange={(e) => filterClickVisibility("Interaction")}
-                  />
-                </FormGroup>
-              </Grid>
-              <Grid item>
-                <FormLabel component="legend">
-                  Select temporality
-                  <HtmlTooltip
-                    title={
-                      <React.Fragment>
-                        <Typography gutterBottom>Temporality</Typography>
-                        <p>Restrict the search by searching only within a specific type of content temporality.</p>
-                      </React.Fragment>
-                    }
-                  >
-                    <IconButton color="primary" size="small">
-                      <InfoIcon fontSize="small" />
-                    </IconButton>
-                  </HtmlTooltip>
-                </FormLabel>
-                <FormGroup
-                  aria-label="temporality"
-                  name="temporality"
-                  onChange={e => filterClickTemporality(e.target.value)}
-                  value={filterTemporality}
-                >
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Timestamped"
-                    checked={filterTemporality.has("Timestamped")}
-                    onChange={(e) => filterClickTemporality("Timestamped")}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox
-                      color="primary"
-                    />}
-                    label="Time invariant"
-                    checked={filterTemporality.has("Time invariant")}
-                    onChange={(e) => filterClickTemporality("Time invariant")}
-                  />
-                </FormGroup>
-              </Grid>
-            </FormControl>
-          </Grid>
-          <Grid item className={classes.itemContainer}>
-            <ItemList filteredList={filteredData} />
-            {filteredData.length === 0 && <div>Found nothing! Please try again with a different search term or filters.</div>}
-          </Grid>
+                  <IconButton color="primary" size="small">
+                    <InfoIcon fontSize="small" />
+                  </IconButton>
+                </HtmlTooltip>
+              </FormLabel>
+              <FormGroup
+                aria-label="temporality"
+                name="temporality"
+                onChange={e => filterClickTemporality(e.target.value)}
+                value={filterTemporality}
+              >
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Timestamped"
+                  checked={filterTemporality.has("Timestamped")}
+                  onChange={(e) => filterClickTemporality("Timestamped")}
+                />
+                <FormControlLabel
+                  control={<Checkbox
+                    color="primary"
+                  />}
+                  label="Time invariant"
+                  checked={filterTemporality.has("Time invariant")}
+                  onChange={(e) => filterClickTemporality("Time invariant")}
+                />
+              </FormGroup>
+            </Grid>
+          </FormControl>
         </Grid>
-      </>
-    );
-  }
+        <Grid item className={classes.itemContainer}>
+          <ItemList filteredList={filteredData} />
+          {filteredData.length === 0 && <div>Found nothing! Please try again with a different search term or filters.</div>}
+        </Grid>
+      </Grid>
+    </>
+  );
+}
 
 export default withStyles(styles)(ExploreList);
