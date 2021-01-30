@@ -26,6 +26,13 @@ const styles = theme => ({
     justifyContent: 'center',
     color: theme.palette.text.primary
   },
+  chipsContainer: {
+    padding: theme.spacing(2),
+    justifyContent: 'center'
+  },
+  filterChips: {
+    margin: 2
+  },
   filter: {
     margin: 10,
     padding: 10,
@@ -35,8 +42,6 @@ const styles = theme => ({
     margin: 10,
     padding: 10,
     width: '80%'
-  },
-  chipsContainer: {
   }
 });
 
@@ -46,6 +51,14 @@ const HtmlTooltip = withStyles((theme) => ({
     textAlign: "center",
   },
 }))(Tooltip);
+
+const StyledChip = withStyles((theme) => ({
+  root: {
+    '&:hover, &:focus': {
+      backgroundColor: "#FFCD00"
+    }
+  },
+}))(Chip);
 
 function ExploreList(props) {
   const { classes } = props;
@@ -140,7 +153,8 @@ function ExploreList(props) {
     if (filterTemporality.size > 0 && !(filterTemporality.has(item.Temporality)))
       return false;
 
-    if (filterTags.size > 0 && !(filterTags.has(item.Tags)))
+    if (filterTags.size > 0 && !(Object.keys(item).some(key => key ? false : item[key].toString().toLowerCase().includes(filterTags.toLowerCase().trim()))))
+      //!(filterTags.has(item.Tags)))
       return false;
 
     if (searchText.length > 0 && !(Object.keys(item).some(key => excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(searchText.toLowerCase().trim()))))
@@ -150,7 +164,7 @@ function ExploreList(props) {
   });
 
   console.log(filterTags);
-  console.log(filteredData.length);
+  //console.log(filteredData.length);
   
   return (
     <>
@@ -159,61 +173,72 @@ function ExploreList(props) {
         className={classes.root}
       >
       <Grid container className={classes.search}>
-        <TextField
-          onChange={(e) => handleInputChange(e.target.value)}
-          label="Search"
-          value={searchText}
-        />
-        <SearchIcon />
-        <Grid item>
-          <FormLabel component="legend">
-            Select tags
-              <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography gutterBottom>Tags</Typography>
-                  <p>Restrict the search by searching only within a specific tag.</p>
-                </React.Fragment>
-              }
-            >
-              <IconButton color="primary" size="small">
-                <InfoIcon fontSize="small" />
-              </IconButton>
-            </HtmlTooltip>
-          </FormLabel>
-          <div className={classes.chips}>
-              <Chip 
+          <Grid item>
+            <TextField
+              onChange={(e) => handleInputChange(e.target.value)}
+              label="Search"
+              value={searchText}
+            />
+            <SearchIcon />
+          </Grid>
+          <Grid container className={classes.chipsContainer}>
+            <Grid item> 
+              <FormLabel component="legend">
+                Select tags
+                <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography gutterBottom>Tags</Typography>
+                      <p>Restrict the search by searching only within a specific tag.</p>
+                    </React.Fragment>
+                  }
+                >
+                  <IconButton color="primary" size="small">
+                    <InfoIcon fontSize="small" />
+                  </IconButton>
+                </HtmlTooltip>  
+              </FormLabel>
+            </Grid>
+            <Grid item>
+              <StyledChip 
+                className={classes.filterChips}
+                clickable="true"
                 label="Location"
                 onClick={e => filterChipsTags("Location")}
               />
-              <Chip
+              <StyledChip
+                className={classes.filterChips}
                 label="Visual content"
                 onClick={e => filterChipsTags("Visual content")}
               />
-              <Chip
+              <StyledChip
+                className={classes.filterChips}
                 label="Textual content"
                 onClick={e => filterChipsTags("Textual content")}
               />
-              <Chip
+              <StyledChip
+                className={classes.filterChips}
                 label="Connections"
                 onClick={e => filterChipsTags("Connections")}
               />
-              <Chip
+              <StyledChip
+                className={classes.filterChips}
                 label="Platform"
                 onClick={e => filterChipsTags("Platform")}
               />
-              <Chip
+              <StyledChip
+                className={classes.filterChips}
                 label="Profile"
                 onClick={e => filterChipsTags("Profile")}
               />
-              <Chip
+              <StyledChip
+                className={classes.filterChips}
                 label="Third party"
                 onClick={e => filterChipsTags("Third party")}
               />
-          </div>
+            </Grid>
+          </Grid>
         </Grid>
-        </Grid>
-
         <Grid item className={classes.filter}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid item>
