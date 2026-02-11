@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@appbaseio/reactivecore@^7.1.0":
+"@appbaseio/reactivecore@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@appbaseio/reactivecore/-/reactivecore-7.6.0.tgz#ef28957730dc01ceb2e254eb958686d733143f9a"
   integrity sha512-kUVtK9Oaw0Fcm+riNuTcVUkhK5d1uT3CwfIVhpZCCWB75jscWFjjCnUYA5N8tJX29nlH5xvJesWsghh+xorHBA==
@@ -11,13 +11,13 @@
     redux "^4.0.0"
     redux-thunk "^2.3.0"
 
-"@appbaseio/reactivesearch@2.16.1":
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-2.16.1.tgz#fb69db8f286c100877b50d471f6f3fdd0d7346b2"
-  integrity sha512-adlEDZALLxLQdXmN+us7xKhTsC7fuZw0cjTJZOy5QHR2d7bnU7tK7UB0GUvNVTccXKrytTzgnPFPCmLH/L8NKg==
+"@appbaseio/reactivesearch@^2.16.1":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-2.18.0.tgz#9915b1c326000a484badccd507d3306d0ca51803"
+  integrity sha512-tskPVcgl8v+/HDdCzCsibI9Uo20nEnwIQ46bwHKGf9biaW8zBDKIV8aI2DNLFqiutBtzrnVvTiYvK7a/2vGn2g==
   dependencies:
-    "@appbaseio/reactivecore" "^7.1.0"
-    appbase-js "^4.0.2-beta.4"
+    "@appbaseio/reactivecore" "^7.6.0"
+    appbase-js "^4.0.2-beta.5"
     cross-env "^5.2.0"
     downshift "^1.31.2"
     emotion "^9.0.0"
@@ -2298,17 +2298,14 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-appbase-js@^4.0.2-beta.4:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/appbase-js/-/appbase-js-4.1.2.tgz#a4879176b2cb40db64f5ed0c451066d3fa60ca92"
-  integrity sha512-CS30q6Hmd6k2CXgd1Zwz6s2szsZb0A4AzDIR+MGz4r8BVcJQoeIv4PTOq0QqUCu4OXZatCMEWFe84WUfBiqjCA==
+appbase-js@^4.0.2-beta.5:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/appbase-js/-/appbase-js-4.5.1.tgz#0b9eb0bcb6fdb8655b38066d3f21ef24427e3b9f"
+  integrity sha512-IYShIL3J9PlyMcTEm35iPFSeQZBUW6pCJEwXKvUVjx89p/npA4UVlmYfEfRWweAJEaercbq3zhRskouEJLw2BA==
   dependencies:
     cross-fetch "^2.2.2"
-    json-stable-stringify "^1.0.1"
     querystring "^0.2.0"
-    stream "^0.0.2"
     url-parser-lite "^0.1.0"
-    ws "^6.1.2"
 
 aproba@^1.1.1:
   version "1.2.0"
@@ -4345,11 +4342,6 @@ elliptic@^6.5.3:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
-
-emitter-component@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/emitter-component/-/emitter-component-1.1.1.tgz#065e2dbed6959bf470679edabeaf7981d1003ab6"
-  integrity sha1-Bl4tvtaVm/RwZ57avq95gdEAOrY=
 
 emoji-regex@^7.0.1, emoji-regex@^7.0.2:
   version "7.0.3"
@@ -6759,9 +6751,9 @@ js-tokens@^3.0.2:
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
 js-yaml@^3.13.1:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
-  integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
+  version "3.14.2"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.2.tgz#77485ce1dd7f33c061fd1b16ecea23b55fcb04b0"
+  integrity sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg==
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -10558,13 +10550,6 @@ stream-shift@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.1.tgz#d7088281559ab2778424279b0877da3c392d5a3d"
   integrity sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==
-
-stream@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/stream/-/stream-0.0.2.tgz#7f5363f057f6592c5595f00bc80a27f5cec1f0ef"
-  integrity sha1-f1Nj8Ff2WSxVlfALyAon9c7B8O8=
-  dependencies:
-    emitter-component "^1.1.1"
 
 strict-uri-encode@^1.0.0:
   version "1.1.0"
